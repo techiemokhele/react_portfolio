@@ -1,6 +1,5 @@
 import ContactBannerSectionComponent from "../components/section/ContactBannerSectionComponent";
 import ContactFormSectionComponent from "../components/section/ContactFormSectionComponent";
-import NewsLetterComponent from "../components/section/NewsLetterComponent";
 
 const ContactScreen = () => {
   return (
@@ -11,13 +10,8 @@ const ContactScreen = () => {
       </div>
 
       {/* Form section */}
-      <div className="mx-auto px-8">
+      <div className="mx-auto px-8 mt-14">
         <ContactFormSectionComponent />
-      </div>
-
-      {/* Newsletter section */}
-      <div>
-        <NewsLetterComponent />
       </div>
     </div>
   );

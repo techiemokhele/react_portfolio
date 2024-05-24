@@ -26,18 +26,18 @@ const ContactBannerSectionComponent = () => {
       <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start">
         <div className="container mx-auto px-4 py-8 text-white text-center md:text-left">
           {/* Content */}
-          <h1 className="text-6xl uppercase font-semibold mb-4">Contact Us</h1>
+          <h1 className="text-2xl uppercase font-semibold mb-4">Contact Me</h1>
 
-          <h4 className="text-xl my-6 font-bold">
+          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
             Let's design the world we want to live in, together.
-          </h4>
+          </h1>
 
           <p className="text-sm mt-2 font-thin lg:w-[60%]">
-            Whether you're eager to kickstart a potential project with us, delve
+            Whether you're eager to kickstart a potential project with me, delve
             into specific tasks tailored to your requirements, or simply extend
             a greeting, everything begins right here. Don't hesitate to contact
-            us, and we'll strive to respond promptly, usually within one
-            business day.
+            me, and I'll strive to respond promptly, usually within one business
+            day.
           </p>
 
           <div className="flex justify-center mt-10 lg:justify-start">
