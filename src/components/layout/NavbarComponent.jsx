@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-//components
+// Components
 import ButtonComponent from "../common/ButtonComponent";
 
 const NavbarComponent = () => {
@@ -10,7 +10,7 @@ const NavbarComponent = () => {
 
   const handleNavClick = (page) => {
     setActivePage(page);
-    setIsOpen(false); // Close the menu when a link is clicked
+    setIsOpen(false);
   };
 
   return (
@@ -24,7 +24,7 @@ const NavbarComponent = () => {
         </div>
 
         <div className="hidden md:flex space-x-4">
-          {["home", "about", "portfolio", "contact", "blog"].map((page) => (
+          {["about", "portfolio", "blog", "contact"].map((page) => (
             <Link
               key={page}
               to={`/${page === "home" ? "" : page}`}
@@ -40,7 +40,13 @@ const NavbarComponent = () => {
           ))}
         </div>
 
-        <ButtonComponent text={"Download Resume"} />
+        {/* Show the "Resume" button only in desktop view */}
+        <ButtonComponent
+          href={"/"}
+          normal={false}
+          text={"Resume"}
+          hidden={true}
+        />
 
         <div className="md:hidden">
           <button
@@ -66,25 +72,35 @@ const NavbarComponent = () => {
       </div>
 
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64">
-          {["home", "about", "portfolio", "contact", "blog"].map((page) => (
-            <Link
-              key={page}
-              to={`/${page === "home" ? "" : page}`}
-              onClick={() => handleNavClick(page)}
-              className={`block px-4 py-2 ${
-                activePage === page
-                  ? "text-white border-x-2 border-x-gold"
-                  : "text-gray-600 hover:bg-gold"
-              }`}
-            >
-              {page.charAt(0).toUpperCase() + page.slice(1)}
-            </Link>
-          ))}
-          <ButtonComponent text="Download Resume" customStyle="w-full mt-2" />
+      <div
+        className={`md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64 h-[92.4%] transition-opacity duration-500 ${
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {["about", "portfolio", "blog", "contact"].map((page) => (
+          <Link
+            key={page}
+            to={`/${page === "home" ? "" : page}`}
+            onClick={() => handleNavClick(page)}
+            className={`block px-4 py-5  ${
+              activePage === page
+                ? "text-white border-x-2 border-x-gold"
+                : "text-white hover:bg-gold"
+            }`}
+          >
+            {page.charAt(0).toUpperCase() + page.slice(1)}
+          </Link>
+        ))}
+        <div className="mt-4 absolute bottom-8 px-3 right-4">
+          {/* Show the "Download My Resume" button only in mobile view */}
+          <ButtonComponent
+            href={"/"}
+            normal={false}
+            text={"Download My Resume"}
+            hidden={false}
+          />
         </div>
-      )}
+      </div>
     </nav>
   );
 };

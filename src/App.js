@@ -5,6 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // Components
 import Header from "./components/layout/HeaderComponent";
@@ -21,19 +22,23 @@ const AppContent = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-googleBg">
-      <Header />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-      </main>
-      {location.pathname !== "/" && <Footer />}
-    </div>
+    <TransitionGroup className="flex flex-col min-h-screen bg-googleBg">
+      <CSSTransition key={location.key} classNames="fade" timeout={300}>
+        <div>
+          {location.pathname !== "/" && <Header />}
+          <main className="flex-grow">
+            <Routes location={location}>
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+            </Routes>
+          </main>
+          {location.pathname !== "/" && <Footer />}
+        </div>
+      </CSSTransition>
+    </TransitionGroup>
   );
 };
 
