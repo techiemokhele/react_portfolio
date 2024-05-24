@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonComponent from "../common/ButtonComponent";
+import ButtonComponent from "../../common/ButtonComponent";
 
 const ProjectComponent = ({
   projectName,
@@ -31,18 +31,23 @@ const ProjectComponent = ({
 
           {/* Buttons for GitHub and Live Links */}
           <div className="flex justify-between my-4">
-            <ButtonComponent
-              blank={true}
-              href={githubLink}
-              normal={true}
-              text={"View Github Code"}
-            />
-            <ButtonComponent
-              blank={true}
-              href={liveLink}
-              normal={false}
-              text={"Live Project"}
-            />
+            {githubLink !== "#" && (
+              <ButtonComponent
+                blank={true}
+                href={githubLink}
+                normal={true}
+                text={"View Github Code"}
+              />
+            )}
+
+            {liveLink !== "#" && (
+              <ButtonComponent
+                blank={true}
+                href={liveLink}
+                normal={githubLink !== "#" ? false : true}
+                text={"Live Project"}
+              />
+            )}
           </div>
 
           {/* Languages */}

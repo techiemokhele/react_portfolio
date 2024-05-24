@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ButtonComponent from "../common/ButtonComponent";
+import ButtonComponent from "../../common/ButtonComponent";
 
 const ContactFormSectionComponent = () => {
   const [formData, setFormData] = useState({

@@ -41,8 +41,12 @@ const tools = [
   },
   { src: "https://pngimg.com/d/mysql_PNG32.png", alt: "MySQL" },
   {
-    src: "https://static.vecteezy.com/system/resources/previews/020/975/581/original/wordpress-logo-wordpress-icon-transparent-free-png.png",
+    src: "https://static.vecteezy.com/system/resources/previews/020/975/579/original/wordpress-logo-wordpress-icon-transparent-free-png.png",
     alt: "WordPress",
+  },
+  {
+    src: "https://companieslogo.com/img/orig/WIX.D-9b5f1d10.png?t=1660042223",
+    alt: "Wix",
   },
   {
     src: "https://seeklogo.com/images/G/github-icon-logo-E5FF767098-seeklogo.com.png",

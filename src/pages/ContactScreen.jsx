@@ -1,5 +1,5 @@
-import ContactBannerSectionComponent from "../components/section/ContactBannerSectionComponent";
-import ContactFormSectionComponent from "../components/section/ContactFormSectionComponent";
+import ContactBannerSectionComponent from "../components/section/contact/ContactBannerSectionComponent";
+import ContactFormSectionComponent from "../components/section/contact/ContactFormSectionComponent";
 
 const ContactScreen = () => {
   return (
