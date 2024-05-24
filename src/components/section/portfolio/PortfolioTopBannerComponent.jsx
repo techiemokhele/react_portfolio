@@ -1,7 +1,7 @@
 import React from "react";
-import ButtonComponent from "../common/ButtonComponent";
+import ButtonComponent from "../../common/ButtonComponent";
 
-const AboutSectionComponent = () => {
+const PortfolioTopBannerComponent = () => {
   return (
     <div className="relative h-screen">
       {/* Background Image */}
@@ -23,27 +23,31 @@ const AboutSectionComponent = () => {
       ></div>
 
       {/* Content Container */}
-      <div className="absolute inset-0 flex justify-center items-center">
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start">
         <div className="container mx-auto px-4 py-8 text-white text-center md:text-left">
           {/* Content */}
-          <h1 className="text-4xl sm:text-6xl font-bold mb-4 lg:w-[80%]">
-            Bringing Your Ideas To Life Through UI Design
+          <h1 className="text-2xl uppercase font-semibold mb-4">My Projects</h1>
+
+          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
+            Explore My <span className="text-gold">Creative Work</span> and
+            Collaborations.
           </h1>
-          <div className="flex justify-center my-20 lg:justify-start">
+
+          <p className="text-sm mt-2 font-thin lg:w-[60%]">
+            Dive into my portfolio to see the diverse range of projects I've
+            worked on. From innovative solutions to creative designs, discover
+            how we can collaborate to bring your vision to life. Feel free to
+            reach out, and let's discuss how we can create something amazing
+            together.
+          </p>
+
+          <div className="flex justify-center mt-10 lg:justify-start">
             <div className="mx-1">
               <ButtonComponent
                 blank={false}
-                href={"/contact"}
+                href={"/blog"}
                 normal={true}
-                text={"Lets work together"}
-              />
-            </div>
-            <div className="mx-1">
-              <ButtonComponent
-                blank={false}
-                href={"/portfolio"}
-                normal={false}
-                text={"See my work"}
+                text={"Read Latest Blog"}
               />
             </div>
           </div>
@@ -53,4 +57,4 @@ const AboutSectionComponent = () => {
   );
 };
 
-export default AboutSectionComponent;
+export default PortfolioTopBannerComponent;

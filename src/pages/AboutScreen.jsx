@@ -8,11 +8,11 @@ import {
 } from "../components/assets/data";
 
 //component4
-import AboutTopSectionComponent from "../components/section/AboutTopSectionComponent";
+import AboutTopSectionComponent from "../components/section/about/AboutTopSectionComponent";
+import EducationComponent from "../components/section/about/EducationComponent";
+import ExperienceComponent from "../components/section/about/ExperienceComponent";
+import ProjectComponent from "../components/section/about/ProjectComponent";
 import MarqueeComponent from "../components/common/MarqueeComponent";
-import EducationComponent from "../components/section/EducationComponent";
-import ExperienceComponent from "../components/section/ExperienceComponent";
-import ProjectComponent from "../components/section/ProjectComponent";
 
 const AboutScreen = () => {
   const latestProjects = projects.slice(-1).reverse();
