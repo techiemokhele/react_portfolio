@@ -9,7 +9,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // Components
 import Header from "./components/layout/HeaderComponent";
-import Footer from "./components/layout/Footer";
+import Footer from "./components/layout/FooterComponent";
 
 // Pages
 import HomeScreen from "./pages/HomeScreen";
