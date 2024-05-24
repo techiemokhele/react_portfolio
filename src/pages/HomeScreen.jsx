@@ -18,6 +18,15 @@ const HomeScreen = () => {
 
       {/* Content */}
       <div className="flex flex-col justify-center items-center text-white absolute inset-0">
+        <div className="h-5 w-10 mb-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="#D4AF37"
+          >
+            <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
+          </svg>
+        </div>
         <span className="text-sm font-semibold rounded-full p-3 mb-20 bg-gold inline-block">
           Frontend Developer
         </span>
