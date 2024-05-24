@@ -8,6 +8,7 @@ const ExperienceComponent = ({
   startDate,
   endDate,
   duties,
+  onsite,
   index,
 }) => {
   const isOddIndex = index % 2 !== 0;
@@ -28,7 +29,13 @@ const ExperienceComponent = ({
           <h5 className="text-xl font-semibold mb-4">
             {startDate} - {endDate}
           </h5>
-          <p className="text-lg font-normal mb-2">{duties}</p>
+          <p className="text-lg font-thin mb-2">{duties}</p>
+
+          <div className="flex flex-wrap gap-2 mt-4">
+            <span className="bg-gray-700 text-white py-1 px-3 rounded-full text-sm">
+              Working {onsite ? "On-site" : "Remotely"}
+            </span>
+          </div>
         </div>
 
         {/* Image Section */}
@@ -40,7 +47,7 @@ const ExperienceComponent = ({
           <img
             src={companyLogo}
             alt={companyName}
-            className="h-[70vh] w-full object-cover rounded-lg"
+            className="image-fluid object-cover rounded-lg"
           />
         </div>
       </div>

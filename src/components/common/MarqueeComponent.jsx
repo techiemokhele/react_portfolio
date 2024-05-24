@@ -44,6 +44,10 @@ const tools = [
     src: "https://static.vecteezy.com/system/resources/previews/020/975/581/original/wordpress-logo-wordpress-icon-transparent-free-png.png",
     alt: "WordPress",
   },
+  {
+    src: "https://seeklogo.com/images/G/github-icon-logo-E5FF767098-seeklogo.com.png",
+    alt: "Github",
+  },
 ];
 
 const MarqueeComponent = () => {

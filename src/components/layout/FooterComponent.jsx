@@ -8,7 +8,7 @@ const FooterComponent = () => {
   };
 
   return (
-    <footer class="bg-transparent text-center text-surface/75 lg:text-left">
+    <footer class="bg-transparent text-center text-surface/75 lg:text-left mt-10">
       <div class="flex items-center justify-center border-b-2 border-neutral-200 p-6 bg-gold lg:justify-between">
         <div class="me-12 hidden lg:block text-white">
           <span>Get connected with us on social networks:</span>

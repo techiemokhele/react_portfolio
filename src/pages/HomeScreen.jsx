@@ -8,8 +8,9 @@ const HomeScreen = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-          filter: "blur(5px)", // Apply blur effect to the background image
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1624749076747-79f933b8b671?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+          filter: "blur(5px)",
         }}
       ></div>
 
@@ -27,13 +28,14 @@ const HomeScreen = () => {
             <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
           </svg>
         </div>
-        <span className="text-sm font-semibold rounded-full p-3 mb-20 bg-gold inline-block">
+        <span className="text-md font-semibold rounded-full p-3 mb-12 bg-gold inline-block tracking-widest">
           Frontend Developer
         </span>
+
         <h1 className="text-6xl font-bold mb-4 text-center">
           Hi! I Am <span className="block mt-4">Neo Mokhele</span>
         </h1>
-        <p className="text-md text-center mt-3 px-10">
+        <p className="text-md text-center font-thin mt-3 px-10">
           As a frontend developer, I excel in HTML, CSS, and JavaScript, with
           proficiency in React and responsive design. With a passion for
           creating intuitive user interfaces, I leverage continuous learning to
@@ -43,7 +45,7 @@ const HomeScreen = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex justify-center mt-20 ">
+        <div className="flex justify-center mt-10 ">
           <ButtonComponent href={"/about"} normal={true} text={"Learn More"} />
           <ButtonComponent
             href={"/portfolio"}

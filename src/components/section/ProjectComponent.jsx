@@ -1,15 +1,15 @@
 import React from "react";
+import ButtonComponent from "../common/ButtonComponent";
 
-const EducationComponent = ({
-  schoolName,
-  schoolLogo,
-  qualification,
-  course,
-  location,
-  startDate,
-  endDate,
-  duties,
-  skills,
+const ProjectComponent = ({
+  projectName,
+  projectThumbnail,
+  title,
+  description,
+  githubLink,
+  liveLink,
+  type,
+  languages,
   index,
 }) => {
   const isOddIndex = index % 2 !== 0;
@@ -23,25 +23,36 @@ const EducationComponent = ({
             isOddIndex ? "md:order-2" : ""
           }`}
         >
-          <h2 className="text-4xl font-bold text-gold mb-4">
-            {qualification} <span className="text-white">in</span> {course}
-          </h2>
+          <h2 className="text-4xl font-bold text-gold mb-4">{projectName}</h2>
           <h5 className="text-xl font-semibold mb-4">
-            {schoolName} - {location}
+            {title} - {type}
           </h5>
-          <h5 className="text-xl font-semibold mb-4">
-            {startDate} - {endDate}
-          </h5>
-          <p className="text-lg font-thin mb-2">{duties}</p>
+          <p className="text-lg font-thin mb-2">{description}</p>
 
-          {/* skills */}
+          {/* Buttons for GitHub and Live Links */}
+          <div className="flex justify-between my-4">
+            <ButtonComponent
+              blank={true}
+              href={githubLink}
+              normal={true}
+              text={"View Github Code"}
+            />
+            <ButtonComponent
+              blank={true}
+              href={liveLink}
+              normal={false}
+              text={"Live Project"}
+            />
+          </div>
+
+          {/* Languages */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {skills.map((skill, idx) => (
+            {languages.map((language, idx) => (
               <span
                 key={idx}
                 className="bg-gray-700 text-white py-1 px-3 rounded-full text-sm"
               >
-                {skill}
+                {language}
               </span>
             ))}
           </div>
@@ -54,8 +65,8 @@ const EducationComponent = ({
           }`}
         >
           <img
-            src={schoolLogo}
-            alt={schoolName}
+            src={projectThumbnail}
+            alt={projectName}
             className="image-fluid object-cover rounded-lg"
           />
         </div>
@@ -64,4 +75,4 @@ const EducationComponent = ({
   );
 };
 
-export default EducationComponent;
+export default ProjectComponent;

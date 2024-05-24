@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Components
 import ButtonComponent from "../common/ButtonComponent";
 
 const NavbarComponent = () => {
-  const [activePage, setActivePage] = useState("home");
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavClick = (page) => {
-    setActivePage(page);
+  const handleNavClick = () => {
     setIsOpen(false);
   };
 
@@ -20,7 +19,7 @@ const NavbarComponent = () => {
         <div className="flex items-center">
           <Link
             to="/"
-            onClick={() => handleNavClick("home")}
+            onClick={() => handleNavClick("about")}
             className="flex items-center"
           >
             <h1 className="text-white font-bold text-2xl ml-2 flex items-center">
@@ -43,11 +42,11 @@ const NavbarComponent = () => {
             <Link
               key={page}
               to={`/${page === "home" ? "" : page}`}
-              onClick={() => handleNavClick(page)}
+              onClick={handleNavClick}
               className={`px-3 py-2 rounded-lg ${
-                activePage === page
-                  ? " text-white w-[100px] text-center"
-                  : "text-white hover:text-gold hover:bg-gold hover:text-white"
+                location.pathname.includes(page)
+                  ? "text-white w-[100px] text-center border-b-2 border-yellow-400"
+                  : "text-white hover:bg-gold hover:text-white"
               }`}
             >
               {page.charAt(0).toUpperCase() + page.slice(1)}
@@ -91,6 +90,7 @@ const NavbarComponent = () => {
         className={`md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64 h-[92.4%] transition-opacity duration-500 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+        style={{ zIndex: "30" }}
       >
         {["about", "portfolio", "blog", "contact"].map((page) => (
           <Link
@@ -98,7 +98,7 @@ const NavbarComponent = () => {
             to={`/${page === "home" ? "" : page}`}
             onClick={() => handleNavClick(page)}
             className={`block px-4 py-5  ${
-              activePage === page
+              location.pathname.includes(page)
                 ? "text-white border-x-2 border-x-gold"
                 : "text-white hover:bg-gold"
             }`}
@@ -107,7 +107,6 @@ const NavbarComponent = () => {
           </Link>
         ))}
         <div className="mt-4 absolute bottom-8 px-3 right-4">
-          {/* Show the "Download My Resume" button only in mobile view */}
           <ButtonComponent
             href={"/"}
             normal={false}
