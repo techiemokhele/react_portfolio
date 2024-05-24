@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+//components
 import ButtonComponent from "../common/ButtonComponent";
 
 const NavbarComponent = () => {
@@ -15,16 +18,16 @@ const NavbarComponent = () => {
       {/* Desktop menu */}
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/">
+          <Link to="/" onClick={() => handleNavClick("home")}>
             <h1 className="text-white font-bold text-2xl ml-2">Neo Mokhele</h1>
-          </a>
+          </Link>
         </div>
 
         <div className="hidden md:flex space-x-4">
-          {["home", "about", "portfolio", "contact"].map((page) => (
-            <a
+          {["home", "about", "portfolio", "contact", "blog"].map((page) => (
+            <Link
               key={page}
-              href={`#${page}`}
+              to={`/${page === "home" ? "" : page}`}
               onClick={() => handleNavClick(page)}
               className={`px-3 py-2 rounded-lg ${
                 activePage === page
@@ -33,7 +36,7 @@ const NavbarComponent = () => {
               }`}
             >
               {page.charAt(0).toUpperCase() + page.slice(1)}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -65,23 +68,21 @@ const NavbarComponent = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64">
-          {["home", "about", "portfolio", "contact"].map((page) => (
-            <a
+          {["home", "about", "portfolio", "contact", "blog"].map((page) => (
+            <Link
               key={page}
-              href={`#${page}`}
+              to={`/${page === "home" ? "" : page}`}
               onClick={() => handleNavClick(page)}
               className={`block px-4 py-2 ${
                 activePage === page
-                  ? " text-white border-x-2 border-x-gold"
+                  ? "text-white border-x-2 border-x-gold"
                   : "text-gray-600 hover:bg-gold"
               }`}
             >
               {page.charAt(0).toUpperCase() + page.slice(1)}
-            </a>
+            </Link>
           ))}
-          <button className="w-full bg-black  text-white px-4 py-2 mt-2 hover:bg-gold">
-            Download
-          </button>
+          <ButtonComponent text="Download Resume" customStyle="w-full mt-2" />
         </div>
       )}
     </nav>

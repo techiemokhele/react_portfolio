@@ -1,11 +1,11 @@
-import NavbarComponent from './NavbarComponent'
+import NavbarComponent from "./NavbarComponent";
 
 const HeaderComponent = () => {
   return (
-    <div className=''>
-      <NavbarComponent/>
+    <div className="w-full">
+      <NavbarComponent />
     </div>
-  )
-}
+  );
+};
 
-export default HeaderComponent
+export default HeaderComponent;
