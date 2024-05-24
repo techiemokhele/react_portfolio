@@ -34,3 +34,35 @@ code {
   opacity: 0;
   transition: opacity 300ms ease-in-out;
 }
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.marquee-inner {
+  display: flex;
+  align-items: center;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+  object-fit: contain;
+  height: 50px;
+  width: 150px; 
+  margin: 0 40px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
