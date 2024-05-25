@@ -8,8 +8,9 @@ import {
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 // Components
-import Header from "./components/layout/HeaderComponent";
-import Footer from "./components/layout/FooterComponent";
+import HeaderComponent from "./components/layout/HeaderComponent";
+import FooterComponent from "./components/layout/FooterComponent";
+import NotFoundComponent from "./components/common/NotFoundComponent";
 
 // Pages
 import HomeScreen from "./pages/HomeScreen";
@@ -26,7 +27,7 @@ const AppContent = () => {
     <TransitionGroup className="flex flex-col min-h-screen bg-googleBg">
       <CSSTransition key={location.key} classNames="fade" timeout={300}>
         <div>
-          {location.pathname !== "/" && <Header />}
+          {location.pathname !== "/" && <HeaderComponent />}
           <main className="flex-grow">
             <Routes location={location}>
               <Route path="/" element={<HomeScreen />} />
@@ -35,9 +36,18 @@ const AppContent = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<SinglePostComponent />} />
+
+              <Route
+                path="*"
+                element={
+                  <div className="h-screen flex items-center justify-center">
+                    <NotFoundComponent />
+                  </div>
+                }
+              />
             </Routes>
           </main>
-          {location.pathname !== "/" && <Footer />}
+          {location.pathname !== "/" && <FooterComponent />}
         </div>
       </CSSTransition>
     </TransitionGroup>
