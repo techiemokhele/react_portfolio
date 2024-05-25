@@ -67,7 +67,7 @@ const PortfolioScreen = () => {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className={`w-[80%] text-white border bg-gold mb-4 ${
+          className={`w-[90%] lg:w-[60%]  text-white border bg-gold mb-4 ${
             focused.name ? "border-white" : "border-transparent"
           } rounded-lg py-2 px-4 focus:outline-none placeholder-white`}
         />
@@ -75,7 +75,7 @@ const PortfolioScreen = () => {
 
       {/* Category filters */}
       <div className="flex flex-wrap justify-center my-6">
-        <div className="mr-4">
+        <div className="mr-4 mb-8 lg:mb-0">
           <ButtonComponent
             text="All"
             onClick={() => setExpandedCategory(null)}

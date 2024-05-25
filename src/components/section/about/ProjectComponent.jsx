@@ -27,10 +27,10 @@ const ProjectComponent = ({
           <h5 className="text-xl font-semibold mb-4">
             {title} - {type}
           </h5>
-          <p className="text-lg font-thin mb-2">{description}</p>
+          <p className="text-sm font-thin mb-2">{description}</p>
 
           {/* Buttons for GitHub and Live Links */}
-          <div className="flex justify-between my-4">
+          <div className="flex justify-between my-6">
             {githubLink !== "#" && (
               <ButtonComponent
                 blank={true}
@@ -65,14 +65,14 @@ const ProjectComponent = ({
 
         {/* Image Section */}
         <div
-          className={`p-5 flex items-center justify-center ${
+          className={`p-5 items-center justify-center ${
             isOddIndex ? "md:order-1" : ""
           }`}
         >
           <img
             src={projectThumbnail}
             alt={projectName}
-            className="image-fluid object-cover rounded-lg"
+            className="h-full lg:object-cover image-fluid object-stretch rounded-lg"
           />
         </div>
       </div>
