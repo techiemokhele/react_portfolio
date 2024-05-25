@@ -29,7 +29,7 @@ const ExperienceComponent = ({
           <h5 className="text-xl font-semibold mb-4">
             {startDate} - {endDate}
           </h5>
-          <p className="text-lg font-thin mb-2">{duties}</p>
+          <p className="text-sm font-thin mb-2">{duties}</p>
 
           <div className="flex flex-wrap gap-2 mt-4">
             <span className="bg-gray-700 text-white py-1 px-3 rounded-full text-sm">
@@ -40,14 +40,14 @@ const ExperienceComponent = ({
 
         {/* Image Section */}
         <div
-          className={`p-5 flex items-center justify-center ${
+          className={`p-5 items-center justify-center ${
             isOddIndex ? "md:order-1" : ""
           }`}
         >
           <img
             src={companyLogo}
             alt={companyName}
-            className="image-fluid object-cover rounded-lg"
+            className="h-full lg:object-cover image-fluid object-stretch rounded-lg"
           />
         </div>
       </div>

@@ -32,7 +32,7 @@ const EducationComponent = ({
           <h5 className="text-xl font-semibold mb-4">
             {startDate} - {endDate}
           </h5>
-          <p className="text-lg font-thin mb-2">{duties}</p>
+          <p className="text-sm font-thin mb-2">{duties}</p>
 
           {/* skills */}
           <div className="flex flex-wrap gap-2 mt-4">
@@ -56,7 +56,7 @@ const EducationComponent = ({
           <img
             src={schoolLogo}
             alt={schoolName}
-            className="image-fluid object-cover rounded-lg"
+            className="h-full lg:object-cover image-fluid object-stretch rounded-lg"
           />
         </div>
       </div>
