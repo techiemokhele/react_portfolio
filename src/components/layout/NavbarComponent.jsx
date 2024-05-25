@@ -56,7 +56,8 @@ const NavbarComponent = () => {
 
         {/* Show the "Resume" button only in desktop view */}
         <ButtonComponent
-          href={"/"}
+          download="Neo_Mokhele_Resume.pdf"
+          href={"/resume/Neo_Mokhele_Resume.pdf"}
           normal={false}
           text={"Resume"}
           hidden={true}
@@ -108,7 +109,8 @@ const NavbarComponent = () => {
         ))}
         <div className="mt-4 absolute bottom-8 px-3 right-4">
           <ButtonComponent
-            href={"/"}
+            download="Neo_Mokhele_Resume.pdf"
+            href={"/resume/Neo_Mokhele_Resume.pdf"}
             normal={false}
             text={"Download My Resume"}
             hidden={false}

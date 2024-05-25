@@ -8,6 +8,7 @@ const ButtonComponent = ({
   blank,
   type,
   onClick,
+  download,
 }) => {
   const buttonClass = !normal
     ? "border cursor-pointer border-gold text-white capitalize px-6 py-3 rounded-full hover:bg-gold"
@@ -25,6 +26,7 @@ const ButtonComponent = ({
       <a
         href={href}
         className={buttonClass}
+        download={download ? download : undefined}
         target={blank ? "_blank" : "_self"}
         rel="noreferrer"
         type={type ? type : "button"}

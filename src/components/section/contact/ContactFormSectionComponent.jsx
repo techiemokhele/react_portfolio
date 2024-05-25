@@ -75,6 +75,15 @@ const ContactFormSectionComponent = () => {
           console.log("FAILED...", err);
           setSending(false);
           setSuccess(false);
+        })
+        .finally(() => {
+          setSending(false);
+          setSuccess(true);
+          setSubmitted(true);
+
+          setTimeout(() => {
+            setSuccess(false);
+          }, 3000);
         });
     }
   };
