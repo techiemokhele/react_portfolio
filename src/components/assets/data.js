@@ -81,6 +81,16 @@ export const qualifications = [
 const videoImage = "/images/portfolio/video.png";
 const disneyImage = "/images/portfolio/disney.png";
 const googleImage = "/images/portfolio/google.png";
+const trend = "/images/portfolio/crypto.png";
+const news = "/images/portfolio/home.png";
+const amazon = "/images/portfolio/amazon.png";
+const fb = "/images/portfolio/facebook.png";
+const net = "/images/portfolio/netflix.png";
+const edwin = "/images/portfolio/edwin.png";
+const link = "/images/portfolio/linkedIn.png";
+const fitness = "/images/portfolio/fitness.png";
+const loan = "/images/portfolio/loan.png";
+const music = "/images/portfolio/music.png";
 
 export const projects = [
   {
@@ -119,11 +129,138 @@ export const projects = [
     type: "Website",
     languages: ["ReactJs", "Tailwind CSS", "RESTful API"],
   },
+  {
+    id: 4,
+    projectName: "Mokhele Crypto News",
+    projectThumbnail: trend,
+    title: "Stock Exchange",
+    description:
+      "Stay ahead with Mokhele Crypto News: your ultimate source for real-time updates, market trends, and expert insights in cryptocurrency. I bring you the latest news and in-depth analysis to keep you informed and make smarter investment decisions. With a focus on accuracy and timeliness, my platform ensures you never miss a beat in the fast-paced world of crypto. Explore the dynamic landscape of digital currencies with me and gain the edge you need to succeed.",
+    githubLink: "#",
+    liveLink: "https://mokhele-cryptocurrency-news.netlify.app/",
+    type: "Website",
+    languages: ["ReactJs", "Tailwind CSS", "RESTful API"],
+  },
+  {
+    id: 5,
+    projectName: "Mokhele AI Reader",
+    projectThumbnail: news,
+    title: "News Reader AI",
+    description:
+      "I am a dedicated Frontend Developer passionate about building interactive and engaging web applications. Explore my projects, including a Google-powered search engine designed for seamless browsing and a personalized, real-time news platform tailored to your interests. My skills in React.js, Tailwind CSS, and Next.js enable me to create intuitive, lightning-fast user experiences. Stay informed effortlessly with my curated news app, and dive into a world of innovative web solutions crafted to meet your needs and exceed your expectations.",
+    githubLink: "#",
+    liveLink: "https://neomokhele-ai-news-reader.netlify.app/",
+    type: "Website",
+    languages: ["ReactJs", "Tailwind CSS", "RESTful API"],
+  },
+  {
+    id: 6,
+    projectName: "Amazon E-commerce",
+    projectThumbnail: amazon,
+    title: "Online Store",
+    description:
+      "Transform your online shopping experience with my sleek, intuitive web app, designed to deliver speed, convenience, and unbeatable deals. With a user-friendly interface, you can effortlessly browse and purchase items, enjoying a seamless and efficient shopping journey. My web app leverages the latest in web development technologies to ensure a fast, secure, and enjoyable experience. Discover the perfect blend of style and functionality, making your online shopping not only easy but also highly rewarding. Shop smarter, faster, and better with my innovative solution!",
+    githubLink: "#",
+    liveLink: "https://neomokhele-amaecom-demo.web.app/",
+    type: "Website",
+    languages: ["ReactJs", "Tailwind CSS", "RESTful API"],
+  },
+  {
+    id: 7,
+    projectName: "Facebook Demo",
+    projectThumbnail: fb,
+    title: "Social Media",
+    description:
+      "Revolutionize your social experience with my Facebook Web App! I've meticulously designed this platform to offer a sleek and modern interface, ensuring lightning-fast performance and seamless connectivity. Whether you're sharing moments, connecting with friends, or exploring new content, this app provides a smooth and immersive experience. Built with cutting-edge technologies like React.js and Tailwind CSS, it's not just another social media app—it's your gateway to a more connected and enjoyable online world. Join now and experience the difference!",
+    githubLink: "#",
+    liveLink: "https://neomokhele-fb-demo.web.app/",
+    type: "Website",
+    languages: [
+      "ReactJs",
+      "Tailwind CSS",
+      "RESTful API",
+      "Google Auth",
+      "Firebase",
+    ],
+  },
+  {
+    id: 8,
+    projectName: "Netflix Demo",
+    projectThumbnail: net,
+    title: "Video Streaming",
+    description:
+      "Stream seamlessly with my Netflix demo, delivering captivating content and personalized recommendations right to your fingertips. Utilizing Next.js, React.js, TailwindCSS, and TypeScript, I have crafted an immersive and dynamic user experience. The sleek UI design is powered by Shadcn, ensuring a visually appealing interface, while Clerk.com provides secure user management. Additionally, Stream's video and audio features enhance the overall experience, making it a perfect solution for online entertainment. Explore the future of streaming with my innovative web application.",
+    githubLink: "#",
+    liveLink: "https://netflix-clone-demo-16a71.web.app/",
+    type: "Website",
+    languages: ["ReactJs", "Tailwind CSS", "RESTful API"],
+  },
+  {
+    id: 9,
+    projectName: "Edwin's Resume",
+    projectThumbnail: edwin,
+    title: "Resume",
+    description:
+      "I've crafted a dynamic web application for Edwin's resume, blending sleek design with seamless functionality to showcase his career journey. Utilizing HTML, CSS, and JavaScript, I've created an intuitive interface that highlights Edwin's skills, experiences, and projects. This resume app not only looks professional but also ensures an engaging and user-friendly experience. Explore Edwin's career journey through this modern, responsive, and interactive web application, tailored to make a lasting impression.",
+    githubLink: "#",
+    liveLink: "https://techiemokhele.github.io/edwinngwenya_resume.github.io/",
+    type: "Website",
+    languages: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 10,
+    projectName: "LinkedIn Demo",
+    projectThumbnail: link,
+    title: "Social Media",
+    description:
+      "Revolutionize your networking journey through LinkedIn connections, effortlessly enhancing engagement and propelling professional growth. With a strategic blend of communication finesse and networking prowess, I orchestrate seamless interactions, fostering valuable connections. Elevate your professional trajectory with my expertise in leveraging LinkedIn's platform, harnessing its full potential to cultivate meaningful relationships and unlock unprecedented opportunities for advancement and collaboration.",
+    githubLink: "#",
+    liveLink: "https://linkedin-demo-b84d4.web.app/",
+    type: "Website",
+    languages: ["ReactJs", "Tailwind CSS", "Google Auth", "Firebase"],
+  },
+  {
+    id: 11,
+    projectName: "Mokhele Fitness Club",
+    projectThumbnail: fitness,
+    title: "Fitness",
+    description:
+      "Transform your workouts with my Fitness ultimate tool for tracking progress, staying motivated, and achieving goals! With this comprehensive fitness companion, I empower individuals to elevate their training regimes. Whether monitoring progress, finding motivation, or reaching milestones, my solution ensures seamless navigation through every fitness journey. It's not just an app; it's a trusted partner in the pursuit of wellness, tailored to deliver results and inspire continuous improvement.",
+    githubLink: "#",
+    liveLink: "https://mokhele-fitness-club.pages.dev/",
+    type: "Website",
+    languages: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 12,
+    projectName: "Loan Calculator",
+    projectThumbnail: loan,
+    title: "Calculator",
+    description:
+      "Transform your workouts with my Fitness ultimate tool for tracking progress, staying motivated, and achieving goals! With this comprehensive fitness companion, I empower individuals to elevate their training regimes. Whether monitoring progress, finding motivation, or reaching milestones, my solution ensures seamless navigation through every fitness journey. It's not just an app; it's a trusted partner in the pursuit of wellness, tailored to deliver results and inspire continuous improvement.",
+    githubLink: "https://github.com/techiemokhele/loan-calculator",
+    liveLink: "https://techiemokhele.github.io/loan-calculator/",
+    type: "Website",
+    languages: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: 13,
+    projectName: "Music Player",
+    projectThumbnail: music,
+    title: "Music Streaming",
+    description:
+      "Immerse yourself in Sound: Your ultimate music escape awaits. Experience pure harmony with our meticulously crafted web application. Dive into a world where every beat resonates, and every melody enchants. With seamless navigation and stunning visuals, our platform offers a journey into the heart of music. Discover, explore, and indulge in the symphony of sounds, tailored just for you. Welcome to your sanctuary of sonic bliss.",
+    githubLink: "https://github.com/techiemokhele/loan-calculator",
+    liveLink: "https://github.com/techiemokhele/lets-dance-music-app",
+    type: "Website",
+    languages: ["HTML", "CSS", "JavaScript"],
+  },
 ];
 
 const headsetImage = "/images/portfolio/headset.png";
 const debugImage = "/images/portfolio/debug.png";
 const linkedIn = "/images/portfolio/linkedInApp.png";
+const f1 = "/images/portfolio/f1.png";
 
 export const mobileProjects = [
   {
@@ -158,6 +295,18 @@ export const mobileProjects = [
     description:
       "Embark on a transformative journey with the LinkedIn Mobile App, your ultimate gateway to boundless professional opportunities. Seamlessly navigate the dynamic landscape of networking, career advancement, and industry insights. Elevate your trajectory with personalized connections, curated content, and powerful tools tailored to your aspirations. Unleash your potential, expand your horizons, and seize every opportunity that awaits in the ever-evolving realm of professional growth.",
     githubLink: "https://github.com/techiemokhele/ChatMediaHub",
+    liveLink: "#",
+    type: "Mobile",
+    languages: ["React Native", "TypeScript", "Expo Router"],
+  },
+  {
+    id: 3,
+    projectName: "F1 Mobile App",
+    projectThumbnail: f1,
+    title: "News Feed",
+    description:
+      "Embark on the exhilarating journey with Mokhele's F1 App: a blend of speed, strategy, and success! This ultimate mobile companion caters to Formula 1 aficionados, offering an immersive experience that keeps you ahead of the curve. With real-time updates, insightful analytics, and intuitive interface, it's your gateway to the thrilling world of Formula 1 racing. Stay on track, seize every opportunity, and embrace victory with Mokhele's F1 App.",
+    githubLink: "https://github.com/techiemokhele/MokheleF1App/",
     liveLink: "#",
     type: "Mobile",
     languages: ["React Native", "TypeScript", "Expo Router"],

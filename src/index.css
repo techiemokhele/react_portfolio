@@ -17,6 +17,10 @@ code {
     monospace;
 }
 
+::placeholder {
+  color: white;
+}
+
 .fade-enter {
   opacity: 0;
 }
