@@ -1,4 +1,4 @@
-//data
+import React, { useState } from "react";
 import {
   projects,
   mobileProjects,
@@ -10,12 +10,25 @@ import {
 import PortfolioTopBannerComponent from "../components/section/portfolio/PortfolioTopBannerComponent";
 import ProjectComponent from "../components/section/about/ProjectComponent";
 import MarqueeComponent from "../components/common/MarqueeComponent";
+import ButtonComponent from "../components/common/ButtonComponent";
 
 const PortfolioScreen = () => {
-  const latestProjects = projects.slice(-3);
-  const latestMobileProjects = mobileProjects.slice(-3);
-  const latestGameProjects = gameProjects.slice(-3);
-  const latestCMSProjects = cmsProjects.slice(-3);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  const toggleShowAllProjects = () => {
+    setShowAllProjects((prevState) => !prevState);
+  };
+
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 2);
+  const displayedMobileProjects = showAllProjects
+    ? mobileProjects
+    : mobileProjects.slice(0, 2);
+  const displayedGameProjects = showAllProjects
+    ? gameProjects
+    : gameProjects.slice(0, 2);
+  const displayedCMSProjects = showAllProjects
+    ? cmsProjects
+    : cmsProjects.slice(0, 2);
 
   return (
     <div>
@@ -31,7 +44,7 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {latestProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <ProjectComponent
               key={index}
               index={index}
@@ -46,6 +59,18 @@ const PortfolioScreen = () => {
             />
           ))}
         </div>
+
+        {projects.length > 2 && (
+          <div className="flex justify-center mt-10">
+            <ButtonComponent
+              blank={false}
+              href="#"
+              normal={true}
+              text={showAllProjects ? "Show Less" : "See More"}
+              onClick={toggleShowAllProjects}
+            />
+          </div>
+        )}
       </div>
 
       <div className="w-full mt-10">
@@ -59,7 +84,7 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {latestMobileProjects.map((project, index) => (
+          {displayedMobileProjects.map((project, index) => (
             <ProjectComponent
               key={index}
               index={index}
@@ -74,6 +99,18 @@ const PortfolioScreen = () => {
             />
           ))}
         </div>
+
+        {mobileProjects.length > 2 && (
+          <div className="flex justify-center mt-10">
+            <ButtonComponent
+              blank={false}
+              href="#"
+              normal={true}
+              text={showAllProjects ? "Show Less" : "See More"}
+              onClick={toggleShowAllProjects}
+            />
+          </div>
+        )}
       </div>
 
       <div className="w-full mt-10">
@@ -87,7 +124,7 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {latestGameProjects.map((project, index) => (
+          {displayedGameProjects.map((project, index) => (
             <ProjectComponent
               key={index}
               index={index}
@@ -102,6 +139,18 @@ const PortfolioScreen = () => {
             />
           ))}
         </div>
+
+        {gameProjects.length > 2 && (
+          <div className="flex justify-center mt-10">
+            <ButtonComponent
+              blank={false}
+              href="#"
+              normal={true}
+              text={showAllProjects ? "Show Less" : "See More"}
+              onClick={toggleShowAllProjects}
+            />
+          </div>
+        )}
       </div>
 
       <div className="w-full mt-10">
@@ -115,7 +164,7 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {latestCMSProjects.map((project, index) => (
+          {displayedCMSProjects.map((project, index) => (
             <ProjectComponent
               key={index}
               index={index}
@@ -130,6 +179,18 @@ const PortfolioScreen = () => {
             />
           ))}
         </div>
+
+        {cmsProjects.length > 2 && (
+          <div className="flex justify-center mt-10">
+            <ButtonComponent
+              blank={false}
+              href="#"
+              normal={true}
+              text={showAllProjects ? "Show Less" : "See More"}
+              onClick={toggleShowAllProjects}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

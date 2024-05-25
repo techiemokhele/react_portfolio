@@ -1,9 +1,24 @@
 import React from "react";
 
-const ButtonComponent = ({ text, normal, href, hidden, blank, type }) => {
+const ButtonComponent = ({
+  text,
+  normal,
+  href,
+  hidden,
+  blank,
+  type,
+  onClick,
+}) => {
   const buttonClass = !normal
     ? "border border-gold text-white capitalize px-6 py-3 rounded-full hover:bg-gold"
     : "bg-gold text-white capitalize px-6 py-3 mr-4 rounded-full hover:bg-gold";
+
+  const handleClick = (e) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick();
+    }
+  };
 
   return (
     <div className={hidden ? "hidden md:block" : "md:block"}>
@@ -13,6 +28,7 @@ const ButtonComponent = ({ text, normal, href, hidden, blank, type }) => {
         target={blank ? "_blank" : "_self"}
         rel="noreferrer"
         type={type ? type : "button"}
+        onClick={handleClick}
       >
         {text}
       </a>
