@@ -17,6 +17,7 @@ import About from "./pages/AboutScreen";
 import Portfolio from "./pages/PortfolioScreen";
 import Contact from "./pages/ContactScreen";
 import Blog from "./pages/BlogScreen";
+import SinglePostComponent from "./pages/SinglePostComponent";
 
 const AppContent = () => {
   const location = useLocation();
@@ -33,6 +34,7 @@ const AppContent = () => {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:postId" element={<SinglePostComponent />} />
             </Routes>
           </main>
           {location.pathname !== "/" && <Footer />}
