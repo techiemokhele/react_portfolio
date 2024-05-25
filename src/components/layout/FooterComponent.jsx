@@ -184,8 +184,8 @@ const FooterComponent = () => {
       </div>
 
       {/* Copy right section */}
-      <div class="bg-gold p-6 text-center">
-        <span>© 2023 Copyright: </span>
+      <div class="bg-gold p-6 text-center text-xs">
+        <span>All rights reserved © 2023 Copyright: </span>
         <a class="font-semibold" href="/contact">
           Neo Mokhele
         </a>
