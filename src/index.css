@@ -17,9 +17,35 @@ code {
     monospace;
 }
 
+/* For Firefox */
+/* Note: Firefox currently only supports scrollbar-color property */
+/* To ensure Firefox compatibility, you might need to use vendor prefixes */
+* {
+  scrollbar-color: gold transparent;
+}
+
+/* For Internet Explorer and Edge */
+/* Note: Only supported in Edge version 79 and later */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gold transparent;
+}
+
+/* For WebKit-based browsers like Chrome and Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #202124; /* Google background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gold; /* Gold color for the scrollbar thumb */
+  border-radius: 6px;
+}
+
 ::placeholder {
   color: white;
 }
+
 
 .fade-enter {
   opacity: 0;
