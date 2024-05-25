@@ -37,13 +37,13 @@ const BlogPostCollectionComponent = () => {
   // Handle category filter
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to first page when category changes
+    setCurrentPage(1);
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Latest Post */}
-      {currentPage === 1 && (
+      {currentPage === 1 && selectedCategory === "all" && (
         <div>
           <div className="w-full mb-10">
             <h1 className="text-white font-bold sm:text-6xl text-5xl">
