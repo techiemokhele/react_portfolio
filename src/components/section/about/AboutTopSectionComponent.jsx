@@ -28,7 +28,7 @@ const AboutTopSectionComponent = () => {
           {/* Content */}
           <h1 className="text-2xl uppercase font-semibold mb-4">About Me</h1>
 
-          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
+          <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
             Hi, I'm Neo Mokhele, a <span className="text-gold">Passionate</span>{" "}
             Frontend Developer.
           </h1>
@@ -45,6 +45,7 @@ const AboutTopSectionComponent = () => {
             <div className="mx-1">
               <ButtonComponent
                 blank={false}
+                hidden={true}
                 href={"/contact"}
                 normal={true}
                 text={"Get in Touch"}
@@ -54,6 +55,7 @@ const AboutTopSectionComponent = () => {
             <div className="mx-1">
               <ButtonComponent
                 blank={false}
+                hidden={true}
                 href={"/portfolio"}
                 normal={false}
                 text={"See My Projects"}

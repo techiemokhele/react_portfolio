@@ -33,7 +33,9 @@ const BlogSingTopBannerComponent = ({
           {/* Content */}
           <h1 className="text-2xl uppercase font-semibold mb-4">{category}</h1>
 
-          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">{title}</h1>
+          <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
+            {title}
+          </h1>
 
           <p className="text-md mt-2 font-normal lg:w-[55%] bg-gold p-5 rounded-full rounded-l-none rounded-b-none">
             {author} - {createdAt}

@@ -28,7 +28,7 @@ const ContactBannerSectionComponent = () => {
           {/* Content */}
           <h1 className="text-2xl uppercase font-semibold mb-4">Contact Me</h1>
 
-          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
+          <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
             <span className="text-gold">Let's</span> design the world we want to{" "}
             <span className="text-gold">live</span> in,{" "}
             <span className="text-gold">together</span>.
@@ -48,6 +48,7 @@ const ContactBannerSectionComponent = () => {
                 blank={true}
                 href={"https://api.whatsapp.com/send?phone=27648473363"}
                 normal={true}
+                hidden={true}
                 text={"Chat On Whatsapp"}
               />
             </div>
@@ -56,6 +57,7 @@ const ContactBannerSectionComponent = () => {
                 blank={true}
                 href={"tel:27648473363"}
                 normal={true}
+                hidden={true}
                 text={"Make Urgent Call"}
               />
             </div>

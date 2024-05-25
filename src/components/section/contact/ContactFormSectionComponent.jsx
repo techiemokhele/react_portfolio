@@ -101,7 +101,7 @@ const ContactFormSectionComponent = () => {
 
       {/* Right column - Form */}
       <div>
-        <h1 className="text-6xl text-white font-bold mb-10">
+        <h1 className="lg:text-6xl text-[35px]  text-white font-bold mb-10">
           Send Me A Message
         </h1>
         <form onSubmit={handleSubmit}>

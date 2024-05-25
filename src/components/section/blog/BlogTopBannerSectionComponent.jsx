@@ -28,7 +28,7 @@ const BlogTopBannerSectionComponent = () => {
           {/* Content */}
           <h1 className="text-2xl uppercase font-semibold mb-4">Blog Posts</h1>
 
-          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
+          <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
             Welcome to my blog where I share{" "}
             <span className="text-gold">Insights</span> and{" "}
             <span className="text-gold">Perspectives</span>.
@@ -48,6 +48,7 @@ const BlogTopBannerSectionComponent = () => {
                 blank={false}
                 href={"/contact"}
                 normal={true}
+                hidden={true}
                 text={"Get in Touch"}
               />
             </div>

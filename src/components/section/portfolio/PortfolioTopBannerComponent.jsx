@@ -28,7 +28,7 @@ const PortfolioTopBannerComponent = () => {
           {/* Content */}
           <h1 className="text-2xl uppercase font-semibold mb-4">My Projects</h1>
 
-          <h1 className="text-6xl my-6 font-bold lg:w-[55%]">
+          <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
             Explore My <span className="text-gold">Creative Work</span> and
             Collaborations.
           </h1>
@@ -45,6 +45,7 @@ const PortfolioTopBannerComponent = () => {
             <div className="mx-1">
               <ButtonComponent
                 blank={false}
+                hidden={true}
                 href={"/blog"}
                 normal={true}
                 text={"Read Latest Blog"}
