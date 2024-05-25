@@ -13,22 +13,13 @@ import MarqueeComponent from "../components/common/MarqueeComponent";
 import ButtonComponent from "../components/common/ButtonComponent";
 
 const PortfolioScreen = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState(null);
 
-  const toggleShowAllProjects = () => {
-    setShowAllProjects((prevState) => !prevState);
+  const toggleShowAllProjects = (category) => {
+    setExpandedCategory((prevCategory) =>
+      prevCategory === category ? null : category
+    );
   };
-
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, 2);
-  const displayedMobileProjects = showAllProjects
-    ? mobileProjects
-    : mobileProjects.slice(0, 2);
-  const displayedGameProjects = showAllProjects
-    ? gameProjects
-    : gameProjects.slice(0, 2);
-  const displayedCMSProjects = showAllProjects
-    ? cmsProjects
-    : cmsProjects.slice(0, 2);
 
   return (
     <div>
@@ -44,20 +35,22 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {displayedProjects.map((project, index) => (
-            <ProjectComponent
-              key={index}
-              index={index}
-              projectName={project.projectName}
-              projectThumbnail={project.projectThumbnail}
-              title={project.title}
-              description={project.description}
-              githubLink={project.githubLink}
-              liveLink={project.liveLink}
-              type={project.type}
-              languages={project.languages}
-            />
-          ))}
+          {projects
+            .slice(0, expandedCategory === "websites" ? projects.length : 2)
+            .map((project, index) => (
+              <ProjectComponent
+                key={index}
+                index={index}
+                projectName={project.projectName}
+                projectThumbnail={project.projectThumbnail}
+                title={project.title}
+                description={project.description}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+                type={project.type}
+                languages={project.languages}
+              />
+            ))}
         </div>
 
         {projects.length > 2 && (
@@ -66,8 +59,8 @@ const PortfolioScreen = () => {
               blank={false}
               href="#"
               normal={true}
-              text={showAllProjects ? "Show Less" : "See More"}
-              onClick={toggleShowAllProjects}
+              text={expandedCategory === "websites" ? "Show Less" : "See More"}
+              onClick={() => toggleShowAllProjects("websites")}
             />
           </div>
         )}
@@ -84,20 +77,22 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {displayedMobileProjects.map((project, index) => (
-            <ProjectComponent
-              key={index}
-              index={index}
-              projectName={project.projectName}
-              projectThumbnail={project.projectThumbnail}
-              title={project.title}
-              description={project.description}
-              githubLink={project.githubLink}
-              liveLink={project.liveLink}
-              type={project.type}
-              languages={project.languages}
-            />
-          ))}
+          {mobileProjects
+            .slice(0, expandedCategory === "mobile" ? mobileProjects.length : 2)
+            .map((project, index) => (
+              <ProjectComponent
+                key={index}
+                index={index}
+                projectName={project.projectName}
+                projectThumbnail={project.projectThumbnail}
+                title={project.title}
+                description={project.description}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+                type={project.type}
+                languages={project.languages}
+              />
+            ))}
         </div>
 
         {mobileProjects.length > 2 && (
@@ -106,8 +101,8 @@ const PortfolioScreen = () => {
               blank={false}
               href="#"
               normal={true}
-              text={showAllProjects ? "Show Less" : "See More"}
-              onClick={toggleShowAllProjects}
+              text={expandedCategory === "mobile" ? "Show Less" : "See More"}
+              onClick={() => toggleShowAllProjects("mobile")}
             />
           </div>
         )}
@@ -124,20 +119,22 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {displayedGameProjects.map((project, index) => (
-            <ProjectComponent
-              key={index}
-              index={index}
-              projectName={project.projectName}
-              projectThumbnail={project.projectThumbnail}
-              title={project.title}
-              description={project.description}
-              githubLink={project.githubLink}
-              liveLink={project.liveLink}
-              type={project.type}
-              languages={project.languages}
-            />
-          ))}
+          {gameProjects
+            .slice(0, expandedCategory === "games" ? gameProjects.length : 2)
+            .map((project, index) => (
+              <ProjectComponent
+                key={index}
+                index={index}
+                projectName={project.projectName}
+                projectThumbnail={project.projectThumbnail}
+                title={project.title}
+                description={project.description}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+                type={project.type}
+                languages={project.languages}
+              />
+            ))}
         </div>
 
         {gameProjects.length > 2 && (
@@ -146,8 +143,8 @@ const PortfolioScreen = () => {
               blank={false}
               href="#"
               normal={true}
-              text={showAllProjects ? "Show Less" : "See More"}
-              onClick={toggleShowAllProjects}
+              text={expandedCategory === "games" ? "Show Less" : "See More"}
+              onClick={() => toggleShowAllProjects("games")}
             />
           </div>
         )}
@@ -164,20 +161,22 @@ const PortfolioScreen = () => {
         </h1>
 
         <div>
-          {displayedCMSProjects.map((project, index) => (
-            <ProjectComponent
-              key={index}
-              index={index}
-              projectName={project.projectName}
-              projectThumbnail={project.projectThumbnail}
-              title={project.title}
-              description={project.description}
-              githubLink={project.githubLink}
-              liveLink={project.liveLink}
-              type={project.type}
-              languages={project.languages}
-            />
-          ))}
+          {cmsProjects
+            .slice(0, expandedCategory === "cms" ? cmsProjects.length : 2)
+            .map((project, index) => (
+              <ProjectComponent
+                key={index}
+                index={index}
+                projectName={project.projectName}
+                projectThumbnail={project.projectThumbnail}
+                title={project.title}
+                description={project.description}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+                type={project.type}
+                languages={project.languages}
+              />
+            ))}
         </div>
 
         {cmsProjects.length > 2 && (
@@ -186,8 +185,8 @@ const PortfolioScreen = () => {
               blank={false}
               href="#"
               normal={true}
-              text={showAllProjects ? "Show Less" : "See More"}
-              onClick={toggleShowAllProjects}
+              text={expandedCategory === "cms" ? "Show Less" : "See More"}
+              onClick={() => toggleShowAllProjects("cms")}
             />
           </div>
         )}
