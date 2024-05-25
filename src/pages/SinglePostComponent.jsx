@@ -24,7 +24,7 @@ const SinglePostComponent = () => {
     fetchPost();
   }, [slug]);
 
-  if (!loading) {
+  if (loading) {
     return (
       <div className="h-screen flex items-center justify-center">
         <LoadingComponent />

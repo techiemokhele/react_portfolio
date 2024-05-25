@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ButtonComponent from "../../common/ButtonComponent";
+import emailjs from "@emailjs/browser";
 
 const ContactFormSectionComponent = () => {
   const [formData, setFormData] = useState({
@@ -7,10 +7,11 @@ const ContactFormSectionComponent = () => {
     email: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState({});
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,6 +29,11 @@ const ContactFormSectionComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
+
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_USER_ID;
+
     // Validate form fields
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
@@ -41,26 +47,55 @@ const ContactFormSectionComponent = () => {
       newErrors.message = "Message is required";
     }
 
-    // If there are errors, set the state to highlight the missing fields
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: "Neo Mokhele",
+      message: formData.message,
+    };
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       setSubmitted(true);
     } else {
-      // Handle form submission
-      console.log("Form submitted successfully!");
-      setSubmitted(false);
-      setFormData({ name: "", email: "", message: "" });
+      // Handle form submission with EmailJS
+      setSending(true);
+      console.log("Sending email with EmailJS");
+
+      emailjs
+        .send(serviceId, templateId, templateParams, publicKey)
+        .then((response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setSending(true);
+          setSuccess(true);
+          setSubmitted(false);
+          setFormData({ name: "", email: "", message: "" });
+        })
+        .catch((err) => {
+          console.log("FAILED...", err);
+          setSending(false);
+          setSuccess(false);
+        });
     }
   };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {/* Left column - Form */}
+      {/* Left column - Contact Information */}
+      <div className="space-y-4">
+        <img
+          src="https://images.pngnice.com/download/2116/Zoom-Meeting-PNG-Isolated-Image.png"
+          alt="Contact"
+          className="w-full h-auto rounded-md"
+        />
+      </div>
+
+      {/* Right column - Form */}
       <div>
         <h1 className="text-6xl text-white font-bold mb-10">
           Send Me A Message
         </h1>
-        <form onSubmit={handleSubmit} method="POST">
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2 text-white font-thin">
               Your Name
@@ -100,14 +135,14 @@ const ContactFormSectionComponent = () => {
               onBlur={handleBlur}
               className={`w-full text-white border bg-gold ${
                 errors.email
-                  ? "border-red-600"
+                  ? "border-red-500"
                   : focused.email
                   ? "border-white"
                   : "border-transparent"
               } rounded-lg py-2 px-3 focus:outline-none`}
             />
-            {submitted && errors.email && (
-              <p className="text-gold text-sm mt-1">{errors.email}</p>
+            {submitted && errors.name && (
+              <p className="text-gold text-sm mt-1">{errors.name}</p>
             )}
           </div>
 
@@ -135,27 +170,26 @@ const ContactFormSectionComponent = () => {
               } rounded-lg py-2 px-3 focus:outline-none`}
             ></textarea>
             {submitted && errors.message && (
-              <p className="text-gold text-sm mt-1">{errors.message}</p>
+              <p className="text-white mt-4 p-2 bg-red-700 rounded-t-xl rounded-s-lg">
+                {errors.message}
+              </p>
             )}
           </div>
 
-          <ButtonComponent
-            type={"submit"}
-            blank={false}
-            href={"#"}
-            normal={true}
-            text={"Send Message"}
-          />
-        </form>
-      </div>
+          <button
+            type="submit"
+            className="border cursor-pointer border-gold text-white capitalize px-6 py-3 rounded-full hover:bg-gold"
+            title={sending ? "Sending Message..." : "Send Message"}
+          >
+            {sending ? "Sending Message..." : "Send Message"}
+          </button>
 
-      {/* Right column - Contact Information */}
-      <div className="space-y-4">
-        <img
-          src="https://images.pngnice.com/download/2116/Zoom-Meeting-PNG-Isolated-Image.png"
-          alt="Contact"
-          className="hidden md:block w-full h-auto rounded-md"
-        />
+          {success && (
+            <p className="text-white mt-10 p-4 bg-green-700 rounded-t-xl rounded-s-lg">
+              Message sent successfully! Please try later.
+            </p>
+          )}
+        </form>
       </div>
     </div>
   );
