@@ -47,6 +47,7 @@ const BlogPostCollectionComponent = () => {
 
   const handleReadMore = (slug) => {
     navigate(`/blog/${slug}`);
+    window.scrollTo(0, 0);
   };
 
   return (

@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { blogData } from "../components/assets/blogData";
 
 import NotFoundComponent from "../components/common/NotFoundComponent";
+import LoadingComponent from "../components/common/LoadingComponent";
 import BlogSingTopBannerComponent from "../components/section/blog/BlogSingTopBannerComponent";
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
 
 const SinglePostComponent = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const post = blogData.find((post) => post.slug === slug);
+  useEffect(() => {
+    const fetchPost = () => {
+      const foundPost = blogData.find((post) => post.slug === slug);
+      setPost(foundPost);
+      setLoading(false);
+    };
+
+    fetchPost();
+  }, [slug]);
+
+  if (!loading) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <LoadingComponent />
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -35,12 +54,12 @@ const SinglePostComponent = () => {
 
   const relatedPosts = blogData.filter(
     (relatedPost) =>
-      relatedPost.category === category &&
-      relatedPost.id !== parseInt(relatedPost.id)
+      relatedPost.category === category && relatedPost.id !== post.id
   );
 
   const handleReadMore = (slug) => {
     navigate(`/blog/${slug}`);
+    window.scrollTo(0, 0);
   };
 
   return (
