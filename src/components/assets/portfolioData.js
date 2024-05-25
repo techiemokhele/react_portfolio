@@ -95,15 +95,15 @@ const music = "/images/portfolio/music.png";
 export const projects = [
   {
     id: 1,
-    projectName: "Video Conference",
-    projectThumbnail: videoImage,
-    title: "Video & Audio",
+    projectName: "Mokhele Fitness Club",
+    projectThumbnail: fitness,
+    title: "Fitness",
     description:
-      "I am excited to announce the launch of my latest web application, Video Conference! Using Next.js, React.js, TailwindCSS, and TypeScript, I've crafted a seamless and dynamic user experience. With Shadcn's sleek UI design and Clerk.com's secure user management, plus Stream's video/audio features, it offers an immersive online experience.",
-    githubLink: "https://github.com/techiemokhele/video_conference",
-    liveLink: "https://neo-mokhele-video-conference.vercel.app/",
+      "Transform your workouts with my Fitness ultimate tool for tracking progress, staying motivated, and achieving goals! With this comprehensive fitness companion, I empower individuals to elevate their training regimes. Whether monitoring progress, finding motivation, or reaching milestones, my solution ensures seamless navigation through every fitness journey. It's not just an app; it's a trusted partner in the pursuit of wellness, tailored to deliver results and inspire continuous improvement.",
+    githubLink: "#",
+    liveLink: "https://mokhele-fitness-club.pages.dev/",
     type: "Website",
-    languages: ["NextJs", "Tailwind CSS", "Clerk"],
+    languages: ["HTML", "CSS", "JavaScript"],
   },
   {
     id: 2,
@@ -221,13 +221,13 @@ export const projects = [
   },
   {
     id: 11,
-    projectName: "Mokhele Fitness Club",
-    projectThumbnail: fitness,
-    title: "Fitness",
+    projectName: "Music Player",
+    projectThumbnail: music,
+    title: "Music Streaming",
     description:
-      "Transform your workouts with my Fitness ultimate tool for tracking progress, staying motivated, and achieving goals! With this comprehensive fitness companion, I empower individuals to elevate their training regimes. Whether monitoring progress, finding motivation, or reaching milestones, my solution ensures seamless navigation through every fitness journey. It's not just an app; it's a trusted partner in the pursuit of wellness, tailored to deliver results and inspire continuous improvement.",
-    githubLink: "#",
-    liveLink: "https://mokhele-fitness-club.pages.dev/",
+      "Immerse yourself in Sound: Your ultimate music escape awaits. Experience pure harmony with our meticulously crafted web application. Dive into a world where every beat resonates, and every melody enchants. With seamless navigation and stunning visuals, our platform offers a journey into the heart of music. Discover, explore, and indulge in the symphony of sounds, tailored just for you. Welcome to your sanctuary of sonic bliss.",
+    githubLink: "https://github.com/techiemokhele/loan-calculator",
+    liveLink: "https://github.com/techiemokhele/lets-dance-music-app",
     type: "Website",
     languages: ["HTML", "CSS", "JavaScript"],
   },
@@ -245,15 +245,15 @@ export const projects = [
   },
   {
     id: 13,
-    projectName: "Music Player",
-    projectThumbnail: music,
-    title: "Music Streaming",
+    projectName: "Video Conference",
+    projectThumbnail: videoImage,
+    title: "Video & Audio",
     description:
-      "Immerse yourself in Sound: Your ultimate music escape awaits. Experience pure harmony with our meticulously crafted web application. Dive into a world where every beat resonates, and every melody enchants. With seamless navigation and stunning visuals, our platform offers a journey into the heart of music. Discover, explore, and indulge in the symphony of sounds, tailored just for you. Welcome to your sanctuary of sonic bliss.",
-    githubLink: "https://github.com/techiemokhele/loan-calculator",
-    liveLink: "https://github.com/techiemokhele/lets-dance-music-app",
+      "I am excited to announce the launch of my latest web application, Video Conference! Using Next.js, React.js, TailwindCSS, and TypeScript, I've crafted a seamless and dynamic user experience. With Shadcn's sleek UI design and Clerk.com's secure user management, plus Stream's video/audio features, it offers an immersive online experience.",
+    githubLink: "https://github.com/techiemokhele/video_conference",
+    liveLink: "https://neo-mokhele-video-conference.vercel.app/",
     type: "Website",
-    languages: ["HTML", "CSS", "JavaScript"],
+    languages: ["NextJs", "Tailwind CSS", "Clerk"],
   },
 ];
 

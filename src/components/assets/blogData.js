@@ -16,7 +16,7 @@ export const blogData = [
     category: "Frontend Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "10 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-25",
   },
   {
@@ -32,7 +32,7 @@ export const blogData = [
     category: "Backend Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "15 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-24",
   },
   {
@@ -48,7 +48,7 @@ export const blogData = [
     category: "Full Stack Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "20 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-23",
   },
   {
@@ -64,7 +64,7 @@ export const blogData = [
     category: "Career Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "12 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-22",
   },
   {
@@ -80,7 +80,7 @@ export const blogData = [
     category: "Career Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "10 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-21",
   },
   {
@@ -96,7 +96,7 @@ export const blogData = [
     category: "Frontend Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "15 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-20",
   },
   {
@@ -114,7 +114,7 @@ export const blogData = [
     category: "Backend Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "20 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-19",
   },
   {
@@ -129,7 +129,7 @@ export const blogData = [
     category: "Full Stack Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "25 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-18",
   },
   {
@@ -147,7 +147,7 @@ export const blogData = [
     category: "Career Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "30 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-17",
   },
   {
@@ -163,7 +163,7 @@ export const blogData = [
     category: "Frontend Development",
     author: "Neo Mokhele",
     authorPicture: authorPicture,
-    readTime: "20 minutes",
+    readTime: "1 min",
     createdAt: "2024-05-16",
   },
 ];
