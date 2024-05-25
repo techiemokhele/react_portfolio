@@ -259,7 +259,7 @@ export const projects = [
 
 const headsetImage = "/images/portfolio/headset.png";
 const debugImage = "/images/portfolio/debug.png";
-const linkedIn = "/images/portfolio/linkedInApp.png";
+const linkedIn = "/images/portfolio/linkedinApp.png";
 const f1 = "/images/portfolio/f1.png";
 
 export const mobileProjects = [
