@@ -6,7 +6,7 @@ import {
   mobileProjects,
   gameProjects,
   cmsProjects,
-} from "../components/assets/data";
+} from "../components/assets/portfolioData";
 
 // components
 import PortfolioTopBannerComponent from "../components/section/portfolio/PortfolioTopBannerComponent";
