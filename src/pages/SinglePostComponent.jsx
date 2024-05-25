@@ -109,7 +109,7 @@ const SinglePostComponent = () => {
       {/* Related Posts Section */}
       <div className="mt-14">
         <h2 className="text-6xl text-white font-bold mb-14">Related Posts</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 p-3 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedPosts.map((relatedPost) => (
             <BlogCardComponent
               key={relatedPost.id}

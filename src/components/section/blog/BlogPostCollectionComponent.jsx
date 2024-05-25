@@ -86,7 +86,7 @@ const BlogPostCollectionComponent = () => {
                   <span>{latestBlogPost.category}</span>
                 </div>
               </div>
-              <div className="mt-4">
+              <div className="mt-12 lg:mt-4 ml-6 lg:ml-0">
                 <ButtonComponent
                   onClick={() => handleReadMore(latestBlogPost.slug)}
                   text="Read More"
@@ -115,7 +115,7 @@ const BlogPostCollectionComponent = () => {
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center items-center mt-10 space-x-4">
           <button
-            className={`px-3 py-1 rounded mb-3 ${
+            className={`px-3 py-1 rounded-full mb-3 ${
               selectedCategory === "all"
                 ? "bg-gold text-black"
                 : "bg-white text-black"
@@ -128,7 +128,7 @@ const BlogPostCollectionComponent = () => {
             (category) => (
               <button
                 key={category}
-                className={`px-3 py-1 rounded mb-3 ${
+                className={`px-3 py-1 rounded-full mb-3 ${
                   selectedCategory === category
                     ? "bg-gold text-black"
                     : "bg-white text-black"
@@ -142,7 +142,7 @@ const BlogPostCollectionComponent = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 p-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {currentPosts.map((blogPost) => (
           <BlogCardComponent
             key={blogPost.id}
