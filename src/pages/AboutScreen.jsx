@@ -5,7 +5,7 @@ import {
   experiences,
   projects,
   qualifications,
-} from "../components/assets/data";
+} from "../components/assets/portfolioData";
 
 //component4
 import AboutTopSectionComponent from "../components/section/about/AboutTopSectionComponent";
