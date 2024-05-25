@@ -34,7 +34,7 @@ const AppContent = () => {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:postId" element={<SinglePostComponent />} />
+              <Route path="/blog/:slug" element={<SinglePostComponent />} />
             </Routes>
           </main>
           {location.pathname !== "/" && <Footer />}

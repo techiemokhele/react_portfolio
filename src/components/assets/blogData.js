@@ -1,3 +1,5 @@
+import { createSlug } from "../utils/utils";
+
 const authorPicture = "/images/neo.jpg";
 
 export const blogData = [
@@ -6,6 +8,7 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/ui-ux-designer-4375011-3640101.png",
     title: "Mastering CSS Flexbox: A Comprehensive Guide",
+    slug: createSlug("Mastering CSS Flexbox: A Comprehensive Guide"),
     excerpt:
       "Learn how to leverage the power of CSS Flexbox to create flexible and responsive layouts.",
     fullDescription:
@@ -21,6 +24,7 @@ export const blogData = [
     image:
       "https://techvify-software.com/wp-content/uploads/2023/07/backend.png",
     title: "Building Scalable APIs with Node.js and Express",
+    slug: createSlug("Building Scalable APIs with Node.js and Express"),
     excerpt:
       "Discover best practices for building robust and scalable APIs using Node.js and Express.",
     fullDescription:
@@ -36,6 +40,7 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/full-stack-developer-4868314-4051527.png",
     title: "The Complete Guide to Full Stack Development",
+    slug: createSlug("The Complete Guide to Full Stack Development"),
     excerpt:
       "Learn what it takes to become a successful full stack developer and how to master both frontend and backend technologies.",
     fullDescription:
@@ -51,6 +56,7 @@ export const blogData = [
     image:
       "https://png.pngtree.com/png-vector/20220706/ourmid/pngtree-career-development-careerbuilder-personality-planning-png-image_5700889.png",
     title: "10 Tips for Landing Your Dream Job in Tech",
+    slug: createSlug("10 Tips for Landing Your Dream Job in Tech"),
     excerpt:
       "Discover actionable tips and strategies for securing a job in the competitive tech industry.",
     fullDescription:
@@ -66,6 +72,7 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/career-development-6578319-5501818.png?f=webp",
     title: "How to Write an Effective Tech Resume",
+    slug: createSlug("How to Write an Effective Tech Resume"),
     excerpt:
       "Learn how to craft a compelling resume that highlights your skills and experiences in the tech industry.",
     fullDescription:
@@ -81,6 +88,7 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/frontend-developer-7464456-6109659.png?f=webp",
     title: "The Fundamentals of Responsive Web Design",
+    slug: createSlug("The Fundamentals of Responsive Web Design"),
     excerpt:
       "Explore the principles and techniques of responsive web design to create websites that look great on any device.",
     fullDescription:
@@ -96,6 +104,9 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/back-end-developer-4316118-3611968.png",
     title: "Securing Your Node.js Applications with JWT Authentication",
+    slug: createSlug(
+      "Securing Your Node.js Applications with JWT Authentication"
+    ),
     excerpt:
       "Learn how to implement JWT authentication to secure your Node.js applications against unauthorized access.",
     fullDescription:
@@ -110,6 +121,7 @@ export const blogData = [
     id: 8,
     image: "https://miro.medium.com/v2/resize:fit:1400/0*B1hU4cYeBV3sPsTn",
     title: "Best Practices for Building Microservices Architecture",
+    slug: createSlug("Best Practices for Building Microservices Architecture"),
     excerpt:
       "Discover key principles and best practices for designing and implementing microservices architecture in your applications.",
     fullDescription:
@@ -125,6 +137,9 @@ export const blogData = [
     image:
       "https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-concept-vector-illustration-of-business-blogging-png-image_4635796.png",
     title: "Mastering Data Structures and Algorithms for Technical Interviews",
+    slug: createSlug(
+      "Mastering Data Structures and Algorithms for Technical Interviews"
+    ),
     excerpt:
       "Prepare for technical interviews by mastering essential data structures and algorithms concepts.",
     fullDescription:
@@ -140,6 +155,7 @@ export const blogData = [
     image:
       "https://cdni.iconscout.com/illustration/premium/thumb/front-end-development-4439351-3726922.png?f=webp",
     title: "The Complete Guide to CSS Grid Layout",
+    slug: createSlug("The Complete Guide to CSS Grid Layout"),
     excerpt:
       "Learn how to use CSS Grid Layout to create complex and responsive layouts with ease.",
     fullDescription:

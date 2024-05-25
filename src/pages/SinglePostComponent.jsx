@@ -8,10 +8,10 @@ import BlogSingTopBannerComponent from "../components/section/blog/BlogSingTopBa
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
 
 const SinglePostComponent = () => {
-  const { postId } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
-  const post = blogData.find((post) => post.id === parseInt(postId));
+  const post = blogData.find((post) => post.slug === slug);
 
   if (!post) {
     return (
@@ -35,11 +35,12 @@ const SinglePostComponent = () => {
 
   const relatedPosts = blogData.filter(
     (relatedPost) =>
-      relatedPost.category === category && relatedPost.id !== parseInt(postId)
+      relatedPost.category === category &&
+      relatedPost.id !== parseInt(relatedPost.id)
   );
 
-  const handleReadMore = (postId) => {
-    navigate(`/blog/${postId}`);
+  const handleReadMore = (slug) => {
+    navigate(`/blog/${slug}`);
   };
 
   return (
@@ -95,7 +96,7 @@ const SinglePostComponent = () => {
             <BlogCardComponent
               key={relatedPost.id}
               {...relatedPost}
-              onClick={() => handleReadMore(relatedPost.id)}
+              onClick={() => handleReadMore(relatedPost.slug)}
             />
           ))}
         </div>

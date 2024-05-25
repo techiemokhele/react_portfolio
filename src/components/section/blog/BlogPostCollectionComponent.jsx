@@ -45,8 +45,8 @@ const BlogPostCollectionComponent = () => {
     setCurrentPage(1);
   };
 
-  const handleReadMore = (postId) => {
-    navigate(`/blog/${postId}`);
+  const handleReadMore = (slug) => {
+    navigate(`/blog/${slug}`);
   };
 
   return (
@@ -87,7 +87,7 @@ const BlogPostCollectionComponent = () => {
               </div>
               <div className="mt-4">
                 <ButtonComponent
-                  onClick={() => handleReadMore(latestBlogPost.id)}
+                  onClick={() => handleReadMore(latestBlogPost.slug)}
                   text="Read More"
                   normal={true}
                 />
@@ -146,7 +146,7 @@ const BlogPostCollectionComponent = () => {
           <BlogCardComponent
             key={blogPost.id}
             {...blogPost}
-            onClick={() => handleReadMore(blogPost.id)}
+            onClick={() => handleReadMore(blogPost.slug)}
           />
         ))}
       </div>
