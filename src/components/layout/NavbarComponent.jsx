@@ -23,7 +23,7 @@ const NavbarComponent = () => {
             className="flex items-center"
           >
             <h1 className="text-white font-bold text-2xl ml-2 flex items-center">
-              <span className="me-3 h-6 w-6">
+              <span className="me-3 h-14 w-14">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

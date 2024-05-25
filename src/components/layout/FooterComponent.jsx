@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { blogData } from "../assets/blogData.js";
 
 const FooterComponent = () => {
   const [activePage, setActivePage] = useState("home");
@@ -81,12 +82,12 @@ const FooterComponent = () => {
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo section */}
           <div class="">
-            <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start text-white">
-              <span class="me-3 [&>svg]:h-10 [&>svg]:w-10">
+            <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start text-white text-lg">
+              <span class="me-3 [&>svg]:h-14 [&>svg]:w-14">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  fill="#fff"
+                  fill="#D4AF37"
                 >
                   <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
                 </svg>
@@ -101,34 +102,23 @@ const FooterComponent = () => {
 
           {/* Latest projects section */}
           <div>
-            <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-white">
+            <h6 class="mb-4 flex justify-center font-bold text-xl uppercase md:justify-start text-white">
               Latest Projects
             </h6>
-            <p class="mb-4">
-              <a href="#!">Angular</a>
-            </p>
-            <p class="mb-4">
-              <a href="#!">React</a>
-            </p>
-            <p class="mb-4">
-              <a href="#!">Vue</a>
-            </p>
-            <p>
-              <a href="#!">Laravel</a>
-            </p>
+            {blogData.slice(0, 4).map((post, i) => (
+              <p class="mb-4" key={i}>
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </p>
+            ))}
           </div>
 
           {/* Useful links section */}
           <div>
-            <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-white">
+            <h6 class="mb-4 flex justify-center font-bold text-xl uppercase md:justify-start text-white">
               Useful links
             </h6>
             {["about", "portfolio", "blog", "contact"].map((page) => (
-              <p
-                class="mb-4"
-                key={page}
-                className="text-white hover:text-gold py-2"
-              >
+              <p key={page} className="mb-4 text-white hover:text-gold py-2">
                 <a
                   href={`/${page === "home" ? "" : page}`}
                   onClick={() => handleNavClick(page)}
@@ -141,7 +131,7 @@ const FooterComponent = () => {
 
           {/* Contact section */}
           <div>
-            <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start text-white">
+            <h6 class="mb-4 flex justify-center font-bold text-xl uppercase md:justify-start text-white">
               Contact
             </h6>
             <p class="mb-4 flex items-center justify-center md:justify-start">

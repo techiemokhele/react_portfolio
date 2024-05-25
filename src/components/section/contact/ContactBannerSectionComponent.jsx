@@ -45,7 +45,7 @@ const ContactBannerSectionComponent = () => {
           <div className="flex justify-center mt-10 lg:justify-start">
             <div className="mx-1">
               <ButtonComponent
-                blank={false}
+                blank={true}
                 href={"https://api.whatsapp.com/send?phone=27648473363"}
                 normal={true}
                 text={"Chat On Whatsapp"}
@@ -53,7 +53,7 @@ const ContactBannerSectionComponent = () => {
             </div>
             <div className="mx-1">
               <ButtonComponent
-                blank={false}
+                blank={true}
                 href={"tel:27648473363"}
                 normal={true}
                 text={"Make Urgent Call"}
