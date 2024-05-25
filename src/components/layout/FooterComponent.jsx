@@ -82,7 +82,7 @@ const FooterComponent = () => {
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo section */}
           <div class="">
-            <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start text-white text-lg">
+            <h6 class="mb-4 flex items-center justify-center font-semibold  md:justify-start text-white text-2xl">
               <span class="me-3 [&>svg]:h-14 [&>svg]:w-14">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,9 +94,12 @@ const FooterComponent = () => {
               </span>
               Neo Mokhele
             </h6>
-            <p>
+            <p className="font-thin">
               With a passion for creating intuitive user interfaces, I leverage
-              continuous learning to stay ahead in this dynamic field.
+              continuous learning to stay ahead in this dynamic field. By
+              staying abreast of the latest trends and technologies, I ensure
+              that my designs are not only visually appealing but also highly
+              functional and user-friendly.
             </p>
           </div>
 
@@ -106,7 +109,7 @@ const FooterComponent = () => {
               Latest Projects
             </h6>
             {blogData.slice(0, 4).map((post, i) => (
-              <p class="mb-4" key={i}>
+              <p class="mb-4 hover:text-gold" key={i}>
                 <a href={`/blog/${post.slug}`}>{post.title}</a>
               </p>
             ))}
