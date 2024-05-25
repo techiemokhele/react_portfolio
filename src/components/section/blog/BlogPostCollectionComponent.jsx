@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { blogData } from "../../assets/blogData";
 import ButtonComponent from "../../common/ButtonComponent";
 import BlogCardComponent from "./BlogCardComponent";
+import TitleComponent from "../../common/TitleComponent";
 
 const BlogPostCollectionComponent = () => {
   const navigate = useNavigate();
@@ -56,9 +57,7 @@ const BlogPostCollectionComponent = () => {
       {currentPage === 1 && selectedCategory === "all" && (
         <div>
           <div className="w-full mb-10">
-            <h1 className="text-white font-bold sm:text-6xl text-5xl">
-              Latest Blogs
-            </h1>
+            <TitleComponent text={"Latest Blog"} />
           </div>
 
           <div className="mb-10 flex flex-col md:flex-row items-center border border-gold p-4 space-y-4 md:space-y-0 md:space-x-4">
@@ -109,11 +108,9 @@ const BlogPostCollectionComponent = () => {
 
       {/* Previous Blog Posts */}
       <div className="w-full mb-10">
-        <h1 className="text-white font-bold sm:text-6xl text-5xl">
-          Previous Blogs
-        </h1>
+        <TitleComponent text={"Previous Blogs"} />
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center items-center mt-10 space-x-4">
+        <div className="flex flex-wrap justify-center items-center lg:mt-14 mt-12 space-x-4">
           <button
             className={`px-3 py-1 rounded-full mb-3 ${
               selectedCategory === "all"

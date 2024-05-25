@@ -13,6 +13,7 @@ import EducationComponent from "../components/section/about/EducationComponent";
 import ExperienceComponent from "../components/section/about/ExperienceComponent";
 import ProjectComponent from "../components/section/about/ProjectComponent";
 import MarqueeComponent from "../components/common/MarqueeComponent";
+import TitleComponent from "../components/common/TitleComponent";
 
 const AboutScreen = () => {
   const latestProjects = projects.slice(-1).reverse();
@@ -30,9 +31,7 @@ const AboutScreen = () => {
 
       {/* Experience Section */}
       <div className="mt-16">
-        <h1 className="text-white font-bold sm:text-6xl text-5xl my-4 px-3">
-          Work Experience
-        </h1>
+        <TitleComponent text={"Work Experience"} />
 
         <div>
           {experiences.map((experience, index) => (
@@ -54,9 +53,7 @@ const AboutScreen = () => {
 
       {/* Education Section */}
       <div className="mt-16">
-        <h1 className="text-white font-bold sm:text-6xl text-5xl my-4 px-3">
-          My Qualification
-        </h1>
+        <TitleComponent text={"My Qualification"} />
 
         <div>
           {qualifications.map((experience, index) => (
@@ -83,9 +80,7 @@ const AboutScreen = () => {
 
       {/* Latest Section */}
       <div className="mt-16">
-        <h1 className="text-white font-bold sm:text-6xl text-5xl my-4 px-3">
-          Latest Project
-        </h1>
+        <TitleComponent text={"Latest Project"} />
 
         <div>
           {latestProjects.map((project, index) => (

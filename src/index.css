@@ -96,3 +96,34 @@ code {
     transform: translateX(-50%);
   }
 }
+
+.title-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-text {
+  color: white;
+  font-weight: bold;
+  font-size: 4rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.title-container::before {
+  content: "";
+  position: absolute;
+  background-color: gold;
+  height: 6px;
+  width: 65px;
+}
+
+.title-container::before {
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-right-color: white;
+  border-right-width: 4.5px;
+  border-radius: 10px;
+}
+

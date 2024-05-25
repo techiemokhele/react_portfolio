@@ -14,6 +14,7 @@ import ProjectComponent from "../components/section/about/ProjectComponent";
 import MarqueeComponent from "../components/common/MarqueeComponent";
 import ButtonComponent from "../components/common/ButtonComponent";
 import NotFoundComponent from "../components/common/NotFoundComponent";
+import TitleComponent from "../components/common/TitleComponent";
 
 const PortfolioScreen = () => {
   const [expandedCategory, setExpandedCategory] = useState(null);
@@ -128,9 +129,7 @@ const PortfolioScreen = () => {
 
       {searching ? (
         <div className="mt-16">
-          <h1 className="text-white font-bold sm:text-6xl text-5xl my-4 px-3">
-            Search Results
-          </h1>
+          <TitleComponent text={"Search Results"} />
           <div>
             {filterProjects(projects).length > 0 ? (
               filterProjects(projects).map((project, index) => (
@@ -168,9 +167,7 @@ const PortfolioScreen = () => {
             )
             .map(({ category, projectArray }) => (
               <div className="mt-16" key={category}>
-                <h1 className="text-white font-bold sm:text-6xl text-5xl my-4 px-3">
-                  {category} Projects
-                </h1>
+                <TitleComponent text={`${category} Projects`} />
 
                 <div>
                   {projectArray
