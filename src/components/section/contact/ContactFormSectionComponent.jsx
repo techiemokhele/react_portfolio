@@ -195,7 +195,7 @@ const ContactFormSectionComponent = () => {
 
           {success && (
             <p className="text-white mt-10 p-4 bg-green-700 rounded-t-xl rounded-s-lg">
-              Message sent successfully! Please try later.
+              Message sent successfully!
             </p>
           )}
         </form>

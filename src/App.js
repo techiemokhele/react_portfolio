@@ -6,11 +6,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Components
 import HeaderComponent from "./components/layout/HeaderComponent";
 import FooterComponent from "./components/layout/FooterComponent";
 import NotFoundComponent from "./components/common/NotFoundComponent";
+import ScrollToTopComponent from "./components/common/ScrollToTopComponent";
 
 // Pages
 import HomeScreen from "./pages/HomeScreen";
@@ -48,6 +50,10 @@ const AppContent = () => {
             </Routes>
           </main>
           {location.pathname !== "/" && <FooterComponent />}
+
+          <ScrollToTopComponent />
+
+          <SpeedInsights />
         </div>
       </CSSTransition>
     </TransitionGroup>
