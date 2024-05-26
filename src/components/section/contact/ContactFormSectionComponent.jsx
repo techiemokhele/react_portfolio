@@ -14,7 +14,7 @@ const ContactFormSectionComponent = () => {
     message: "",
   });
   const [sending, setSending] = useState(false);
-  const [emailSent, setEmailSent] = useState(false); // Track email sent status
+  const [emailSent, setEmailSent] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -67,7 +67,7 @@ const ContactFormSectionComponent = () => {
         toast.success("Message sent successfully!");
         setSending(false);
         setFormData({ name: "", email: "", message: "" });
-        setEmailSent(true); // Set email sent status to true
+        setEmailSent(true);
       })
       .catch((err) => {
         console.log("FAILED...", err);
@@ -94,9 +94,18 @@ const ContactFormSectionComponent = () => {
 
       {/* Right column - Form */}
       <div>
-        <h1 className="lg:text-6xl text-[35px]  text-white font-bold mb-10">
-          Send Me A Message
+        <h1 className="lg:text-6xl text-[38px]  text-white font-bold lg:mb-10 mb-5">
+          Let's Have A Chat
         </h1>
+
+        {!emailSent && (
+          <p className="text-white mb-10 text-center">
+            Please send a message to enable the{" "}
+            <span className="text-gold capitalize">download resume</span>{" "}
+            button. This ensures that you have the latest version of my resume.
+          </p>
+        )}
+
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2 text-white font-thin">
