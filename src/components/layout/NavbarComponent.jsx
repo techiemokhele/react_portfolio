@@ -22,8 +22,8 @@ const NavbarComponent = () => {
             onClick={() => handleNavClick("about")}
             className="flex items-center"
           >
-            <h1 className="text-white font-bold text-2xl ml-2 flex items-center">
-              <span className="me-3 h-14 w-14">
+            <h1 className="text-white font-bold lg:text-2xl text-lg ml-2 flex items-center">
+              <span className="me-3 lg:h-14 lg:w-14 w-10 h-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
