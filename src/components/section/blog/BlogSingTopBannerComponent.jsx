@@ -31,7 +31,7 @@ const BlogSingTopBannerComponent = ({
       <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start">
         <div className="container mx-auto px-4 py-8 text-white text-center md:text-left">
           {/* Content */}
-          <h1 className="text-2xl uppercase font-semibold mb-4">{category}</h1>
+          <h1 className="text-md uppercase font-semibold mb-4">{category}</h1>
 
           <h1 className="lg:text-6xl text-5xl my-6 font-bold lg:w-[55%]">
             {title}
