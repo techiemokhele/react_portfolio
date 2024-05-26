@@ -65,14 +65,14 @@ const ProjectComponent = ({
 
         {/* Image Section */}
         <div
-          className={`p-5 items-center justify-center ${
+          className={`lg:p-5 p-3 flex items-center justify-center hover:shadow-md hover:shadow-yellow-700 ${
             isOddIndex ? "md:order-1" : ""
           }`}
         >
           <img
             src={projectThumbnail}
             alt={projectName}
-            className="h-[350px] lg:h-[65vh] lg:object-stretch object-center rounded-lg"
+            className="w-full h-[280px] lg:h-[55vh] lg:object-stretch object-fit rounded-lg"
           />
         </div>
       </div>
