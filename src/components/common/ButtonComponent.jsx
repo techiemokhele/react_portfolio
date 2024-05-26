@@ -11,8 +11,8 @@ const ButtonComponent = ({
   download,
 }) => {
   const buttonClass = !normal
-    ? "border cursor-pointer border-gold text-white capitalize px-6 py-2 rounded-full hover:bg-gold"
-    : "bg-gold cursor-pointer text-white capitalize px-6 py-2 mr-4 rounded-full hover:bg-gold";
+    ? "border cursor-pointer border-yellow-700 text-white capitalize px-6 py-2 rounded-full hover:bg-yellow-700"
+    : "bg-yellow-700 cursor-pointer text-white capitalize px-6 py-2 mr-4 rounded-full hover:bg-gold";
 
   const handleClick = (e) => {
     if (onClick) {

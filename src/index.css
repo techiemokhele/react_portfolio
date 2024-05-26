@@ -21,14 +21,14 @@ code {
 /* Note: Firefox currently only supports scrollbar-color property */
 /* To ensure Firefox compatibility, you might need to use vendor prefixes */
 * {
-  scrollbar-color: gold transparent;
+  scrollbar-color: #b97a14 transparent;
 }
 
 /* For Internet Explorer and Edge */
 /* Note: Only supported in Edge version 79 and later */
 * {
   scrollbar-width: thin;
-  scrollbar-color: gold transparent;
+  scrollbar-color: #b97a14 transparent;
 }
 
 /* For WebKit-based browsers like Chrome and Safari */
@@ -38,7 +38,7 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: gold; /* Gold color for the scrollbar thumb */
+  background-color: #b97a14; /* Gold color for the scrollbar thumb */
   border-radius: 6px;
 }
 
@@ -154,4 +154,9 @@ code {
     margin-left: 0;
     padding: 0 20px;
   }
+}
+
+.bg-yellow-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(161 98 7 / var(--tw-bg-opacity));
 }

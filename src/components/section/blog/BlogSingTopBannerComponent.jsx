@@ -37,7 +37,7 @@ const BlogSingTopBannerComponent = ({
             {title}
           </h1>
 
-          <p className="text-md mt-2 font-normal lg:w-[55%] bg-gold p-5 rounded-full rounded-l-none rounded-b-none">
+          <p className="text-md mt-2 font-normal lg:w-[55%] bg-yellow-700 p-5 rounded-full rounded-l-none rounded-b-none">
             {author} - {createdAt}
           </p>
 

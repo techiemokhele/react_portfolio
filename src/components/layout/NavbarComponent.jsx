@@ -101,7 +101,7 @@ const NavbarComponent = () => {
             className={`block px-4 py-5  ${
               location.pathname.includes(page)
                 ? "text-white border-x-2 border-x-gold"
-                : "text-white hover:bg-gold"
+                : "text-white hover:bg-yellow-700"
             }`}
           >
             {page.charAt(0).toUpperCase() + page.slice(1)}

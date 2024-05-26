@@ -68,64 +68,66 @@ const PortfolioScreen = () => {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className={`w-[90%] lg:w-[60%]  text-white border bg-gold mb-4 ${
+          className={`w-[90%] lg:w-[60%]  text-white border bg-yellow-700 mb-4 ${
             focused.name ? "border-white" : "border-transparent"
           } rounded-lg py-2 px-4 focus:outline-none placeholder-white`}
         />
       </div>
 
       {/* Category filters */}
-      <div className="flex flex-wrap justify-center my-6">
-        <div className="mr-4 mb-8 lg:mb-0">
-          <ButtonComponent
-            text="All"
-            onClick={() => setExpandedCategory(null)}
-            active={
-              !expandedCategory ||
-              (expandedCategory !== "website" &&
-                expandedCategory !== "mobile" &&
-                expandedCategory !== "game" &&
-                expandedCategory !== "cms")
-            }
-          />
-        </div>
+      {!searching && (
+        <div className="flex flex-wrap justify-center my-6">
+          <div className="mr-4 mb-8 lg:mb-0">
+            <ButtonComponent
+              text="All"
+              onClick={() => setExpandedCategory(null)}
+              active={
+                !expandedCategory ||
+                (expandedCategory !== "website" &&
+                  expandedCategory !== "mobile" &&
+                  expandedCategory !== "game" &&
+                  expandedCategory !== "cms")
+              }
+            />
+          </div>
 
-        <div className="mr-4">
-          <ButtonComponent
-            text="Website"
-            onClick={() => setExpandedCategory("website")}
-            active={expandedCategory === "website"}
-            normal={expandedCategory === "website"}
-          />
-        </div>
+          <div className="mr-4">
+            <ButtonComponent
+              text="Website"
+              onClick={() => setExpandedCategory("website")}
+              active={expandedCategory === "website"}
+              normal={expandedCategory === "website"}
+            />
+          </div>
 
-        <div className="mr-4">
-          <ButtonComponent
-            text="Mobile"
-            onClick={() => setExpandedCategory("mobile")}
-            active={expandedCategory === "mobile"}
-            normal={expandedCategory === "mobile"}
-          />
-        </div>
+          <div className="mr-4">
+            <ButtonComponent
+              text="Mobile"
+              onClick={() => setExpandedCategory("mobile")}
+              active={expandedCategory === "mobile"}
+              normal={expandedCategory === "mobile"}
+            />
+          </div>
 
-        <div className="mr-4">
-          <ButtonComponent
-            text="Game"
-            onClick={() => setExpandedCategory("game")}
-            active={expandedCategory === "game"}
-            normal={expandedCategory === "game"}
-          />
-        </div>
+          <div className="mr-4">
+            <ButtonComponent
+              text="Game"
+              onClick={() => setExpandedCategory("game")}
+              active={expandedCategory === "game"}
+              normal={expandedCategory === "game"}
+            />
+          </div>
 
-        <div className="mr-4">
-          <ButtonComponent
-            text="CMS"
-            onClick={() => setExpandedCategory("cms")}
-            active={expandedCategory === "cms"}
-            normal={expandedCategory === "cms"}
-          />
+          <div className="mr-4">
+            <ButtonComponent
+              text="CMS"
+              onClick={() => setExpandedCategory("cms")}
+              active={expandedCategory === "cms"}
+              normal={expandedCategory === "cms"}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {searching ? (
         <div className="mt-16">

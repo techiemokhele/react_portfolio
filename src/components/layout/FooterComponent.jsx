@@ -10,7 +10,7 @@ const FooterComponent = () => {
 
   return (
     <footer class="bg-transparent text-center text-surface/75 lg:text-left mt-10">
-      <div class="flex items-center justify-center border-b-2 border-neutral-200 p-6 bg-gold lg:justify-between">
+      <div class="flex items-center justify-center border-b-2 border-neutral-200 p-6 bg-yellow-700 lg:justify-between">
         <div class="me-12 hidden lg:block text-white">
           <span>Get connected with us on social networks:</span>
         </div>
@@ -103,10 +103,10 @@ const FooterComponent = () => {
             </p>
           </div>
 
-          {/* Latest projects section */}
+          {/* Latest posts section */}
           <div>
             <h6 class="mb-4 flex justify-center font-bold text-xl uppercase md:justify-start text-white">
-              Latest Projects
+              Latest Posts
             </h6>
             {blogData.slice(0, 4).map((post, i) => (
               <p class="mb-4 hover:text-gold" key={i}>
@@ -184,7 +184,7 @@ const FooterComponent = () => {
       </div>
 
       {/* Copy right section */}
-      <div class="bg-gold p-6 text-center text-xs">
+      <div class="bg-yellow-700 text-white p-6 text-center text-xs">
         <span>All rights reserved © 2023 Copyright: </span>
         <a class="font-semibold" href="/contact">
           Neo Mokhele
