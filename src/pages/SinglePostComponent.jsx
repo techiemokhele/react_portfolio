@@ -76,13 +76,7 @@ const SinglePostComponent = () => {
 
       {/* Image and Description Section */}
       <div className="flex items-start mt-20">
-        <div className="w-1/2 border rounded-md overflow-hidden border-gold border-l-[20px] border-r-0">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-[60vh] object-contain"
-          />
-        </div>
+        {/* Blog Content */}
         <div className="w-1/2 ml-4">
           <div className="mt-0 flex items-center">
             <img
@@ -104,6 +98,15 @@ const SinglePostComponent = () => {
           </div>
 
           <p className="text-sm text-white font-thin">{fullDescription}</p>
+        </div>
+
+        {/* Blog Image */}
+        <div className="w-1/2 border rounded-md overflow-hidden border-gold border-r-[20px] border-l-0">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-[60vh] object-contain"
+          />
         </div>
       </div>
 
