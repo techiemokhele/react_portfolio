@@ -23,8 +23,10 @@ const ProjectComponent = ({
             isOddIndex ? "md:order-2" : ""
           }`}
         >
-          <h2 className="text-4xl font-bold text-gold mb-4">{projectName}</h2>
-          <h5 className="text-xl font-semibold mb-4">
+          <h2 className="lg:text-4xl text-3xl font-bold text-gold mb-4">
+            {projectName}
+          </h2>
+          <h5 className="lg:text-xl text-md font-semibold lg:mb-4 mb-2">
             {title} - {type}
           </h5>
           <p className="text-sm font-thin mb-2">{description}</p>
@@ -36,7 +38,7 @@ const ProjectComponent = ({
                 blank={true}
                 href={githubLink}
                 normal={true}
-                text={"View Github Code"}
+                text={"Github"}
               />
             )}
 
@@ -45,7 +47,7 @@ const ProjectComponent = ({
                 blank={true}
                 href={liveLink}
                 normal={githubLink !== "#" ? false : true}
-                text={"Live Project"}
+                text={"Online"}
               />
             )}
           </div>
