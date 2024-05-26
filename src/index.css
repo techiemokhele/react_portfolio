@@ -105,9 +105,9 @@ code {
 .title-text {
   color: white;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 1rem 0;
-  padding: 0 1rem;
+  padding: 0 1.2rem;
 }
 
 .title-container::before {
@@ -120,7 +120,7 @@ code {
 
 .title-container::before {
   top: 50%;
-  left: -40px;
+  left: -38px;
   transform: translateY(-50%);
   border-right-color: white;
   border-right-width: 4.5px;

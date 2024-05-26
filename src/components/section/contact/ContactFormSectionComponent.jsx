@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-import TitleComponent from "../../common/TitleComponent";
-
 const ContactFormSectionComponent = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -103,9 +101,9 @@ const ContactFormSectionComponent = () => {
 
       {/* Right column - Form */}
       <div>
-        <div className={"lg:mb-10 mb-10"}>
-          <TitleComponent text={"Let's Have A Chat"} />
-        </div>
+        <h1 className="lg:text-6xl text-[35px]  text-white font-bold mb-10">
+          Send Me A Message
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2 text-white font-thin">
