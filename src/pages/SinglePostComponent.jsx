@@ -7,6 +7,7 @@ import NotFoundComponent from "../components/common/NotFoundComponent";
 import LoadingComponent from "../components/common/LoadingComponent";
 import BlogSingTopBannerComponent from "../components/section/blog/BlogSingTopBannerComponent";
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
+import TitleComponent from "../components/common/TitleComponent";
 
 const SinglePostComponent = () => {
   const { slug } = useParams();
@@ -108,7 +109,7 @@ const SinglePostComponent = () => {
 
       {/* Related Posts Section */}
       <div className="mt-14">
-        <h2 className="text-6xl text-white font-bold mb-14">Related Posts</h2>
+        <TitleComponent text={"Related Posts"} />
         <div className="grid grid-cols-1 p-3 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {relatedPosts.map((relatedPost) => (
             <BlogCardComponent
