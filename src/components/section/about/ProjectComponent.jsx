@@ -26,7 +26,7 @@ const ProjectComponent = ({
           <h2 className="lg:text-4xl text-3xl font-bold text-gold mb-4">
             {projectName}
           </h2>
-          <h5 className="lg:text-xl text-md font-semibold lg:mb-4 mb-2">
+          <h5 className="lg:text-2xl text-md font-semibold lg:mb-4 mb-2">
             {title} - {type}
           </h5>
           <p className="text-sm font-thin mb-2">{description}</p>

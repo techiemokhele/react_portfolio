@@ -26,10 +26,10 @@ const EducationComponent = ({
           <h2 className="lg:text-4xl text-3xl font-bold text-gold mb-4">
             {qualification} <span className="text-white">in</span> {course}
           </h2>
-          <h5 className="lg:text-xl text-md font-semibold lg:mb-4 mb-2">
+          <h5 className="lg:text-2xl text-md font-semibold lg:mb-4 mb-2">
             {schoolName} - {location}
           </h5>
-          <h5 className="lg:text-md text-xs font-semibold mb-4">
+          <h5 className="lg:text-md text-xs font-normal mb-3">
             {startDate} - {endDate}
           </h5>
           <p className="text-sm font-thin mb-2">{duties}</p>
