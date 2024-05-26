@@ -5,6 +5,7 @@ import { blogData } from "../../assets/blogData";
 import ButtonComponent from "../../common/ButtonComponent";
 import BlogCardComponent from "./BlogCardComponent";
 import TitleComponent from "../../common/TitleComponent";
+import { getFirstWord } from "../../utils/utils";
 
 const BlogPostCollectionComponent = () => {
   const navigate = useNavigate();
@@ -67,24 +68,26 @@ const BlogPostCollectionComponent = () => {
                 {latestBlogPost.title}
               </h2>
               <p className="mb-4 text-white">{latestBlogPost.excerpt}</p>
-              <div className="flex flex-col md:flex-row items-center justify-between w-full text-white space-y-2 md:space-y-0 lg:my-8 md:my-6 sm:my-4 sm:mb-8">
-                <div className="flex flex-col items-center md:items-start">
+
+              <div className="flex flex-wrap items-center justify-between w-full text-white space-y-2 md:space-y-0 lg:my-8 md:my-6 sm:my-4 sm:mb-8">
+                <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Read Time:</span>
                   <span>{latestBlogPost.readTime}</span>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
+                <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Published:</span>
                   <span>{latestBlogPost.createdAt}</span>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
+                <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Author:</span>
                   <span>{latestBlogPost.author}</span>
                 </div>
-                <div className="flex flex-col items-center md:items-start">
+                <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Category:</span>
-                  <span>{latestBlogPost.category}</span>
+                  <span>{getFirstWord(latestBlogPost.category)}</span>
                 </div>
               </div>
+
               <div className="mt-12 lg:mt-4 ml-6 lg:ml-0">
                 <ButtonComponent
                   onClick={() => handleReadMore(latestBlogPost.slug)}
@@ -112,10 +115,10 @@ const BlogPostCollectionComponent = () => {
         {/* Category Filters */}
         <div className="flex flex-wrap justify-center items-center lg:mt-14 mt-12 space-x-4">
           <button
-            className={`px-3 py-1 rounded-full mb-3 ${
+            className={`px-3 py-1 rounded-full font-semibold tracking-wide mb-3 ${
               selectedCategory === "all"
-                ? "bg-gold text-black"
-                : "bg-white text-black"
+                ? "bg-yellow-700 text-white shadow-md shadow-gray-700"
+                : "bg-gold text-white"
             }`}
             onClick={() => handleCategoryFilter("all")}
           >
@@ -125,14 +128,14 @@ const BlogPostCollectionComponent = () => {
             (category) => (
               <button
                 key={category}
-                className={`px-3 py-1 rounded-full mb-3 ${
+                className={`px-3 py-1 rounded-full font-semibold tracking-wide mb-3 ${
                   selectedCategory === category
-                    ? "bg-gold text-black"
-                    : "bg-white text-black"
+                    ? "bg-yellow-700 text-white shadow-md shadow-gray-700"
+                    : "bg-gold text-white"
                 }`}
                 onClick={() => handleCategoryFilter(category)}
               >
-                {category}
+                {getFirstWord(category)}
               </button>
             )
           )}
@@ -150,10 +153,10 @@ const BlogPostCollectionComponent = () => {
       </div>
 
       {/* Pagination */}
-      {currentPosts.length >= 6 && (
+      {currentPosts.length >= 6 || currentPage > 1 ? (
         <div className="flex justify-center items-center mt-8 space-x-2">
           <button
-            className="px-3 py-1 rounded bg-white text-black"
+            className="px-3 py-1 rounded bg-yellow-700 text-white hover:bg-gold"
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
           >
@@ -163,10 +166,8 @@ const BlogPostCollectionComponent = () => {
           {totalPages > 8 && currentPage > 5 && (
             <>
               <button
-                className={`mx-1 px-3 py-1 rounded ${
-                  currentPage === 1
-                    ? "bg-gold text-black"
-                    : "bg-white text-black"
+                className={`mx-1 px-3 py-1 rounded text-white ${
+                  currentPage === 1 ? "bg-yellow-700 text-white" : "bg-gold"
                 }`}
                 onClick={() => handlePageChange(1)}
               >
@@ -185,8 +186,8 @@ const BlogPostCollectionComponent = () => {
                 key={index + 1}
                 className={`mx-1 px-3 py-1 rounded ${
                   currentPage === index + 1
-                    ? "bg-gold text-black"
-                    : "bg-white text-black"
+                    ? "bg-yellow-700 text-white"
+                    : "bg-gold"
                 }`}
                 onClick={() => handlePageChange(index + 1)}
               >
@@ -203,8 +204,8 @@ const BlogPostCollectionComponent = () => {
               <button
                 className={`mx-1 px-3 py-1 rounded ${
                   currentPage === totalPages
-                    ? "bg-gold text-black"
-                    : "bg-white text-black"
+                    ? "bg-yellow-700 text-white"
+                    : "bg-gold"
                 }`}
                 onClick={() => handlePageChange(totalPages)}
               >
@@ -214,14 +215,14 @@ const BlogPostCollectionComponent = () => {
           )}
 
           <button
-            className="px-3 py-1 rounded bg-white text-black"
+            className="px-3 py-1 rounded bg-yellow-700 text-white hover:bg-gold"
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
             Next &gt;
           </button>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

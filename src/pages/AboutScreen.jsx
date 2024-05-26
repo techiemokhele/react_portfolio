@@ -30,7 +30,7 @@ const AboutScreen = () => {
       </div>
 
       {/* Experience Section */}
-      <div className="mt-16">
+      <div className="mt-4 lg:mt-12">
         <TitleComponent text={"Work Experience"} />
 
         <div>
@@ -52,7 +52,7 @@ const AboutScreen = () => {
       </div>
 
       {/* Education Section */}
-      <div className="mt-16">
+      <div className="mt-4 lg:mt-12">
         <TitleComponent text={"My Qualification"} />
 
         <div>
@@ -79,7 +79,7 @@ const AboutScreen = () => {
       </div>
 
       {/* Latest Section */}
-      <div className="mt-16">
+      <div className="mt-4 lg:mt-12">
         <TitleComponent text={"Latest Project"} />
 
         <div>

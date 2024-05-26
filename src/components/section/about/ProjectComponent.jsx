@@ -16,7 +16,7 @@ const ProjectComponent = ({
 
   return (
     <div className="flex-col">
-      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 mt-10">
+      <div className="grid grid-rows-1 md:grid-rows-1 md:grid-cols-2 gap-4 lg:mt-5">
         {/* Text Section */}
         <div
           className={`bg-transparent p-5 flex flex-col justify-center text-white ${
@@ -54,8 +54,8 @@ const ProjectComponent = ({
           <div className="flex flex-wrap gap-2 mt-4">
             {languages.map((language, idx) => (
               <span
+                className="bg-yellow-700 text-white py-1 px-3 rounded lg:text-sm text-[10px]"
                 key={idx}
-                className="bg-gray-700 text-white py-1 px-3 rounded-full text-sm"
               >
                 {language}
               </span>
@@ -72,7 +72,7 @@ const ProjectComponent = ({
           <img
             src={projectThumbnail}
             alt={projectName}
-            className="h-full lg:object-cover image-fluid object-stretch rounded-lg"
+            className="h-[350px] lg:h-[65vh] lg:object-stretch object-center rounded-lg"
           />
         </div>
       </div>

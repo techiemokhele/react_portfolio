@@ -15,7 +15,7 @@ const ExperienceComponent = ({
 
   return (
     <div className="flex-col">
-      <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 mt-10">
+      <div className="grid grid-rows-1 md:grid-rows-1 md:grid-cols-2 gap-4 lg:mt-5">
         {/* Text Section */}
         <div
           className={`bg-transparent p-5 flex flex-col justify-center text-white ${
@@ -32,7 +32,7 @@ const ExperienceComponent = ({
           <p className="text-sm font-thin mb-2">{duties}</p>
 
           <div className="flex flex-wrap gap-2 mt-4">
-            <span className="bg-gray-700 text-white py-1 px-3 rounded-full text-sm">
+            <span className="bg-yellow-700 text-white py-1 px-3 rounded lg:text-sm text-[10px]">
               Working {onsite ? "On-site" : "Remotely"}
             </span>
           </div>
@@ -47,7 +47,7 @@ const ExperienceComponent = ({
           <img
             src={companyLogo}
             alt={companyName}
-            className="h-full lg:object-cover image-fluid object-stretch rounded-lg"
+            className="w-full h-[320px] lg:h-[65vh] lg:object-stretch object-center rounded-lg"
           />
         </div>
       </div>

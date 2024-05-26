@@ -32,10 +32,10 @@ const ScrollToTopComponent = () => {
     <div>
       {showScrollToTop && (
         <button
-          className="fixed bottom-8 right-8 bg-yellow-700 text-white py-2 px-4 rounded-full shadow-md hover:bg-gold focus:outline-none"
+          className="fixed bottom-8 right-3 bg-yellow-700 text-white text-2xl p4 h-10 w-10 rounded-full shadow-md hover:bg-gold focus:outline-none shadow-md shadow-gray-700"
           onClick={scrollToTop}
         >
-          Up
+          ^
         </button>
       )}
     </div>

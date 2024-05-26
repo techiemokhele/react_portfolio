@@ -75,6 +75,7 @@ const SinglePostComponent = () => {
       />
 
       {/* Image and Description Section */}
+
       <div className="blog-container flex items-start mt-20">
         {/* Blog Image */}
         <div className="blog-image w-1/2 border rounded-md overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[20px] border-b-0">
@@ -88,31 +89,43 @@ const SinglePostComponent = () => {
         {/* Blog Content */}
         <div className="blog-content w-1/2 ml-4 lg:border-r-[10px] border-r-0 lg:border-t-[10px] border-t-0 border-gold rounded-full">
           <div className="lg:mt-20 mt-0 flex items-center">
-            <img
-              src={authorPicture}
-              alt={author}
-              className="w-8 h-8 rounded-full mr-2"
-            />
-            <span className="text-white font-bold text-[28px]">{author}</span>
-          </div>
-          <div className="mt-2 flex items-center">
-            <span className="text-white font-semibold text-[12px] px-3 py-0 bg-gold rounded-full">
-              {createdAt}
-            </span>
-            <span className="mx-2 text-gold">-</span>
-            <span className="text-white font-semibold text-[12px] px-3 py-0 bg-gold rounded-full">
-              {readTime}
-            </span>
+            <div className="pt-3">
+              <img
+                src={authorPicture}
+                alt={author}
+                className="w-12 h-12 rounded-full mr-2"
+              />
+            </div>
+
+            <div>
+              <span className="text-white font-bold text-[28px]">{author}</span>
+
+              <div className="flex items-center">
+                <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
+                  {readTime}
+                </span>
+                <span className="mx-2 text-gold">-</span>
+                <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
+                  {createdAt}
+                </span>
+              </div>
+            </div>
           </div>
 
-          <p className="text-white font-semibold mt-5">{excerpt}</p>
-          <div className="my-6">
+          <div className="flex justify-between items-center my-6 px-3">
+            <div className="flex items-center"></div>
             <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
               {category}
             </span>
           </div>
 
-          <p className="text-sm text-white font-thin">{fullDescription}</p>
+          <p className="text-white text-xl lg:text-2xl font-semibold my-4">
+            {excerpt}
+          </p>
+
+          <p className=" text-[12px] lg:text-sm text-white font-thin">
+            {fullDescription}
+          </p>
         </div>
       </div>
 

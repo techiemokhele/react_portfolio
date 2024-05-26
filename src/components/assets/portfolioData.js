@@ -33,7 +33,7 @@ export const experiences = [
     companyLogo:
       "https://kinsta.com/wp-content/uploads/2020/03/php-tutorials.png",
     position: "Junior Web Developer",
-    location: "Victoria, Australia",
+    location: "Johannesburg, South Africa",
     startDate: "August 2018",
     endDate: "April 2021",
     duties:
