@@ -21,3 +21,12 @@ export const truncateTitle = (title) => {
   if (!title) return "";
   return title.split("\n")[0];
 };
+
+export const triggerResumeDownload = () => {
+  const link = document.createElement("a");
+  link.href = "/resume/Neo_Mokhele_Resume.pdf";
+  link.download = "Neo_Mokhele_Resume.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};

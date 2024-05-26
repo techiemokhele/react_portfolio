@@ -1,7 +1,11 @@
+// src/components/ContactFormSectionComponent.jsx
+
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { triggerResumeDownload } from "../../utils/utils";
 
 const ContactFormSectionComponent = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +14,7 @@ const ContactFormSectionComponent = () => {
     message: "",
   });
   const [sending, setSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false); // Track email sent status
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -62,6 +67,7 @@ const ContactFormSectionComponent = () => {
         toast.success("Message sent successfully!");
         setSending(false);
         setFormData({ name: "", email: "", message: "" });
+        setEmailSent(true); // Set email sent status to true
       })
       .catch((err) => {
         console.log("FAILED...", err);
@@ -155,6 +161,16 @@ const ContactFormSectionComponent = () => {
 
           <ToastContainer />
         </form>
+
+        {/* Show download button if email is sent */}
+        {emailSent && (
+          <button
+            className="mt-4 bg-yellow-700 border border-transparent text-white capitalize px-6 py-3 rounded-full hover:bg-yellow-600"
+            onClick={triggerResumeDownload}
+          >
+            Download Resume
+          </button>
+        )}
       </div>
     </div>
   );

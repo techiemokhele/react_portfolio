@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // Components
@@ -7,6 +7,12 @@ import ButtonComponent from "../common/ButtonComponent";
 const NavbarComponent = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+
+  useEffect(() => {
+    const emailSentStatus = localStorage.getItem("emailSent") === "true";
+    setEmailSent(emailSentStatus);
+  }, []);
 
   const handleNavClick = () => {
     setIsOpen(false);
@@ -54,14 +60,16 @@ const NavbarComponent = () => {
           ))}
         </div>
 
-        {/* Show the "Resume" button only in desktop view */}
-        <ButtonComponent
-          download="Neo_Mokhele_Resume.pdf"
-          href={"/resume/Neo_Mokhele_Resume.pdf"}
-          normal={false}
-          text={"Resume"}
-          hidden={true}
-        />
+        {/* Show the "Resume" button only if the email has been sent */}
+        {emailSent && (
+          <ButtonComponent
+            download="Neo_Mokhele_Resume.pdf"
+            href={"/resume/Neo_Mokhele_Resume.pdf"}
+            normal={false}
+            text={"Resume"}
+            hidden={true}
+          />
+        )}
 
         <div className="md:hidden">
           <button
@@ -108,13 +116,15 @@ const NavbarComponent = () => {
           </Link>
         ))}
         <div className="mt-4 absolute bottom-8 px-3 right-4">
-          <ButtonComponent
-            download="Neo_Mokhele_Resume.pdf"
-            href={"/resume/Neo_Mokhele_Resume.pdf"}
-            normal={false}
-            text={"Download My Resume"}
-            hidden={false}
-          />
+          {emailSent && (
+            <ButtonComponent
+              download="Neo_Mokhele_Resume.pdf"
+              href={"/resume/Neo_Mokhele_Resume.pdf"}
+              normal={false}
+              text={"Download My Resume"}
+              hidden={false}
+            />
+          )}
         </div>
       </div>
     </nav>
