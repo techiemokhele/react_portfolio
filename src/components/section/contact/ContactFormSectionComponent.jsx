@@ -150,8 +150,8 @@ const ContactFormSectionComponent = () => {
                   : "border-transparent"
               } rounded-lg py-2 px-3 focus:outline-none`}
             />
-            {submitted && errors.name && (
-              <p className="text-gold text-sm mt-1">{errors.name}</p>
+            {submitted && errors.email && (
+              <p className="text-gold text-sm mt-1">{errors.email}</p>
             )}
           </div>
 
@@ -187,7 +187,11 @@ const ContactFormSectionComponent = () => {
 
           <button
             type="submit"
-            className="border cursor-pointer border-gold text-white capitalize px-6 py-3 rounded-full hover:bg-gold"
+            className={
+              sending
+                ? "bg-gold border cursor-pointer text-white capitalize px-6 py-3 rounded-full hover:bg-grey-500"
+                : ` hover:bg-gold border border-yellow-700 hover:border-gold cursor-pointer text-white capitalize px-6 py-3 rounded-full`
+            }
             title={sending ? "Sending Message..." : "Send Message"}
           >
             {sending ? "Sending Message..." : "Send Message"}
