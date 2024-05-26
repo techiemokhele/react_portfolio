@@ -22,12 +22,12 @@ const HomeScreen = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
           {/* Left Side */}
           <div className="flex flex-col lg:pl-4 items-center md:items-start text-center md:text-left">
-            <div className="lg:w-40 lg:h-40 h-32 w-32 border rounded-full overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[8px] border-b-0 mb-6">
+            <div className="lg:w-40 lg:h-40 h-28 w-28 lg:mt-0 mt-5 border rounded-full overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[8px] border-b-0 mb-6">
               <img
                 src={"/images/neo.jpg"}
                 alt="Neo Mokhele"
                 className="w-full h-full object-cover"
-                style={{ margin: "auto" }} // Center the image
+                style={{ margin: "auto" }}
               />
             </div>
 
