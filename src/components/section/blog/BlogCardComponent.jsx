@@ -1,4 +1,5 @@
 import React from "react";
+import { truncateText, truncateTitle } from "../../utils/utils";
 
 const BlogCardComponent = ({
   id,
@@ -11,6 +12,9 @@ const BlogCardComponent = ({
   excerpt,
   onClick,
 }) => {
+  const truncatedExcerpt = truncateText(excerpt, 2);
+  const truncatedTitle = truncateTitle(title);
+
   return (
     <div
       key={id}
@@ -42,8 +46,10 @@ const BlogCardComponent = ({
         </div>
       </div>
 
-      <h2 className="text-lg font-semibold mb-2 text-white">{title}</h2>
-      <p className="text-white mb-4 font-thin">{excerpt}</p>
+      <h2 className="text-lg font-semibold mb-2 text-white">
+        {truncatedTitle}
+      </h2>
+      <p className="text-white mb-4 font-thin">{truncatedExcerpt}</p>
       <div className="text-center mt-auto">
         <button
           onClick={onClick}

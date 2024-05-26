@@ -1,8 +1,9 @@
+/* Reset and General Styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/* Body and Font Styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,21 +18,7 @@ code {
     monospace;
 }
 
-/* For Firefox */
-/* Note: Firefox currently only supports scrollbar-color property */
-/* To ensure Firefox compatibility, you might need to use vendor prefixes */
-* {
-  scrollbar-color: #b97a14 transparent;
-}
-
-/* For Internet Explorer and Edge */
-/* Note: Only supported in Edge version 79 and later */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #b97a14 transparent;
-}
-
-/* For WebKit-based browsers like Chrome and Safari */
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 12px;
   background-color: #202124; /* Google background color */
@@ -46,25 +33,17 @@ code {
   color: white;
 }
 
-
-.fade-enter {
+/* Fade Animation */
+.fade-enter, .fade-exit {
   opacity: 0;
 }
 
-.fade-enter-active {
+.fade-enter-active, .fade-exit-active {
   opacity: 1;
   transition: opacity 300ms ease-in-out;
 }
 
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
-}
-
+/* Marquee Animation */
 .marquee {
   overflow: hidden;
   white-space: nowrap;
@@ -84,7 +63,7 @@ code {
 .marquee-item {
   object-fit: contain;
   height: 50px;
-  width: 150px; 
+  width: 150px;
   margin: 0 40px;
 }
 
