@@ -14,7 +14,7 @@ const BlogCardComponent = ({
   return (
     <div
       key={id}
-      className="relative bg-yellow-700 p-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:bg-gold hover:scale-105"
+      className="relative border-l-[10px] border-l-gold hover:border-l-yellow-700 bg-yellow-700 p-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:bg-gold hover:scale-105"
     >
       <div className="absolute top-2 right-2 bg-gold hover:bg-yellow-700 hover:shadow-md hover:shadow-gray-700 text-white text-xs font-bold py-1 px-3 rounded">
         {category}

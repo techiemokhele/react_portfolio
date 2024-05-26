@@ -61,30 +61,39 @@ const BlogPostCollectionComponent = () => {
             <TitleComponent text={"Latest Blog"} />
           </div>
 
-          <div className="mb-10 flex flex-col md:flex-row items-center border border-gold p-4 space-y-4 md:space-y-0 md:space-x-4">
+          <div className="border-t-[10px] border-l-[10px] mb-10 flex flex-col md:flex-row items-center border border-gold p-4 space-y-4 md:space-y-0 md:space-x-4">
             {/* Text Section */}
             <div className="md:w-1/2 flex flex-col items-center md:items-start md:border-r md:border-gold pr-4 text-center md:text-left">
+              <img
+                src={latestBlogPost.authorPicture}
+                alt={latestBlogPost.author}
+                className="mb-5 w-20 h-20 rounded-full"
+              />
+
               <h2 className="text-2xl font-extrabold text-gold mb-2">
                 {latestBlogPost.title}
               </h2>
               <p className="mb-4 text-white">{latestBlogPost.excerpt}</p>
-
               <div className="flex flex-wrap items-center justify-between w-full text-white space-y-2 md:space-y-0 lg:my-8 md:my-6 sm:my-4 sm:mb-8">
                 <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Read Time:</span>
-                  <span>{latestBlogPost.readTime}</span>
+                  <span className="text-center">{latestBlogPost.readTime}</span>
                 </div>
                 <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Published:</span>
-                  <span>{latestBlogPost.createdAt}</span>
+                  <span className="text-center">
+                    {latestBlogPost.createdAt}
+                  </span>
                 </div>
                 <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Author:</span>
-                  <span>{latestBlogPost.author}</span>
+                  <span className="text-center">{latestBlogPost.author}</span>
                 </div>
                 <div className="w-full md:w-auto md:flex-1 flex flex-col items-center md:items-start">
                   <span className="font-bold text-gold">Category:</span>
-                  <span>{getFirstWord(latestBlogPost.category)}</span>
+                  <span className="text-center">
+                    {getFirstWord(latestBlogPost.category)}
+                  </span>
                 </div>
               </div>
 
