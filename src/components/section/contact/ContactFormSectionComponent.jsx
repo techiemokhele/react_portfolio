@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactFormSectionComponent = () => {
   const [formData, setFormData] = useState({
@@ -7,85 +9,70 @@ const ContactFormSectionComponent = () => {
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [focused, setFocused] = useState({});
   const [sending, setSending] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: false });
-  };
-
-  const handleFocus = (e) => {
-    setFocused({ ...focused, [e.target.name]: true });
   };
 
   const handleBlur = (e) => {
-    setFocused({ ...focused, [e.target.name]: false });
+    if (!formData[e.target.name].trim()) {
+      toast.error(`${e.target.name} is required`);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {};
+
+    // Validate form fields
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
+      toast.error("All fields are required");
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email.trim())) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Handle form submission with EmailJS
+    setSending(true);
 
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.REACT_APP_EMAILJS_USER_ID;
 
-    // Validate form fields
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is not valid";
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    }
-
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
+      from_name: sanitizeInput(formData.name),
+      from_email: sanitizeInput(formData.email),
       to_name: "Neo Mokhele",
-      message: formData.message,
+      message: sanitizeInput(formData.message),
     };
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      setSubmitted(true);
-    } else {
-      // Handle form submission with EmailJS
-      setSending(true);
-      console.log("Sending email with EmailJS");
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        toast.success("Message sent successfully!");
+        setSending(false);
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+        toast.error("Failed to send message. Please try again later.");
+        setSending(false);
+      });
+  };
 
-      emailjs
-        .send(serviceId, templateId, templateParams, publicKey)
-        .then((response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setSending(true);
-          setSuccess(true);
-          setSubmitted(false);
-          setFormData({ name: "", email: "", message: "" });
-        })
-        .catch((err) => {
-          console.log("FAILED...", err);
-          setSending(false);
-          setSuccess(false);
-        })
-        .finally(() => {
-          setSending(false);
-          setSuccess(true);
-          setSubmitted(true);
-
-          setTimeout(() => {
-            setSuccess(false);
-          }, 3000);
-        });
-    }
+  // Function to sanitize input
+  const sanitizeInput = (input) => {
+    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   };
 
   return (
@@ -115,19 +102,9 @@ const ContactFormSectionComponent = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              onFocus={handleFocus}
               onBlur={handleBlur}
-              className={`w-full text-white border bg-gold ${
-                errors.name
-                  ? "border-red-500"
-                  : focused.name
-                  ? "border-white"
-                  : "border-transparent"
-              } rounded-lg py-2 px-3 focus:outline-none`}
+              className="w-full text-white border bg-yellow-700 border-transparent rounded-lg py-2 px-3 focus:outline-none focus:border-white"
             />
-            {submitted && errors.name && (
-              <p className="text-gold text-sm mt-1">{errors.name}</p>
-            )}
           </div>
 
           <div className="mb-4">
@@ -140,19 +117,9 @@ const ContactFormSectionComponent = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              onFocus={handleFocus}
               onBlur={handleBlur}
-              className={`w-full text-white border bg-gold ${
-                errors.email
-                  ? "border-red-500"
-                  : focused.email
-                  ? "border-white"
-                  : "border-transparent"
-              } rounded-lg py-2 px-3 focus:outline-none`}
+              className="w-full text-white border bg-yellow-700 border-transparent rounded-lg py-2 px-3 focus:outline-none focus:border-white"
             />
-            {submitted && errors.email && (
-              <p className="text-gold text-sm mt-1">{errors.email}</p>
-            )}
           </div>
 
           <div className="mb-8">
@@ -167,41 +134,26 @@ const ContactFormSectionComponent = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              onFocus={handleFocus}
               onBlur={handleBlur}
               rows="5"
-              className={`w-full text-white border bg-gold ${
-                errors.message
-                  ? "border-red-500"
-                  : focused.message
-                  ? "border-white"
-                  : "border-transparent"
-              } rounded-lg py-2 px-3 focus:outline-none`}
+              className="w-full text-white border bg-yellow-700 border-transparent rounded-lg py-2 px-3 focus:outline-none focus:border-white"
             ></textarea>
-            {submitted && errors.message && (
-              <p className="text-white mt-4 p-2 bg-red-700 rounded-t-xl rounded-s-lg">
-                {errors.message}
-              </p>
-            )}
           </div>
 
           <button
             type="submit"
-            className={
+            className={`bg-transparent border-yellow-700 border cursor-pointer text-white capitalize px-6 py-3 rounded-full ${
               sending
-                ? "bg-gold border cursor-pointer text-white capitalize px-6 py-3 rounded-full hover:bg-grey-500"
-                : ` hover:bg-gold border border-yellow-700 hover:border-gold cursor-pointer text-white capitalize px-6 py-3 rounded-full`
-            }
+                ? "opacity-50 cursor-not-allowed bg-yellow-700"
+                : "hover:bg-yellow-700"
+            }`}
+            disabled={sending}
             title={sending ? "Sending Message..." : "Send Message"}
           >
             {sending ? "Sending Message..." : "Send Message"}
           </button>
 
-          {success && (
-            <p className="text-white mt-10 p-4 bg-green-700 rounded-t-xl rounded-s-lg">
-              Message sent successfully!
-            </p>
-          )}
+          <ToastContainer />
         </form>
       </div>
     </div>
