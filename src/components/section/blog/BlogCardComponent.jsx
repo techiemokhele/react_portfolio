@@ -20,7 +20,7 @@ const BlogCardComponent = ({
         {category}
       </div>
 
-      <div className="mb-4 h-[220px] mt-5">
+      <div className=" max-h-[200px] mt-5">
         <img
           src={image}
           alt="Blog Post"

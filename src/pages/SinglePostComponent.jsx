@@ -96,10 +96,16 @@ const SinglePostComponent = () => {
             <span className="text-white font-bold text-[28px]">{author}</span>
           </div>
           <div className="mt-2 flex items-center">
-            <span className="text-gold text-[12px]">{createdAt}</span>
+            <span className="text-white font-semibold text-[12px] px-3 py-0 bg-gold rounded-full">
+              {createdAt}
+            </span>
             <span className="mx-2 text-gold">-</span>
-            <span className="text-gold text-[12px]">{readTime}</span>
+            <span className="text-white font-semibold text-[12px] px-3 py-0 bg-gold rounded-full">
+              {readTime}
+            </span>
           </div>
+
+          <p className="text-white font-semibold mt-5">{excerpt}</p>
           <div className="my-6">
             <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
               {category}
