@@ -75,10 +75,19 @@ const SinglePostComponent = () => {
       />
 
       {/* Image and Description Section */}
-      <div className="flex items-start mt-20">
+      <div className="blog-container flex items-start mt-20">
+        {/* Blog Image */}
+        <div className="blog-image w-1/2 border rounded-md overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[20px] border-b-0">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-[60vh] object-contain"
+          />
+        </div>
+
         {/* Blog Content */}
-        <div className="w-1/2 ml-4">
-          <div className="mt-0 flex items-center">
+        <div className="blog-content w-1/2 ml-4 lg:border-r-[10px] border-r-0 lg:border-t-[10px] border-t-0 border-gold rounded-full">
+          <div className="lg:mt-20 mt-0 flex items-center">
             <img
               src={authorPicture}
               alt={author}
@@ -89,7 +98,7 @@ const SinglePostComponent = () => {
           <div className="mt-2 flex items-center">
             <span className="text-gold text-[12px]">{createdAt}</span>
             <span className="mx-2 text-gold">-</span>
-            <span className="text-gold text-[12px]">{readTime} Read Time</span>
+            <span className="text-gold text-[12px]">{readTime}</span>
           </div>
           <div className="my-6">
             <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
@@ -98,15 +107,6 @@ const SinglePostComponent = () => {
           </div>
 
           <p className="text-sm text-white font-thin">{fullDescription}</p>
-        </div>
-
-        {/* Blog Image */}
-        <div className="w-1/2 border rounded-md overflow-hidden border-gold border-r-[20px] border-l-0">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-[60vh] object-contain"
-          />
         </div>
       </div>
 
