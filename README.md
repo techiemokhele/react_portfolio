@@ -13,8 +13,8 @@ Make sure you have the following installed on your machine:
 ## Cloning the Repository
 
 ```bash
-git clone https://github.com/techiemokhele/traveller.git
-cd travel_ui_ux
+git clone https://github.com/techiemokhele/react_portfolio.git
+cd react_portfolio
 ```
 
 ## Installing
