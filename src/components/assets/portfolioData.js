@@ -43,9 +43,24 @@ export const experiences = [
   },
 ];
 
+const highschool = "/images/highschool.jpg";
+
 export const qualifications = [
   {
     id: 1,
+    schoolName: "Steynsrus Combined School",
+    schoolLogo: highschool,
+    qualification: "Diploma",
+    course: "Matric",
+    location: "Matlwangtlwang, South Africa",
+    startDate: "January 2012",
+    endDate: "December 2015",
+    duties:
+      "I proudly completed my matric at Steynsrus Combined School, where I gained valuable skills in communication, critical thinking, and problem-solving. My education provided a strong foundation in mathematics, science, and computer literacy. Additionally, I developed essential time management and teamwork abilities, preparing me well for both further studies and the professional world. Steynsrus Combined School's supportive environment and dedicated teachers played a crucial role in my academic and personal growth, setting the stage for my future success.",
+    skills: ["Computer Literacy", "Problem-Solving", "Critical Thinking"],
+  },
+  {
+    id: 2,
     schoolName: "Damelin College",
     schoolLogo:
       "https://educor-course-engine.storage.googleapis.com/dam/Diploma-in-information-Technology-with-Elective-in-Artificial-intelligence.jpg",
@@ -63,7 +78,7 @@ export const qualifications = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     schoolName: "University of South Africa",
     schoolLogo:
       "https://educor-course-engine.storage.googleapis.com/dam/Skills-Programme-in-Concept-of-Computer-Architecture.jpg",
@@ -91,6 +106,7 @@ const link = "/images/portfolio/linkedIn.png";
 const fitness = "/images/portfolio/fitness.png";
 const loan = "/images/portfolio/loan.png";
 const music = "/images/portfolio/music.png";
+const traveller = "/images/portfolio/traveller.png";
 
 export const projects = [
   {
@@ -123,7 +139,7 @@ export const projects = [
     projectThumbnail: googleImage,
     title: "API",
     description:
-      "In my world, I unveil the Google-powered search engine I've meticulously crafted: a lightning-fast, intuitive platform meticulously designed for seamless browsing. With a user-centric approach, I've ensured every interaction is intuitive and efficient. From its sleek interface to its robust functionality, this search engine revolutionizes the digital landscape. Experience unparalleled speed and precision as you navigate through the vast expanse of information at your fingertips.",
+      "In my world, I unveil the Google-powered search engine I've meticulously crafted: a lightning-fast, intuitive platform meticulously designed for seamless browsing. With a user-centric approach, I've ensured every interaction is intuitive and efficient. From its sleek interface to its robust functionality, this search engine revolutionises the digital landscape. Experience unparalleled speed and precision as you navigate through the vast expanse of information at your fingertips.",
     githubLink: "#",
     liveLink: "https://neomokhele-googl-demo.web.app/",
     type: "Website",
@@ -147,7 +163,7 @@ export const projects = [
     projectThumbnail: news,
     title: "News Reader AI",
     description:
-      "I am a dedicated Frontend Developer passionate about building interactive and engaging web applications. Explore my projects, including a Google-powered search engine designed for seamless browsing and a personalized, real-time news platform tailored to your interests. My skills in React.js, Tailwind CSS, and Next.js enable me to create intuitive, lightning-fast user experiences. Stay informed effortlessly with my curated news app, and dive into a world of innovative web solutions crafted to meet your needs and exceed your expectations.",
+      "I am a dedicated Frontend Developer passionate about building interactive and engaging web applications. Explore my projects, including a Google-powered search engine designed for seamless browsing and a personalised, real-time news platform tailored to your interests. My skills in React.js, Tailwind CSS, and Next.js enable me to create intuitive, lightning-fast user experiences. Stay informed effortlessly with my curated news app, and dive into a world of innovative web solutions crafted to meet your needs and exceed your expectations.",
     githubLink: "#",
     liveLink: "https://neomokhele-ai-news-reader.netlify.app/",
     type: "Website",
@@ -171,7 +187,7 @@ export const projects = [
     projectThumbnail: fb,
     title: "Social Media",
     description:
-      "Revolutionize your social experience with my Facebook Web App! I've meticulously designed this platform to offer a sleek and modern interface, ensuring lightning-fast performance and seamless connectivity. Whether you're sharing moments, connecting with friends, or exploring new content, this app provides a smooth and immersive experience. Built with cutting-edge technologies like React.js and Tailwind CSS, it's not just another social media app—it's your gateway to a more connected and enjoyable online world. Join now and experience the difference!",
+      "Revolutionise your social experience with my Facebook Web App! I've meticulously designed this platform to offer a sleek and modern interface, ensuring lightning-fast performance and seamless connectivity. Whether you're sharing moments, connecting with friends, or exploring new content, this app provides a smooth and immersive experience. Built with cutting-edge technologies like React.js and Tailwind CSS, it's not just another social media app—it's your gateway to a more connected and enjoyable online world. Join now and experience the difference!",
     githubLink: "#",
     liveLink: "https://neomokhele-fb-demo.web.app/",
     type: "Website",
@@ -189,7 +205,7 @@ export const projects = [
     projectThumbnail: net,
     title: "Video Streaming",
     description:
-      "Stream seamlessly with my Netflix demo, delivering captivating content and personalized recommendations right to your fingertips. Utilizing Next.js, React.js, TailwindCSS, and TypeScript, I have crafted an immersive and dynamic user experience. The sleek UI design is powered by Shadcn, ensuring a visually appealing interface, while Clerk.com provides secure user management. Additionally, Stream's video and audio features enhance the overall experience, making it a perfect solution for online entertainment. Explore the future of streaming with my innovative web application.",
+      "Stream seamlessly with my Netflix demo, delivering captivating content and personalised recommendations right to your fingertips. Utilising Next.js, React.js, TailwindCSS, and TypeScript, I have crafted an immersive and dynamic user experience. The sleek UI design is powered by Shadcn, ensuring a visually appealing interface, while Clerk.com provides secure user management. Additionally, Stream's video and audio features enhance the overall experience, making it a perfect solution for online entertainment. Explore the future of streaming with my innovative web application.",
     githubLink: "#",
     liveLink: "https://netflix-clone-demo-16a71.web.app/",
     type: "Website",
@@ -201,7 +217,7 @@ export const projects = [
     projectThumbnail: edwin,
     title: "Resume",
     description:
-      "I've crafted a dynamic web application for Edwin's resume, blending sleek design with seamless functionality to showcase his career journey. Utilizing HTML, CSS, and JavaScript, I've created an intuitive interface that highlights Edwin's skills, experiences, and projects. This resume app not only looks professional but also ensures an engaging and user-friendly experience. Explore Edwin's career journey through this modern, responsive, and interactive web application, tailored to make a lasting impression.",
+      "I've crafted a dynamic web application for Edwin's resume, blending sleek design with seamless functionality to showcase his career journey. Utilising HTML, CSS, and JavaScript, I've created an intuitive interface that highlights Edwin's skills, experiences, and projects. This resume app not only looks professional but also ensures an engaging and user-friendly experience. Explore Edwin's career journey through this modern, responsive, and interactive web application, tailored to make a lasting impression.",
     githubLink: "#",
     liveLink: "https://techiemokhele.github.io/edwinngwenya_resume.github.io/",
     type: "Website",
@@ -213,7 +229,7 @@ export const projects = [
     projectThumbnail: link,
     title: "Social Media",
     description:
-      "Revolutionize your networking journey through LinkedIn connections, effortlessly enhancing engagement and propelling professional growth. With a strategic blend of communication finesse and networking prowess, I orchestrate seamless interactions, fostering valuable connections. Elevate your professional trajectory with my expertise in leveraging LinkedIn's platform, harnessing its full potential to cultivate meaningful relationships and unlock unprecedented opportunities for advancement and collaboration.",
+      "Revolutionise your networking journey through LinkedIn connections, effortlessly enhancing engagement and propelling professional growth. With a strategic blend of communication finesse and networking prowess, I orchestrate seamless interactions, fostering valuable connections. Elevate your professional trajectory with my expertise in leveraging LinkedIn's platform, harnessing its full potential to cultivate meaningful relationships and unlock unprecedented opportunities for advancement and collaboration.",
     githubLink: "#",
     liveLink: "https://linkedin-demo-b84d4.web.app/",
     type: "Website",
@@ -255,6 +271,18 @@ export const projects = [
     type: "Website",
     languages: ["NextJs", "Tailwind CSS", "Clerk"],
   },
+  {
+    id: 14,
+    projectName: "Traveller",
+    projectThumbnail: traveller,
+    title: "Landing Page",
+    description:
+      "I'm thrilled to introduce Mokhele Traveller, our new web application! Built with Next.js, TailwindCSS, and TypeScript, it features a visually striking hero section to capture attention, a dedicated camp exploration section for discovering various camps, and an engaging travel guide filled with informative content and captivating visuals. Additionally, it includes a feature-rich section with advanced functionalities, a call-to-action encouraging mobile app downloads, and a comprehensive footer with site and social media links for easy navigation. Experience seamless travel planning with Mokhele Traveller!",
+    githubLink: "https://github.com/techiemokhele/traveller",
+    liveLink: "https://neomokhele-traveller.vercel.app/",
+    type: "Website",
+    languages: ["Tailwind CSS", "TypeScript", "NextJs"],
+  },
 ];
 
 const headsetImage = "/images/portfolio/headset.png";
@@ -269,7 +297,7 @@ export const mobileProjects = [
     projectThumbnail: headsetImage,
     title: "E-commerce",
     description:
-      "Dive into the realm of technological bliss with my immersive headset mobile store app. It serves as your gateway to accessing premium sound experiences on-the-go, offering a curated selection of top-quality headsets. Crafted with meticulous attention to detail, this app ensures seamless navigation and an engaging user interface. Elevate your audio journey with cutting-edge technology at your fingertips, revolutionizing the way you experience sound in the digital age.",
+      "Dive into the realm of technological bliss with my immersive headset mobile store app. It serves as your gateway to accessing premium sound experiences on-the-go, offering a curated selection of top-quality headsets. Crafted with meticulous attention to detail, this app ensures seamless navigation and an engaging user interface. Elevate your audio journey with cutting-edge technology at your fingertips, revolutionising the way you experience sound in the digital age.",
     githubLink: "https://github.com/techiemokhele/NMHeadsets",
     liveLink: "#",
     type: "Mobile",
@@ -281,7 +309,7 @@ export const mobileProjects = [
     projectThumbnail: debugImage,
     title: "Code Debug",
     description:
-      "Embark on a journey of coding mastery with my innovative mobile app - Let's Debug! This cutting-edge tool empowers you to streamline your code, conquer bugs, and elevate performance effortlessly. Utilizing state-of-the-art technologies like React Native and Redux, Let's Debug offers a seamless debugging experience like no other. Whether you're a seasoned developer or just starting out, Let's Debug equips you with the tools you need to excel in the world of software development.",
+      "Embark on a journey of coding mastery with my innovative mobile app - Let's Debug! This cutting-edge tool empowers you to streamline your code, conquer bugs, and elevate performance effortlessly. Utilising state-of-the-art technologies like React Native and Redux, Let's Debug offers a seamless debugging experience like no other. Whether you're a seasoned developer or just starting out, Let's Debug equips you with the tools you need to excel in the world of software development.",
     githubLink: "https://github.com/techiemokhele/MokheleStackFlow",
     liveLink: "#",
     type: "Mobile",
@@ -293,7 +321,7 @@ export const mobileProjects = [
     projectThumbnail: linkedIn,
     title: "Social Media",
     description:
-      "Embark on a transformative journey with the LinkedIn Mobile App, your ultimate gateway to boundless professional opportunities. Seamlessly navigate the dynamic landscape of networking, career advancement, and industry insights. Elevate your trajectory with personalized connections, curated content, and powerful tools tailored to your aspirations. Unleash your potential, expand your horizons, and seize every opportunity that awaits in the ever-evolving realm of professional growth.",
+      "Embark on a transformative journey with the LinkedIn Mobile App, your ultimate gateway to boundless professional opportunities. Seamlessly navigate the dynamic landscape of networking, career advancement, and industry insights. Elevate your trajectory with personalised connections, curated content, and powerful tools tailored to your aspirations. Unleash your potential, expand your horizons, and seize every opportunity that awaits in the ever-evolving realm of professional growth.",
     githubLink: "https://github.com/techiemokhele/ChatMediaHub",
     liveLink: "#",
     type: "Mobile",
@@ -325,7 +353,7 @@ export const gameProjects = [
     projectThumbnail: whack,
     title: "Interactive",
     description:
-      "Indulge in the timeless joy of whacking moles online, now revamped with a modern twist in this captivating web application. Seamlessly blending nostalgia with innovation, this addictive game promises endless entertainment. Engage your reflexes, strategize your moves, and immerse yourself in the thrill of the chase. Experience the classic fun reimagined for the digital age, where every click brings a new adventure. Get ready to embark on a mole-whacking journey like never before!",
+      "Indulge in the timeless joy of whacking moles online, now revamped with a modern twist in this captivating web application. Seamlessly blending nostalgia with innovation, this addictive game promises endless entertainment. Engage your reflexes, strategise your moves, and immerse yourself in the thrill of the chase. Experience the classic fun reimagined for the digital age, where every click brings a new adventure. Get ready to embark on a mole-whacking journey like never before!",
     githubLink: "https://github.com/techiemokhele/whack-a-mole-web-app",
     liveLink: "https://techiemokhele.github.io/whack-a-mole-web-app/",
     type: "Game",
