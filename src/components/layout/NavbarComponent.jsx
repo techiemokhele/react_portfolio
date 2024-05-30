@@ -21,7 +21,7 @@ const NavbarComponent = () => {
   return (
     <nav className="bg-black shadow-md">
       {/* Desktop menu */}
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center sticky">
         <div className="flex items-center">
           <Link
             to="/"
