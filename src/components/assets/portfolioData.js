@@ -277,7 +277,7 @@ export const projects = [
     projectThumbnail: traveller,
     title: "Landing Page",
     description:
-      "I'm thrilled to introduce Mokhele Traveller, our new web application! Built with Next.js, TailwindCSS, and TypeScript, it features a visually striking hero section to capture attention, a dedicated camp exploration section for discovering various camps, and an engaging travel guide filled with informative content and captivating visuals. Additionally, it includes a feature-rich section with advanced functionalities, a call-to-action encouraging mobile app downloads, and a comprehensive footer with site and social media links for easy navigation. Experience seamless travel planning with Mokhele Traveller!",
+      "I'm thrilled to introduce Mokhele Traveller, my new web application! Built with Next.js, TailwindCSS, and TypeScript, it features a visually striking hero section to capture attention, a dedicated camp exploration section for discovering various camps, and an engaging travel guide filled with informative content and captivating visuals. Additionally, it includes a feature-rich section with advanced functionalities, a call-to-action encouraging mobile app downloads, and a comprehensive footer with site and social media links for easy navigation. Experience seamless travel planning with Mokhele Traveller!",
     githubLink: "https://github.com/techiemokhele/traveller",
     liveLink: "https://neomokhele-traveller.vercel.app/",
     type: "Website",
