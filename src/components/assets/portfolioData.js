@@ -52,7 +52,7 @@ export const qualifications = [
     schoolLogo: highschool,
     qualification: "Diploma",
     course: "Matric",
-    location: "Matlwangtlwang, South Africa",
+    location: "Steynsrus, South Africa",
     startDate: "January 2012",
     endDate: "December 2015",
     duties:
