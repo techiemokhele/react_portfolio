@@ -107,6 +107,7 @@ const fitness = "/images/portfolio/fitness.png";
 const loan = "/images/portfolio/loan.png";
 const music = "/images/portfolio/music.png";
 const traveller = "/images/portfolio/traveller.png";
+const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
   {
@@ -280,6 +281,18 @@ export const projects = [
       "I'm thrilled to introduce Mokhele Traveller, my new web application! Built with Next.js, TailwindCSS, and TypeScript, it features a visually striking hero section to capture attention, a dedicated camp exploration section for discovering various camps, and an engaging travel guide filled with informative content and captivating visuals. Additionally, it includes a feature-rich section with advanced functionalities, a call-to-action encouraging mobile app downloads, and a comprehensive footer with site and social media links for easy navigation. Experience seamless travel planning with Mokhele Traveller!",
     githubLink: "https://github.com/techiemokhele/traveller",
     liveLink: "https://neomokhele-traveller.vercel.app/",
+    type: "Website",
+    languages: ["Tailwind CSS", "TypeScript", "NextJs"],
+  },
+  {
+    id: 15,
+    projectName: "Rain Clone",
+    projectThumbnail: rain,
+    title: "E-commerce",
+    description:
+      "I'm thrilled to announce that I've successfully built a stunning Rain South Africa website clone using Next.js, TypeScript, and Tailwind CSS! This dynamic project showcases modern web development techniques, combining the power of Next.js with the efficiency of TypeScript and the flexibility of Tailwind CSS to create a visually appealing and highly responsive user experience. Dive in and explore how these cutting-edge technologies bring the Rain SA experience to life like never before! Disclaimer this is for demo purposes only, to showcase my skills and love for coding.",
+    githubLink: "#",
+    liveLink: "https://neomokhele-rain-clone.vercel.app/",
     type: "Website",
     languages: ["Tailwind CSS", "TypeScript", "NextJs"],
   },
