@@ -107,7 +107,7 @@ const fitness = "/images/portfolio/fitness.png";
 const loan = "/images/portfolio/loan.png";
 const music = "/images/portfolio/music.png";
 const traveller = "/images/portfolio/traveller.png";
-const rain = "/images/portfolio/rainClone.png";
+// const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
   {
@@ -284,18 +284,18 @@ export const projects = [
     type: "Website",
     languages: ["Tailwind CSS", "TypeScript", "NextJs"],
   },
-  {
-    id: 15,
-    projectName: "Rain Clone",
-    projectThumbnail: rain,
-    title: "E-commerce",
-    description:
-      "I'm thrilled to announce that I've successfully built a stunning Rain South Africa website clone using Next.js, TypeScript, and Tailwind CSS! This dynamic project showcases modern web development techniques, combining the power of Next.js with the efficiency of TypeScript and the flexibility of Tailwind CSS to create a visually appealing and highly responsive user experience. Dive in and explore how these cutting-edge technologies bring the Rain SA experience to life like never before! Disclaimer this is for demo purposes only, to showcase my skills and love for coding.",
-    githubLink: "#",
-    liveLink: "https://neomokhele-rain-clone.vercel.app/",
-    type: "Website",
-    languages: ["Tailwind CSS", "TypeScript", "NextJs"],
-  },
+  // {
+  //   id: 15,
+  //   projectName: "Rain Clone",
+  //   projectThumbnail: rain,
+  //   title: "E-commerce",
+  //   description:
+  //     "I'm thrilled to announce that I've successfully built a stunning Rain South Africa website clone using Next.js, TypeScript, and Tailwind CSS! This dynamic project showcases modern web development techniques, combining the power of Next.js with the efficiency of TypeScript and the flexibility of Tailwind CSS to create a visually appealing and highly responsive user experience. Dive in and explore how these cutting-edge technologies bring the Rain SA experience to life like never before! Disclaimer this is for demo purposes only, to showcase my skills and love for coding.",
+  //   githubLink: "#",
+  //   liveLink: "https://neomokhele-rain-clone.vercel.app/",
+  //   type: "Website",
+  //   languages: ["Tailwind CSS", "TypeScript", "NextJs"],
+  // },
 ];
 
 const headsetImage = "/images/portfolio/headset.png";
