@@ -16,7 +16,7 @@ import MarqueeComponent from "../components/common/MarqueeComponent";
 import TitleComponent from "../components/common/TitleComponent";
 
 const AboutScreen = () => {
-  const latestProjects = projects.slice(-2).reverse();
+  const latestProjects = projects.slice(-3).reverse();
 
   return (
     <div className="flex flex-col">
