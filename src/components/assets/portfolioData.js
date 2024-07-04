@@ -290,7 +290,7 @@ export const projects = [
     projectName: "Spendio E-commerce",
     projectThumbnail: spendio,
     title: "E-commerce",
-    description: "I am thrilled to share my e-commerce website, Spendio! Built with TypeScript, Tailwind CSS, and NextJS, Spendio offers a seamless and engaging shopping experience. We believe in the power of community-driven commerce and are dedicated to creating a platform that benefits consumers and fosters meaningful connections. Explore Spendio for a shopping experience that truly connects people and products!",
+    description: "I am thrilled to share my e-commerce website, Spendio! Built with TypeScript, Tailwind CSS, and NextJS, Spendio offers a seamless and engaging shopping experience. I believe in the power of community-driven commerce and are dedicated to creating a platform that benefits consumers and fosters meaningful connections. Explore Spendio for a shopping experience that truly connects people and products!",
     githubLink: "https://github.com/techiemokhele/classnova",
     liveLink: "https://neomokhele-spendio.vercel.app",
     type: "Website",
