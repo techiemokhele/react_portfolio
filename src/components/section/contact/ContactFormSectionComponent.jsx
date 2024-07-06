@@ -86,7 +86,7 @@ const ContactFormSectionComponent = () => {
       {/* Left column - Contact Information */}
       <div className="space-y-4">
         <img
-          src="https://images.pngnice.com/download/2116/Zoom-Meeting-PNG-Isolated-Image.png"
+          src="/images/contact.png"
           alt="Contact"
           className="w-full h-auto rounded-md"
         />
@@ -157,11 +157,10 @@ const ContactFormSectionComponent = () => {
 
           <button
             type="submit"
-            className={`bg-transparent border-yellow-700 border cursor-pointer text-white capitalize px-6 py-3 rounded-full ${
-              sending
+            className={`bg-transparent border-yellow-700 border cursor-pointer text-white capitalize px-6 py-3 rounded-full ${sending
                 ? "opacity-50 cursor-not-allowed bg-yellow-700"
                 : "hover:bg-yellow-700"
-            }`}
+              }`}
             disabled={sending}
             title={sending ? "Sending Message..." : "Send Message"}
           >
