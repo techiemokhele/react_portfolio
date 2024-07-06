@@ -19,9 +19,8 @@ const ProjectComponent = ({
       <div className="grid grid-rows-1 md:grid-rows-1 md:grid-cols-2 gap-4 lg:mt-5">
         {/* Text Section */}
         <div
-          className={`bg-transparent p-5 flex flex-col justify-center text-white ${
-            isOddIndex ? "md:order-2" : ""
-          }`}
+          className={`bg-transparent p-5 flex flex-col justify-center text-white ${isOddIndex ? "md:order-2" : ""
+            }`}
         >
           <h2 className="lg:text-4xl text-3xl font-bold text-gold mb-4">
             {projectName}
@@ -67,9 +66,8 @@ const ProjectComponent = ({
 
         {/* Image Section */}
         <div
-          className={`lg:p-5 p-3 flex items-center justify-center hover:shadow-md hover:shadow-yellow-700 ${
-            isOddIndex ? "md:order-1" : ""
-          }`}
+          className={`lg:p-5 p-3 flex items-center justify-center hover:shadow-md hover:shadow-yellow-700 ${isOddIndex ? "md:order-1" : ""
+            }`}
         >
           <img
             src={projectThumbnail}
