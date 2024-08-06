@@ -305,7 +305,7 @@ export const projects = [
     description: "I am excited to announce the release of Neo M. Auto Repairs Notes App! This app is designed to streamline and simplify note management within auto repair shops. Admins and managers have full CRUD functions, while employees can view and create their notes. Managers and admins can manage users and notes efficiently. The app includes a functional contact section and is built with the MERN stack. Credentials of admin: Username - Jeffs, Password - 1234. Credentials of employee: Username - Spha, Password - 1234",
     githubLink: "https://github.com/techiemokhele/technotes-mern-stack-frontend",
     liveLink: "https://neomokhele-auto-repairs-notes.onrender.com/",
-    type: "Application",
+    type: "Website",
     languages: ["MongoDB", "Express.js", "React.js", "Node.js"],
   }
 ];
