@@ -109,6 +109,7 @@ const music = "/images/portfolio/music.png";
 const traveller = "/images/portfolio/traveller.png";
 const spendio = "/images/portfolio/spendio.png";
 const auto = "/images/portfolio/auto.png";
+const goDad = "/images/portfolio/goDad.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -307,6 +308,17 @@ export const projects = [
     liveLink: "https://neomokhele-auto-repairs-notes.onrender.com/",
     type: "Website",
     languages: ["MongoDB", "Express.js", "React.js", "Node.js"],
+  },
+  {
+    id: 17,
+    projectName: "GoDaddy Clone",
+    projectThumbnail: goDad,
+    title: "GoDad",
+    description: "GoDad Clone is a sophisticated platform designed to streamline and enhance your web development workflow, offering a modern and efficient approach to managing projects. Built using Next.js, React.js, and TailwindCSS, this platform leverages the latest technologies to deliver a seamless, responsive user experience. The integration of TailwindCSS ensures a clean and customisable design, while the use of Next.js boosts performance through server-side rendering and static site generation. React.js powers the dynamic and interactive components, allowing for smooth and fast navigation.",
+    githubLink: "https://github.com/techiemokhele/godad_clone",
+    liveLink: "https://neomokhele-godad-clone.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "React.js", "Tailwind CSS"],
   }
 ];
 
