@@ -110,6 +110,7 @@ const traveller = "/images/portfolio/traveller.png";
 const spendio = "/images/portfolio/spendio.png";
 const auto = "/images/portfolio/auto.png";
 const goDad = "/images/portfolio/goDad.png";
+const weatherApi = "/images/portfolio/weatherApi.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -319,6 +320,17 @@ export const projects = [
     liveLink: "https://neomokhele-godad-clone.vercel.app/",
     type: "Website",
     languages: ["Next.js", "React.js", "Tailwind CSS"],
+  },
+  {
+    id: 18,
+    projectName: "Weather Forecast App",
+    projectThumbnail: weatherApi,
+    title: "Weather Forecast",
+    description: "This project involves building a weather application that fetches and displays location-based weather data, city selection, and other UI components such as dark/light mode toggles and a custom-tailored design using Tailwind CSS.",
+    githubLink: "https://github.com/techiemokhele/weather_app",
+    liveLink: "https://neomokhele-weather-app.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
   }
 ];
 
