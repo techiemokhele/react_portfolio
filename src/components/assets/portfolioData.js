@@ -111,6 +111,7 @@ const spendio = "/images/portfolio/spendio.png";
 const auto = "/images/portfolio/auto.png";
 const goDad = "/images/portfolio/goDad.png";
 const weatherApi = "/images/portfolio/weatherApi.png";
+const gymBuddies = "/images/portfolio/GymBuddies.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -331,6 +332,17 @@ export const projects = [
     liveLink: "https://neomokhele-weather-app.vercel.app/",
     type: "Website",
     languages: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
+  },
+  {
+    id: 19,
+    projectName: "GymBuddies Web App",
+    projectThumbnail: gymBuddies,
+    title: "GymBuddies",
+    description: "GymBuddies is a web-based application designed to provide personalised workout routines, easy customisation options, and a seamless experience for users looking to elevate their fitness journey.",
+    githubLink: "https://github.com/techiemokhele/gymbuddies",
+    liveLink: "https://neomokhele-gymbuddies.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
   }
 ];
 
