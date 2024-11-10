@@ -112,6 +112,7 @@ const auto = "/images/portfolio/auto.png";
 const goDad = "/images/portfolio/goDad.png";
 const weatherApi = "/images/portfolio/weatherApi.png";
 const gymBuddies = "/images/portfolio/GymBuddies.png";
+const highFiveVideos = "/images/portfolio/highFiveVideos.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -335,6 +336,17 @@ export const projects = [
   },
   {
     id: 19,
+    projectName: "High Five Videos",
+    projectThumbnail: highFiveVideos,
+    title: "High Five Videos",
+    description: "The goal of this project was to accurately recreate the provided design using React along with Tailwind CSS for styling. Paid close attention to details like spacing, fonts, and colors, and aimed to deliver a pixel-perfect or near-perfect match of the Figma design across various screen sizes.",
+    githubLink: "https://github.com/techiemokhele/high-five-videos",
+    liveLink: "https://neomokhele-high-five-videos.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 20,
     projectName: "GymBuddies Web App",
     projectThumbnail: gymBuddies,
     title: "GymBuddies",
