@@ -113,7 +113,7 @@ const goDad = "/images/portfolio/goDad.png";
 const weatherApi = "/images/portfolio/weatherApi.png";
 const gymBuddies = "/images/portfolio/GymBuddies.png";
 const highFiveVideos = "/images/portfolio/highFiveVideos.png";
-const miningApp = "/images/portfolio/miniApi.png"
+const miningApp = "/images/portfolio/miniApi.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -356,7 +356,7 @@ export const projects = [
     liveLink: "https://neomokhele-gymbuddies.vercel.app/",
     type: "Website",
     languages: ["Next.js", "TypeScript", "Tailwind CSS"],
-  }
+  },
   {
     id: 21,
     projectName: "Neoteric Mining App",
