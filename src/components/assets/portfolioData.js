@@ -111,6 +111,7 @@ const spendio = "/images/portfolio/spendio.png";
 const auto = "/images/portfolio/auto.png";
 const goDad = "/images/portfolio/goDad.png";
 const weatherApi = "/images/portfolio/weatherApi.png";
+const miningApp = "/images/portfolio/miniApi.png"
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -331,6 +332,17 @@ export const projects = [
     liveLink: "https://neomokhele-weather-app.vercel.app/",
     type: "Website",
     languages: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
+  },
+  {
+    id: 19,
+    projectName: "Neoteric Mining App",
+    projectThumbnail: miningApp,
+    title: "Neoteric Mining Platform",
+    description: "",
+    githubLink: "https://github.com/techiemokhele/neoteric_modern_website",
+    liveLink: "https://neomokhele-neoteric.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
   }
 ];
 
