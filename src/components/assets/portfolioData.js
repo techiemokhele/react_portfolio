@@ -113,7 +113,7 @@ const goDad = "/images/portfolio/goDad.png";
 const weatherApi = "/images/portfolio/weatherApi.png";
 const gymBuddies = "/images/portfolio/GymBuddies.png";
 const highFiveVideos = "/images/portfolio/highFiveVideos.png";
-const miningApp = "/images/portfolio/miniApi.png";
+const miniApp = "/images/portfolio/miniApp.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -360,7 +360,7 @@ export const projects = [
   {
     id: 21,
     projectName: "Neoteric Mining App",
-    projectThumbnail: miningApp,
+    projectThumbnail: miniApp,
     title: "Neoteric Mining",
     description: "A modern company landing page showcasing Neoteric's mining equipment and services. Features responsive design with equipment galleries, company information sections, contact forms with email integration, and newsletter subscription functionality. Built with server-side rendering for optimal performance and includes dark/light mode toggles with custom-tailored design using Tailwind CSS.",
     githubLink: "https://github.com/techiemokhele/neoteric_modern_website",
