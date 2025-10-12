@@ -4,7 +4,7 @@ const tools = [
     alt: "html,css,js",
   },
   {
-    src: "https://static-00.iconduck.com/assets.00/tailwind-css-icon-2048x1229-u8dzt4uh.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png",
     alt: "tailwind",
   },
   {
@@ -49,8 +49,12 @@ const tools = [
     alt: "Wix",
   },
   {
-    src: "https://seeklogo.com/images/G/github-icon-logo-E5FF767098-seeklogo.com.png",
+    src: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png",
     alt: "Github",
+  },
+  {
+    src: "https://swyger.agglomy.com/images-ee/press/square-logo-pink.svg",
+    alt: "Appwrite",
   },
 ];
 

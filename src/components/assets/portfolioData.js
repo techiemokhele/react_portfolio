@@ -44,6 +44,8 @@ export const experiences = [
 ];
 
 const highschool = "/images/highschool.jpg";
+const campus = "/images/campus.jpg";
+const unisa = "/images/unisa.jpg";
 
 export const qualifications = [
   {
@@ -62,8 +64,7 @@ export const qualifications = [
   {
     id: 2,
     schoolName: "Damelin College",
-    schoolLogo:
-      "https://educor-course-engine.storage.googleapis.com/dam/Diploma-in-information-Technology-with-Elective-in-Artificial-intelligence.jpg",
+    schoolLogo: campus,
     qualification: "Diploma",
     course: "Information Technology",
     location: "Boksburg, South Africa",
@@ -80,8 +81,7 @@ export const qualifications = [
   {
     id: 3,
     schoolName: "University of South Africa",
-    schoolLogo:
-      "https://educor-course-engine.storage.googleapis.com/dam/Skills-Programme-in-Concept-of-Computer-Architecture.jpg",
+    schoolLogo: unisa,
     qualification: "Certificate",
     course: "Developing Web Application with PHP",
     location: "Roodepoort, South Africa",
@@ -108,6 +108,13 @@ const loan = "/images/portfolio/loan.png";
 const music = "/images/portfolio/music.png";
 const traveller = "/images/portfolio/traveller.png";
 const spendio = "/images/portfolio/spendio.png";
+const auto = "/images/portfolio/auto.png";
+const goDad = "/images/portfolio/goDad.png";
+const weatherApi = "/images/portfolio/weatherApi.png";
+const gymBuddies = "/images/portfolio/GymBuddies.png";
+const highFiveVideos = "/images/portfolio/highFiveVideos.png";
+const miniApp = "/images/portfolio/miniApp.png";
+const mokheleMediaStorage = "/images/portfolio/mokhele-media-storage.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -290,11 +297,104 @@ export const projects = [
     projectName: "Spendio E-commerce",
     projectThumbnail: spendio,
     title: "E-commerce",
-    description: "I am thrilled to share my e-commerce website, Spendio! Built with TypeScript, Tailwind CSS, and NextJS, Spendio offers a seamless and engaging shopping experience. We believe in the power of community-driven commerce and are dedicated to creating a platform that benefits consumers and fosters meaningful connections. Explore Spendio for a shopping experience that truly connects people and products!",
+    description:
+      "I am thrilled to share my e-commerce website, Spendio! Built with TypeScript, Tailwind CSS, and NextJS, Spendio offers a seamless and engaging shopping experience. I believe in the power of community-driven commerce and are dedicated to creating a platform that benefits consumers and fosters meaningful connections. Explore Spendio for a shopping experience that truly connects people and products!",
     githubLink: "https://github.com/techiemokhele/classnova",
     liveLink: "https://neomokhele-spendio.vercel.app",
     type: "Website",
     languages: ["Tailwind CSS", "TypeScript", "NextJs"],
+  },
+  {
+    id: 16,
+    projectName: "Neo M. Auto Repairs Notes App",
+    projectThumbnail: auto,
+    title: "Auto Repairs Notes App",
+    description:
+      "I am excited to announce the release of Neo M. Auto Repairs Notes App! This app is designed to streamline and simplify note management within auto repair shops. Admins and managers have full CRUD functions, while employees can view and create their notes. Managers and admins can manage users and notes efficiently. The app includes a functional contact section and is built with the MERN stack. Credentials of admin: Username - Jeffs, Password - 1234. Credentials of employee: Username - Spha, Password - 1234",
+    githubLink:
+      "https://github.com/techiemokhele/technotes-mern-stack-frontend",
+    liveLink: "https://neomokhele-auto-repairs-notes.onrender.com/",
+    type: "Website",
+    languages: ["MongoDB", "Express.js", "React.js", "Node.js"],
+  },
+  {
+    id: 17,
+    projectName: "GoDaddy Clone",
+    projectThumbnail: goDad,
+    title: "GoDad",
+    description:
+      "GoDad Clone is a sophisticated platform designed to streamline and enhance your web development workflow, offering a modern and efficient approach to managing projects. Built using Next.js, React.js, and TailwindCSS, this platform leverages the latest technologies to deliver a seamless, responsive user experience. The integration of TailwindCSS ensures a clean and customisable design, while the use of Next.js boosts performance through server-side rendering and static site generation. React.js powers the dynamic and interactive components, allowing for smooth and fast navigation.",
+    githubLink: "https://github.com/techiemokhele/godad_clone",
+    liveLink: "https://neomokhele-godad-clone.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "React.js", "Tailwind CSS"],
+  },
+  {
+    id: 18,
+    projectName: "Weather Forecast App",
+    projectThumbnail: weatherApi,
+    title: "Weather Forecast",
+    description:
+      "This project involves building a weather application that fetches and displays location-based weather data, city selection, and other UI components such as dark/light mode toggles and a custom-tailored design using Tailwind CSS.",
+    githubLink: "https://github.com/techiemokhele/weather_app",
+    liveLink: "https://neomokhele-weather-app.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
+  },
+  {
+    id: 19,
+    projectName: "High Five Videos",
+    projectThumbnail: highFiveVideos,
+    title: "High Five Videos",
+    description:
+      "The goal of this project was to accurately recreate the provided design using React along with Tailwind CSS for styling. Paid close attention to details like spacing, fonts, and colors, and aimed to deliver a pixel-perfect or near-perfect match of the Figma design across various screen sizes.",
+    githubLink: "https://github.com/techiemokhele/high-five-videos",
+    liveLink: "https://neomokhele-high-five-videos.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 20,
+    projectName: "GymBuddies Web App",
+    projectThumbnail: gymBuddies,
+    title: "GymBuddies",
+    description:
+      "GymBuddies is a web-based application designed to provide personalised workout routines, easy customisation options, and a seamless experience for users looking to elevate their fitness journey.",
+    githubLink: "https://github.com/techiemokhele/gymbuddies",
+    liveLink: "https://neomokhele-gymbuddies.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 21,
+    projectName: "Neoteric Mining App",
+    projectThumbnail: miniApp,
+    title: "Neoteric Mining",
+    description:
+      "A modern company landing page showcasing Neoteric's mining equipment and services. Features responsive design with equipment galleries, company information sections, contact forms with email integration, and newsletter subscription functionality. Built with server-side rendering for optimal performance and includes dark/light mode toggles with custom-tailored design using Tailwind CSS.",
+    githubLink: "https://github.com/techiemokhele/neoteric_modern_website",
+    liveLink: "https://neomokhele-neoteric.vercel.app/",
+    type: "Website",
+    languages: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 21,
+    projectName: "Mokhele Media Storage",
+    projectThumbnail: mokheleMediaStorage,
+    title: "Mokhele Media Storage",
+    description:
+      "Effortlessly upload, organise, and share your files with Mokhele Media Storage. A secure, fast, and reliable cloud storage platform built with Next.js and Appwrite for seamless file management.",
+    githubLink: "https://github.com/techiemokhele/mokhele-media-storage",
+    liveLink: "https://mokhele-media-storage.vercel.app/",
+    type: "Website",
+    languages: [
+      "React 19",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Appwrite",
+      "ShadCn",
+    ],
   },
 ];
 
