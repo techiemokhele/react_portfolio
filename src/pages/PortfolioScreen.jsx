@@ -68,9 +68,8 @@ const PortfolioScreen = () => {
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className={`w-[90%] lg:w-[60%]  text-white border bg-yellow-700 mb-4 ${
-            focused.name ? "border-white" : "border-transparent"
-          } rounded-lg py-2 px-4 focus:outline-none placeholder-white`}
+          className={`w-[90%] lg:w-[60%]  text-white border bg-yellow-700 mb-4 ${focused.name ? "border-white" : "border-transparent"
+            } rounded-lg py-2 px-4 focus:outline-none placeholder-white`}
         />
       </div>
 
@@ -183,7 +182,7 @@ const PortfolioScreen = () => {
                       expandedCategory === category.toLowerCase()
                         ? projectArray.length
                         : 2
-                    )
+                    ).reverse()
                     .map((project, index) => (
                       <ProjectComponent
                         key={index}
