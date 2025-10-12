@@ -49,11 +49,10 @@ const NavbarComponent = () => {
               key={page}
               to={`/${page === "home" ? "" : page}`}
               onClick={handleNavClick}
-              className={`px-3 py-2 rounded-lg ${
-                location.pathname.includes(page)
-                  ? "text-white w-[100px] text-center border-b-2 border-yellow-400"
-                  : "text-white hover:bg-gold hover:text-white"
-              }`}
+              className={`px-3 py-2 rounded-lg ${location.pathname.includes(page)
+                ? "text-white w-[100px] text-center border-b-2 border-yellow-400"
+                : "text-white hover:bg-gold hover:text-white"
+                }`}
             >
               {page.charAt(0).toUpperCase() + page.slice(1)}
             </Link>
@@ -63,8 +62,8 @@ const NavbarComponent = () => {
         {/* Show the "Resume" button only if the email has been sent */}
         {emailSent && (
           <ButtonComponent
-            download="Neo_Mokhele_Resume.pdf"
-            href={"/resume/Neo_Mokhele_Resume.pdf"}
+            download="NeoMokhele_Resume_Latest.pdf"
+            href={"/resume/NeoMokhele_Resume_Latest.pdf"}
             normal={false}
             text={"Resume"}
             hidden={true}
@@ -96,9 +95,8 @@ const NavbarComponent = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64 h-[92.4%] transition-opacity duration-500 ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden bg-black shadow-lg absolute top-0 right-0 mt-12 w-64 h-[92.4%] transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         style={{ zIndex: "30" }}
       >
         {["about", "portfolio", "blog", "contact"].map((page) => (
@@ -106,11 +104,10 @@ const NavbarComponent = () => {
             key={page}
             to={`/${page === "home" ? "" : page}`}
             onClick={() => handleNavClick(page)}
-            className={`block px-4 py-5  ${
-              location.pathname.includes(page)
-                ? "text-white border-x-2 border-x-gold"
-                : "text-white hover:bg-yellow-700"
-            }`}
+            className={`block px-4 py-5  ${location.pathname.includes(page)
+              ? "text-white border-x-2 border-x-gold"
+              : "text-white hover:bg-yellow-700"
+              }`}
           >
             {page.charAt(0).toUpperCase() + page.slice(1)}
           </Link>
@@ -118,8 +115,8 @@ const NavbarComponent = () => {
         <div className="mt-4 absolute bottom-8 px-3 right-4">
           {emailSent && (
             <ButtonComponent
-              download="Neo_Mokhele_Resume.pdf"
-              href={"/resume/Neo_Mokhele_Resume.pdf"}
+              download="NeoMokhele_Resume_Latest.pdf"
+              href={"/resume/NeoMokhele_Resume_Latest.pdf"}
               normal={false}
               text={"Download My Resume"}
               hidden={false}
