@@ -1,10 +1,6 @@
-// src/components/ContactFormSectionComponent.jsx
-
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { triggerResumeDownload } from "../../utils/utils";
 
 const ContactFormSectionComponent = () => {
@@ -26,10 +22,9 @@ const ContactFormSectionComponent = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate form fields
     if (
       !formData.name.trim() ||
       !formData.email.trim() ||
@@ -39,46 +34,45 @@ const ContactFormSectionComponent = () => {
       return;
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email.trim())) {
       toast.error("Please enter a valid email address");
       return;
     }
 
-    // Handle form submission with EmailJS
     setSending(true);
 
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_USER_ID;
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.REACT_APP_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: "New Contact Form Submission from Portfolio",
+        }),
+      });
 
-    const templateParams = {
-      from_name: sanitizeInput(formData.name),
-      from_email: sanitizeInput(formData.email),
-      to_name: "Neo Mokhele",
-      message: sanitizeInput(formData.message),
-    };
+      const result = await response.json();
 
-    emailjs
-      .send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+      if (result.success) {
         toast.success("Message sent successfully!");
-        setSending(false);
         setFormData({ name: "", email: "", message: "" });
         setEmailSent(true);
-      })
-      .catch((err) => {
-        console.log("FAILED...", err);
-        toast.error("Failed to send message. Please try again later.");
-        setSending(false);
-      });
-  };
-
-  // Function to sanitize input
-  const sanitizeInput = (input) => {
-    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -86,15 +80,15 @@ const ContactFormSectionComponent = () => {
       {/* Left column - Contact Information */}
       <div className="space-y-4">
         <img
-          src="/images/contact.png"
+          src="/images/contact.jpg"
           alt="Contact"
-          className="w-full h-auto rounded-md"
+          className="w-full h-auto object-cover rounded-md"
         />
       </div>
 
       {/* Right column - Form */}
       <div>
-        <h1 className="lg:text-6xl text-[38px]  text-white font-bold lg:mb-10 mb-5">
+        <h1 className="lg:text-6xl text-[38px] text-white font-bold lg:mb-10 mb-5">
           Let's Have A Chat
         </h1>
 
@@ -157,10 +151,11 @@ const ContactFormSectionComponent = () => {
 
           <button
             type="submit"
-            className={`bg-transparent border-yellow-700 border cursor-pointer text-white capitalize px-6 py-3 rounded-full ${sending
+            className={`bg-transparent border-yellow-700 border cursor-pointer text-white capitalize px-6 py-3 rounded-full ${
+              sending
                 ? "opacity-50 cursor-not-allowed bg-yellow-700"
                 : "hover:bg-yellow-700"
-              }`}
+            }`}
             disabled={sending}
             title={sending ? "Sending Message..." : "Send Message"}
           >
