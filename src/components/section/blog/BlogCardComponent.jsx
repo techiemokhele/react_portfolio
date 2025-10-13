@@ -1,4 +1,3 @@
-import React from "react";
 import { truncateText, truncateTitle } from "../../utils/utils";
 
 const BlogCardComponent = ({

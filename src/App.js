@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -37,7 +36,10 @@ const AppContent = () => {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<SinglePostComponent />} />
+              <Route
+                path="/blog/:id/:slug?"
+                element={<SinglePostComponent />}
+              />
 
               <Route
                 path="*"
