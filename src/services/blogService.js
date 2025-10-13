@@ -32,6 +32,8 @@ const transformArticle = (article) => {
     createdAt: formatDate(article.published_at || article.created_at),
     username: article.user?.username || "dev",
     tags: article.tag_list || [],
+    comments: article.comments_count || 0,
+    reactions: article.public_reactions_count || 0,
   };
 };
 

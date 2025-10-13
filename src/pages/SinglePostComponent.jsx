@@ -8,6 +8,7 @@ import NotFoundComponent from "../components/common/NotFoundComponent";
 import LoadingComponent from "../components/common/LoadingComponent";
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
 import TitleComponent from "../components/common/TitleComponent";
+import { Book, Calendar, HandHeart, MessageCircle } from "lucide-react";
 
 const SinglePostComponent = () => {
   const { id } = useParams();
@@ -66,9 +67,10 @@ const SinglePostComponent = () => {
     image,
     excerpt,
     fullDescription,
-    category,
     readTime,
     authorPicture,
+    comments,
+    reactions,
   } = post;
 
   const handleReadMore = (article) => {
@@ -88,36 +90,50 @@ const SinglePostComponent = () => {
         </div>
 
         <div className="blog-content w-full rounded-full">
-          <div className="lg:mt-20 mt-0 flex items-center">
-            <div className="pt-3">
-              <img
-                src={authorPicture}
-                alt={author}
-                className="w-12 h-12 rounded-full mr-2 object-cover"
-              />
-            </div>
-            <div>
-              <span className="text-white font-bold text-[28px]">{author}</span>
-              <div className="flex items-center">
-                <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
-                  {readTime}
+          <div className="flex flex-row justify-between items-center lg:mt-20 mt-0">
+            <div className=" flex items-center">
+              <div className="pt-3">
+                <img
+                  src={authorPicture}
+                  alt={author}
+                  className="w-20 h-20 rounded-full mr-2 object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-white font-bold text-[28px]">
+                  {author}
                 </span>
-                <span className="mx-2 text-gold">-</span>
-                <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
-                  {createdAt}
-                </span>
+                <div className="flex items-center">
+                  <span className="flex flex-row gap-2 items-center bg-gold text-white py-1 px-2 rounded-full text-xs">
+                    <Book size={16} /> {readTime}
+                  </span>
+                  <span className="mx-2 text-gold">-</span>
+                  <span className="flex flex-row gap-2 items-center bg-gold text-white py-1 px-2 rounded-full text-xs">
+                    <Calendar size={16} />
+                    {createdAt}
+                  </span>
+                </div>
               </div>
             </div>
+
+            <div className="flex flex-row items-center gap-6">
+              <div className="flex flex-row gap-2 items-center">
+                <HandHeart color="#fff" size={30} />{" "}
+                <p className="text-white">{reactions}</p>
+              </div>
+              <div className="flex flex-row gap-2 items-center">
+                <MessageCircle color="#fff" size={30} />{" "}
+                <p className="text-white">{comments}</p>
+              </div>
+              <div className="flex flex-row gap-2 items-center"></div>
+            </div>
           </div>
 
-          <div className="flex justify-between items-center my-6 px-3">
-            <div className="flex items-center"></div>
-            <span className="bg-gold text-white py-1 px-2 rounded-full text-xs">
-              {category}
-            </span>
-          </div>
+          <h2 className="text-white text-3xl lg:text-4xl font-bold mt-12">
+            {title}
+          </h2>
 
-          <p className="text-white text-xl lg:text-2xl font-semibold my-4">
+          <p className="text-white text-xl lg:text-2xl font-semibold my-6">
             {excerpt}
           </p>
           <div
