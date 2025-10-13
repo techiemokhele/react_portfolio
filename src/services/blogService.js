@@ -17,7 +17,8 @@ const transformArticle = (article) => {
     title: article.title,
     slug: article.slug,
     excerpt: article.description || article.title,
-    fullDescription: article.body_markdown || article.description,
+    fullDescription:
+      article.body_html || article.body_markdown || article.description,
     category:
       article.tag_list?.[0] ||
       article.tags?.split(",")[0]?.trim() ||

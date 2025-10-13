@@ -6,7 +6,6 @@ import {
 } from "../services/blogService";
 import NotFoundComponent from "../components/common/NotFoundComponent";
 import LoadingComponent from "../components/common/LoadingComponent";
-import BlogSingTopBannerComponent from "../components/section/blog/BlogSingTopBannerComponent";
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
 import TitleComponent from "../components/common/TitleComponent";
 
@@ -79,16 +78,8 @@ const SinglePostComponent = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <BlogSingTopBannerComponent
-        author={author}
-        excerpt={excerpt}
-        title={title}
-        category={category}
-        createdAt={createdAt}
-      />
-
-      <div className="blog-container flex flex-col lg:flex-row items-start mt-20 gap-4">
-        <div className="blog-image w-full lg:w-1/2 border rounded-md overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[20px] border-b-0">
+      <div className="blog-container flex flex-col items-start mt-20 gap-4">
+        <div className="blog-image w-full border rounded-md overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[20px] border-b-0">
           <img
             src={image}
             alt={title}
@@ -96,7 +87,7 @@ const SinglePostComponent = () => {
           />
         </div>
 
-        <div className="blog-content w-full lg:w-1/2 lg:ml-4 lg:border-r-[10px] border-r-0 lg:border-t-[10px] border-t-0 border-gold rounded-full">
+        <div className="blog-content w-full rounded-full">
           <div className="lg:mt-20 mt-0 flex items-center">
             <div className="pt-3">
               <img
@@ -129,9 +120,10 @@ const SinglePostComponent = () => {
           <p className="text-white text-xl lg:text-2xl font-semibold my-4">
             {excerpt}
           </p>
-          <p className="text-[12px] lg:text-sm text-white font-thin whitespace-pre-line">
-            {fullDescription}
-          </p>
+          <div
+            className="article-content text-white text-sm lg:text-base leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: fullDescription }}
+          />
         </div>
       </div>
 
