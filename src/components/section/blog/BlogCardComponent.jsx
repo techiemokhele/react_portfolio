@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Languages } from "lucide-react";
 import { truncateText, truncateTitle } from "../../utils/utils";
 
 const BlogCardComponent = ({
@@ -9,10 +11,19 @@ const BlogCardComponent = ({
   createdAt,
   title,
   excerpt,
+  originalTitle,
+  originalExcerpt,
+  isTranslated,
   onClick,
 }) => {
-  const truncatedExcerpt = truncateText(excerpt, 2);
-  const truncatedTitle = truncateTitle(title);
+  const [showOriginal, setShowOriginal] = useState(false);
+
+  const displayTitle = showOriginal && originalTitle ? originalTitle : title;
+  const displayExcerpt =
+    showOriginal && originalExcerpt ? originalExcerpt : excerpt;
+
+  const truncatedExcerpt = truncateText(displayExcerpt, 2);
+  const truncatedTitle = truncateTitle(displayTitle);
 
   return (
     <div
@@ -22,6 +33,19 @@ const BlogCardComponent = ({
       <div className="absolute top-2 right-2 bg-gold hover:bg-yellow-700 hover:shadow-md hover:shadow-gray-700 text-white text-xs font-bold py-1 px-3 rounded">
         {category}
       </div>
+
+      {isTranslated && originalTitle && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowOriginal(!showOriginal);
+          }}
+          className="absolute top-2 left-2 bg-white hover:bg-gray-200 text-gold p-2 rounded-full shadow-md transition-all duration-200 z-10"
+          title={showOriginal ? "Show English" : "Show Original Language"}
+        >
+          <Languages size={16} />
+        </button>
+      )}
 
       <div className="pt-5 justify-center items-center flex">
         <img
@@ -44,6 +68,14 @@ const BlogCardComponent = ({
           <span className="text-white font-semibold text-xs">{createdAt}</span>
         </div>
       </div>
+
+      {isTranslated && (
+        <div className="mb-2">
+          <span className="text-xs bg-white text-gold px-2 py-1 rounded-full">
+            {showOriginal ? "Original" : "Translated"}
+          </span>
+        </div>
+      )}
 
       <h2 className="text-lg font-semibold mb-2 text-white">
         {truncatedTitle}

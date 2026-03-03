@@ -34,6 +34,7 @@ const transformArticle = (article) => {
     tags: article.tag_list || [],
     comments: article.comments_count || 0,
     reactions: article.public_reactions_count || 0,
+    languages: article.languages || [],
   };
 };
 

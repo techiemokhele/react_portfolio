@@ -4,11 +4,18 @@ import {
   fetchArticleById,
   fetchRelatedArticles,
 } from "../services/blogService";
+import { translateArticle } from "../services/translationService";
 import NotFoundComponent from "../components/common/NotFoundComponent";
 import LoadingComponent from "../components/common/LoadingComponent";
 import BlogCardComponent from "../components/section/blog/BlogCardComponent";
 import TitleComponent from "../components/common/TitleComponent";
-import { Book, Calendar, HandHeart, MessageCircle } from "lucide-react";
+import {
+  Book,
+  Calendar,
+  HandHeart,
+  MessageCircle,
+  Languages,
+} from "lucide-react";
 
 const SinglePostComponent = () => {
   const { id } = useParams();
@@ -17,6 +24,7 @@ const SinglePostComponent = () => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showOriginal, setShowOriginal] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -25,7 +33,9 @@ const SinglePostComponent = () => {
 
       try {
         const foundPost = await fetchArticleById(id);
-        setPost(foundPost);
+        const translatedPost = await translateArticle(foundPost);
+        setPost(translatedPost);
+
         const related = await fetchRelatedArticles(foundPost, 6);
         setRelatedPosts(related);
       } catch (err) {
@@ -71,7 +81,17 @@ const SinglePostComponent = () => {
     authorPicture,
     comments,
     reactions,
+    originalTitle,
+    originalExcerpt,
+    originalDescription,
+    isTranslated,
   } = post;
+
+  const displayTitle = showOriginal && originalTitle ? originalTitle : title;
+  const displayExcerpt =
+    showOriginal && originalExcerpt ? originalExcerpt : excerpt;
+  const displayDescription =
+    showOriginal && originalDescription ? originalDescription : fullDescription;
 
   const handleReadMore = (article) => {
     navigate(`/blog/${article.id}/${article.slug}`);
@@ -84,26 +104,26 @@ const SinglePostComponent = () => {
         <div className="blog-image w-full border rounded-md overflow-hidden border-gold lg:border-l-[20px] lg:border-r-0 lg:border-t-2 lg:border-b-[20px] border-t-[20px] border-b-0">
           <img
             src={image}
-            alt={title}
+            alt={displayTitle}
             className="w-full h-[60vh] object-contain"
           />
         </div>
 
         <div className="blog-content w-full rounded-full">
-          <div className="flex flex-row justify-between items-center lg:mt-20 mt-0">
-            <div className=" flex items-center">
+          <div className="flex md:flex-row flex-col justify-between items-center lg:mt-20 mt-0 md:gap-0 gap-6">
+            <div className="flex items-center gap-4">
               <div className="pt-3">
                 <img
                   src={authorPicture}
                   alt={author}
-                  className="w-20 h-20 rounded-full mr-2 object-cover"
+                  className="w-12 h-12 md:w-20 md:h-20 rounded-full mr-2 object-cover"
                 />
               </div>
               <div>
-                <span className="text-white font-bold text-[28px]">
+                <span className="text-white font-bold md:text-[28px] text-md">
                   {author}
                 </span>
-                <div className="flex items-center">
+                <div className="flex items-center md:pt-0 pt-4">
                   <span className="flex flex-row gap-2 items-center bg-gold text-white py-1 px-2 rounded-full text-xs">
                     <Book size={16} /> {readTime}
                   </span>
@@ -117,28 +137,50 @@ const SinglePostComponent = () => {
             </div>
 
             <div className="flex flex-row items-center gap-6">
+              {isTranslated && originalTitle && (
+                <button
+                  onClick={() => setShowOriginal(!showOriginal)}
+                  className="flex flex-row gap-2 items-center bg-gold hover:bg-yellow-700 text-white py-2 px-4 rounded-full transition-all duration-200 shadow-md"
+                  title={
+                    showOriginal ? "Show English" : "Show Original Language"
+                  }
+                >
+                  <Languages size={20} />
+                  <span className="hidden sm:inline text-sm font-semibold">
+                    {showOriginal ? "English" : "Original"}
+                  </span>
+                </button>
+              )}
+
               <div className="flex flex-row gap-2 items-center">
-                <HandHeart color="#fff" size={30} />{" "}
+                <HandHeart color="#fff" size={30} />
                 <p className="text-white">{reactions}</p>
               </div>
               <div className="flex flex-row gap-2 items-center">
-                <MessageCircle color="#fff" size={30} />{" "}
+                <MessageCircle color="#fff" size={30} />
                 <p className="text-white">{comments}</p>
               </div>
-              <div className="flex flex-row gap-2 items-center"></div>
             </div>
           </div>
 
+          {isTranslated && (
+            <div className="mt-4">
+              <span className="text-sm bg-gold text-white px-3 py-1 rounded-full">
+                {showOriginal ? "Original Language" : "Translated to English"}
+              </span>
+            </div>
+          )}
+
           <h2 className="text-white text-3xl lg:text-4xl font-bold mt-12">
-            {title}
+            {displayTitle}
           </h2>
 
           <p className="text-white text-xl lg:text-2xl font-semibold my-6">
-            {excerpt}
+            {displayExcerpt}
           </p>
           <div
             className="article-content text-white text-sm lg:text-base leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: fullDescription }}
+            dangerouslySetInnerHTML={{ __html: displayDescription }}
           />
         </div>
       </div>
@@ -146,7 +188,7 @@ const SinglePostComponent = () => {
       {relatedPosts.length > 0 && (
         <div className="mt-14 mb-10">
           <TitleComponent text={"Related Posts"} />
-          <div className="grid grid-cols-1 p-3 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 p-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedPosts.map((relatedPost) => (
               <BlogCardComponent
                 key={relatedPost.id}

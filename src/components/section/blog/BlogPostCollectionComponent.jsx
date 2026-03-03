@@ -13,6 +13,7 @@ const BlogPostCollectionComponent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [translating] = useState(false);
 
   const postsPerPage = 6;
 
@@ -22,8 +23,8 @@ const BlogPostCollectionComponent = () => {
       setError(null);
       try {
         const articles = await fetchArticles({
-          per_page: 100,
-          tags: "javascript,react,webdev,programming,tutorial,nodejs,frontend,backend",
+          per_page: 30,
+          tags: "javascript,react,webdev,programming,tutorial,nodejs,frontend,backend,seo",
         });
         setBlogData(articles);
       } catch (err) {
@@ -45,7 +46,7 @@ const BlogPostCollectionComponent = () => {
   let filteredPosts = otherBlogPosts;
   if (selectedCategory !== "all") {
     filteredPosts = otherBlogPosts.filter(
-      (post) => post.category.toLowerCase() === selectedCategory.toLowerCase()
+      (post) => post.category.toLowerCase() === selectedCategory.toLowerCase(),
     );
   }
 
@@ -67,14 +68,17 @@ const BlogPostCollectionComponent = () => {
   };
 
   const categories = Array.from(
-    new Set(otherBlogPosts.map((post) => post.category))
+    new Set(otherBlogPosts.map((post) => post.category)),
   );
 
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center min-h-[400px]">
-          <div className="text-white text-xl">Loading articles...</div>
+        <div className="flex flex-col justify-center items-center min-h-[400px]">
+          <div className="text-white text-xl mb-4">Loading articles...</div>
+          {translating && (
+            <div className="text-gold text-sm">Translating content...</div>
+          )}
         </div>
       </div>
     );
@@ -122,6 +126,13 @@ const BlogPostCollectionComponent = () => {
                 alt={latestBlogPost.author}
                 className="mb-5 w-20 h-20 rounded-full object-cover"
               />
+
+              {latestBlogPost.isTranslated && (
+                <span className="mb-2 text-xs bg-gold text-white px-3 py-1 rounded-full">
+                  Translated to English
+                </span>
+              )}
+
               <h2 className="text-2xl font-extrabold text-gold mb-2">
                 {latestBlogPost.title}
               </h2>
@@ -196,7 +207,7 @@ const BlogPostCollectionComponent = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 p-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 p-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentPosts.map((blogPost) => (
           <BlogCardComponent
             key={blogPost.id}
@@ -244,7 +255,7 @@ const BlogPostCollectionComponent = () => {
               >
                 {index + 1}
               </button>
-            )
+            ),
           )}
           {totalPages > 8 && currentPage < totalPages - 4 && (
             <>
