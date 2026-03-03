@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { blogData } from "../assets/blogData.js";
+import { useState, useEffect } from "react";
+import { fetchArticles } from "../../services/blogService";
 
 const FooterComponent = () => {
-  const [activePage, setActivePage] = useState("home");
+  const [setActivePage] = useState("home");
+  const [latestPosts, setLatestPosts] = useState([]);
+
+  useEffect(() => {
+    fetchArticles({ per_page: 5 })
+      .then(setLatestPosts)
+      .catch(() => {});
+  }, []);
 
   const handleNavClick = (page) => {
     setActivePage(page);
@@ -108,9 +115,9 @@ const FooterComponent = () => {
             <h6 class="mb-4 flex justify-center font-bold text-xl uppercase md:justify-start text-white">
               Latest Posts
             </h6>
-            {blogData.slice(0, 4).map((post, i) => (
-              <p class="mb-4 hover:text-gold" key={i}>
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
+            {latestPosts.map((post) => (
+              <p className="mb-4 hover:text-gold line-clamp-1" key={post.id}>
+                <a href={`/blog/${post.id}/${post.slug}`}>{post.title}</a>
               </p>
             ))}
           </div>
