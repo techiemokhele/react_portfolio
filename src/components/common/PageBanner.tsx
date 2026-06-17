@@ -1,14 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
-interface PageBannerProps {
-  label: string;
-  title: React.ReactNode;
-  description: string;
-  primaryCta?: { text: string; href: string; external?: boolean };
-  secondaryCta?: { text: string; href: string; external?: boolean };
-}
+import type { PageBannerProps } from "@/types/props";
 
 const PageBanner: React.FC<PageBannerProps> = ({
   label,
@@ -29,13 +22,13 @@ const PageBanner: React.FC<PageBannerProps> = ({
     <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gold/8 rounded-full blur-[100px] pointer-events-none" />
 
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-      <p className="text-gold text-xs font-bold uppercase tracking-[0.2em] mb-4">
+      <p className="text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-3 sm:mb-4">
         {label}
       </p>
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 max-w-3xl">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 sm:mb-6 max-w-3xl">
         {title}
       </h1>
-      <p className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-xl mb-8">
+      <p className="text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mb-6 sm:mb-8">
         {description}
       </p>
       {(primaryCta || secondaryCta) && (

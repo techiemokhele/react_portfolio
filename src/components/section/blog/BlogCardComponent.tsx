@@ -4,11 +4,7 @@ import { truncateText, truncateTitle } from "@/utils/utils";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { BlogPost } from "@/types";
-
-interface BlogCardComponentProps extends Partial<BlogPost> {
-  onClick?: () => void;
-}
+import type { BlogCardComponentProps } from "@/types/props";
 
 const BlogCardComponent: React.FC<BlogCardComponentProps> = ({
   id,
@@ -31,7 +27,6 @@ const BlogCardComponent: React.FC<BlogCardComponentProps> = ({
       aria-labelledby={headingId}
       className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-card transition-all duration-300 hover:border-gold/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/10"
     >
-      {/* Cover image */}
       <div className="relative">
         <div className="h-[200px] lg:h-[220px] overflow-hidden bg-secondary flex items-center justify-center">
           <img
@@ -42,14 +37,16 @@ const BlogCardComponent: React.FC<BlogCardComponentProps> = ({
           />
         </div>
         {category && (
-          <Badge className="absolute top-3 right-3" aria-label={`Category: ${category}`}>
+          <Badge
+            className="absolute top-3 right-3"
+            aria-label={`Category: ${category}`}
+          >
             {category}
           </Badge>
         )}
       </div>
 
       <CardContent className="p-5 flex flex-col flex-1">
-        {/* Author row */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <img
@@ -71,7 +68,10 @@ const BlogCardComponent: React.FC<BlogCardComponentProps> = ({
           )}
         </div>
 
-        <h2 id={headingId} className="text-lg font-semibold mb-2 text-white leading-snug">
+        <h2
+          id={headingId}
+          className="text-lg font-semibold mb-2 text-white leading-snug"
+        >
           {truncatedTitle}
         </h2>
         <p className="text-gray-400 text-sm font-light mb-2">

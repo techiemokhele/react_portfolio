@@ -24,13 +24,13 @@ const ContactFormSectionComponent: React.FC = () => {
   const [emailSent, setEmailSent] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const name = e.target.name as keyof FormData;
     if (!formData[name].trim()) {
@@ -94,7 +94,6 @@ const ContactFormSectionComponent: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-      {/* Left column - Image */}
       <div className="space-y-4">
         <img
           src="/images/contact.jpg"
@@ -103,9 +102,8 @@ const ContactFormSectionComponent: React.FC = () => {
         />
       </div>
 
-      {/* Right column - Form */}
       <div>
-        <h1 className="lg:text-5xl text-4xl text-white font-extrabold mb-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-extrabold mb-6">
           Let's Have A Chat
         </h1>
 

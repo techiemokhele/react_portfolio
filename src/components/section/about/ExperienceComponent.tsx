@@ -3,22 +3,10 @@ import { MapPin, CalendarDays } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import useInView from "@/hooks/useInView";
-
-interface ExperienceComponentProps {
-  companyName: string;
-  companyLogo: string;
-  position: string;
-  location: string;
-  employmentType?: string;
-  startDate: string;
-  endDate: string;
-  duties: string | string[];
-  skills?: string[];
-  onsite: boolean;
-  index: number;
-}
+import type { ExperienceComponentProps } from "@/types/props";
 
 const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
+  id,
   companyName,
   companyLogo,
   position,
@@ -38,13 +26,13 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   return (
     <div
       ref={ref}
+      id={`exp-${id}`}
       className={`my-6 transition-all duration-700 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <Card className="overflow-hidden border-l-4 border-l-gold bg-card">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Text */}
           <div
             className={`p-6 lg:p-8 flex flex-col justify-center text-white ${
               isOddIndex ? "md:order-2" : ""
@@ -56,10 +44,10 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
                 <Badge variant="outline">{employmentType}</Badge>
               )}
             </div>
-            <h2 className="lg:text-3xl text-2xl font-bold text-gold mb-2">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold mb-2">
               {position}
             </h2>
-            <h5 className="lg:text-xl text-md font-semibold mb-3">
+            <h5 className="text-base sm:text-lg lg:text-xl font-semibold mb-3">
               {companyName}
             </h5>
             <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-4">
@@ -88,7 +76,6 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
             )}
           </div>
 
-          {/* Image */}
           <div
             className={`p-4 flex items-center justify-center ${
               isOddIndex ? "md:order-1" : ""

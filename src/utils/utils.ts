@@ -21,6 +21,12 @@ export const truncateTitle = (title?: string): string => {
   return title.split("\n")[0];
 };
 
+export const highlightText = (text: string, term: string): string => {
+  if (!term.trim()) return text;
+  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return text.replace(new RegExp(`(${escaped})`, "gi"), "<mark>$1</mark>");
+};
+
 export const triggerResumeDownload = (): void => {
   const link = document.createElement("a");
   link.href = "/resume/Neo_Tsietsi_Mokhele-Resume.pdf";

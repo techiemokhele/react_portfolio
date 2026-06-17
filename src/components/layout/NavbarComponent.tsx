@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Download } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import GlobalSearchComponent from "@/components/common/GlobalSearchComponent";
 
 const NAV_LINKS = ["about", "portfolio", "blog", "contact"] as const;
 
 const NavbarComponent: React.FC = () => {
   const location = useLocation();
-  const [emailSent, setEmailSent] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    setEmailSent(localStorage.getItem("emailSent") === "true");
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -42,13 +37,13 @@ const NavbarComponent: React.FC = () => {
               viewBox="0 0 24 24"
               fill="#D4AF37"
               className="w-8 h-8 group-hover:scale-110 transition-transform"
+              aria-hidden="true"
             >
               <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
             </svg>
             <span className="text-white font-bold text-lg">Neo Mokhele</span>
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((page) => {
               const isActive = location.pathname.startsWith(`/${page}`);
@@ -70,30 +65,15 @@ const NavbarComponent: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            {emailSent && (
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="hidden md:flex"
-              >
-                <a
-                  href="/resume/Neo_Tsietsi_Mokhele-Resume.pdf"
-                  download="Neo_Tsietsi_Mokhele-Resume.pdf"
-                >
-                  <Download className="w-3.5 h-3.5 mr-1.5" />
-                  Resume
-                </a>
-              </Button>
-            )}
+            <GlobalSearchComponent />
 
             <Sheet>
               <SheetTrigger asChild>
                 <button
                   className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
-                  aria-label="Open menu"
+                  aria-label="Open navigation menu"
                 >
-                  <Menu className="w-5 h-5" />
+                  <Menu className="w-5 h-5" aria-hidden="true" />
                 </button>
               </SheetTrigger>
               <SheetContent
@@ -107,12 +87,17 @@ const NavbarComponent: React.FC = () => {
                       viewBox="0 0 24 24"
                       fill="#D4AF37"
                       className="w-6 h-6"
+                      aria-hidden="true"
                     >
                       <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
                     </svg>
                     <span className="text-white font-bold">Neo Mokhele</span>
                   </div>
-                  <nav className="flex flex-col gap-1 flex-1">
+
+                  <nav
+                    className="flex flex-col gap-1 flex-1"
+                    aria-label="Mobile navigation"
+                  >
                     {NAV_LINKS.map((page) => {
                       const isActive = location.pathname.startsWith(`/${page}`);
                       return (
@@ -131,19 +116,6 @@ const NavbarComponent: React.FC = () => {
                       );
                     })}
                   </nav>
-                  {emailSent && (
-                    <div className="px-2 pb-6">
-                      <Button variant="outline" className="w-full" asChild>
-                        <a
-                          href="/resume/Neo_Tsietsi_Mokhele-Resume.pdf"
-                          download
-                        >
-                          <Download className="w-4 h-4 mr-2" />
-                          Download Resume
-                        </a>
-                      </Button>
-                    </div>
-                  )}
                 </div>
               </SheetContent>
             </Sheet>

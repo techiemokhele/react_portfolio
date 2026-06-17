@@ -37,6 +37,19 @@ export interface Project {
   languages: string[];
 }
 
+export interface SearchResult {
+  id: string | number;
+  title: string;
+  subtitle?: string;
+  preview?: string;
+  category: string;
+  categoryLabel: string;
+  href: string;
+  domId?: string;
+}
+
+export type GroupedResults = Record<string, SearchResult[]>;
+
 export interface BlogPost {
   id: string | number;
   category: string;

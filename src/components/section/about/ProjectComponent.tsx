@@ -1,23 +1,14 @@
-﻿import React from "react";
-import { Github, ExternalLink } from "lucide-react";
+﻿import React, { useState } from "react";
+import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import useInView from "@/hooks/useInView";
-
-interface ProjectComponentProps {
-  projectName: string;
-  projectThumbnail: string;
-  title: string;
-  description: string;
-  githubLink: string;
-  liveLink: string;
-  type: string;
-  languages: string[];
-  index?: number;
-}
+import HighlightText from "@/components/common/HighlightText";
+import type { ProjectComponentProps } from "@/types/props";
 
 const ProjectComponent: React.FC<ProjectComponentProps> = ({
+  domId,
   projectName,
   projectThumbnail,
   title,
@@ -27,34 +18,60 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
   type,
   languages,
   index = 0,
+  searchTerm = "",
 }) => {
   const isOddIndex = index % 2 !== 0;
   const [ref, inView] = useInView<HTMLDivElement>();
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <div
       ref={ref}
+      id={domId}
       className={`my-6 transition-all duration-700 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <Card className="overflow-hidden border-l-4 border-l-gold bg-card">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Text */}
           <div
             className={`p-6 lg:p-8 flex flex-col justify-center text-white ${
               isOddIndex ? "md:order-2" : ""
             }`}
           >
-            <h2 className="lg:text-3xl text-2xl font-bold text-gold mb-2">
-              {projectName}
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold mb-2">
+              <HighlightText text={projectName} term={searchTerm} />
             </h2>
             <h5 className="lg:text-lg text-md font-semibold mb-3 text-white/90">
               {title} - {type}
             </h5>
-            <p className="text-sm font-light text-gray-300 mb-4">
-              {description}
+            <p
+              className={`text-sm font-light text-gray-300 mb-1 leading-relaxed ${
+                !expanded ? "line-clamp-3" : ""
+              }`}
+            >
+              <HighlightText text={description} term={searchTerm} />
             </p>
+
+            <button
+              onClick={() => setExpanded((v) => !v)}
+              className="flex items-center gap-1 text-xs text-gold hover:text-yellow-400 transition-colors mb-4 mt-1 font-medium"
+              aria-expanded={expanded}
+              aria-label={
+                expanded ? "Show less description" : "Show full description"
+              }
+            >
+              {expanded ? (
+                <>
+                  View Less <ChevronUp className="w-3 h-3" aria-hidden="true" />
+                </>
+              ) : (
+                <>
+                  View More{" "}
+                  <ChevronDown className="w-3 h-3" aria-hidden="true" />
+                </>
+              )}
+            </button>
 
             <div className="flex flex-wrap gap-3 my-4">
               {githubLink !== "#" && (
@@ -84,7 +101,6 @@ const ProjectComponent: React.FC<ProjectComponentProps> = ({
             </div>
           </div>
 
-          {/* Image */}
           <div
             className={`p-4 flex items-center justify-center ${
               isOddIndex ? "md:order-1" : ""

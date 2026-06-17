@@ -1,4 +1,5 @@
-﻿import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import {
   projects,
@@ -18,10 +19,56 @@ import { Input } from "@/components/ui/input";
 
 const CATEGORIES = ["website", "mobile", "game", "cms"] as const;
 
+const DOM_PREFIX_MAP = [
+  { prefix: "project-m-", array: mobileProjects, cat: "mobile" },
+  { prefix: "project-g-", array: gameProjects, cat: "game" },
+  { prefix: "project-c-", array: cmsProjects, cat: "cms" },
+  { prefix: "project-", array: projects, cat: "website" }, // most generic — keep last
+] as const;
+
 const PortfolioScreen: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const focusParam = searchParams.get("focus");
+
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searching, setSearching] = useState(false);
+
+  useEffect(() => {
+    if (!focusParam) return;
+
+    const match = DOM_PREFIX_MAP.find(({ prefix }) =>
+      focusParam.startsWith(prefix),
+    );
+    if (match) {
+      setExpandedCategory(match.cat);
+    }
+
+    const timer = setTimeout(() => {
+      const el = document.getElementById(focusParam);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add(
+          "ring-2",
+          "ring-gold",
+          "ring-offset-2",
+          "ring-offset-[#0a0a0a]",
+        );
+        setTimeout(
+          () =>
+            el.classList.remove(
+              "ring-2",
+              "ring-gold",
+              "ring-offset-2",
+              "ring-offset-[#0a0a0a]",
+            ),
+          2000,
+        );
+      }
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [focusParam]);
 
   const toggleShowAllProjects = (category: string) => {
     setExpandedCategory((prev) => (prev === category ? null : category));
@@ -84,13 +131,14 @@ const PortfolioScreen: React.FC = () => {
 
         {searching ? (
           <div className="mt-16">
-            <TitleComponent text={"Search Results"} />
+            <TitleComponent text="Search Results" />
             <div>
               {filterProjects(projects).length > 0 ? (
                 filterProjects(projects).map((project, index) => (
                   <ProjectComponent
-                    key={index}
+                    key={project.id}
                     index={index}
+                    domId={`project-${project.id}`}
                     projectName={project.projectName}
                     projectThumbnail={project.projectThumbnail}
                     title={project.title}
@@ -99,6 +147,7 @@ const PortfolioScreen: React.FC = () => {
                     liveLink={project.liveLink}
                     type={project.type}
                     languages={project.languages}
+                    searchTerm={searchTerm}
                   />
                 ))
               ) : (
@@ -111,20 +160,35 @@ const PortfolioScreen: React.FC = () => {
         ) : (
           <>
             {[
-              { category: "Website", projectArray: projects },
-              { category: "Mobile", projectArray: mobileProjects },
-              { category: "Game", projectArray: gameProjects },
-              { category: "CMS", projectArray: cmsProjects },
+              {
+                category: "Website",
+                projectArray: projects,
+                domPrefix: "project-",
+              },
+              {
+                category: "Mobile",
+                projectArray: mobileProjects,
+                domPrefix: "project-m-",
+              },
+              {
+                category: "Game",
+                projectArray: gameProjects,
+                domPrefix: "project-g-",
+              },
+              {
+                category: "CMS",
+                projectArray: cmsProjects,
+                domPrefix: "project-c-",
+              },
             ]
               .filter(
                 ({ category }) =>
                   !expandedCategory ||
                   category.toLowerCase() === expandedCategory,
               )
-              .map(({ category, projectArray }) => (
+              .map(({ category, projectArray, domPrefix }) => (
                 <div className="mt-16" key={category}>
                   <TitleComponent text={`${category} Projects`} />
-
                   <div>
                     {[...projectArray]
                       .filter(
@@ -141,8 +205,9 @@ const PortfolioScreen: React.FC = () => {
                       )
                       .map((project, index) => (
                         <ProjectComponent
-                          key={index}
+                          key={project.id}
                           index={index}
+                          domId={`${domPrefix}${project.id}`}
                           projectName={project.projectName}
                           projectThumbnail={project.projectThumbnail}
                           title={project.title}
@@ -174,9 +239,7 @@ const PortfolioScreen: React.FC = () => {
         )}
       </div>
 
-      <div className="w-full mt-10">
-        <MarqueeComponent />
-      </div>
+      <MarqueeComponent />
     </div>
   );
 };

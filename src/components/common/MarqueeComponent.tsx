@@ -65,24 +65,30 @@ const tools: Tool[] = [
 
 const MarqueeComponent: React.FC = () => {
   return (
-    <div className="marquee">
-      <div className="marquee-inner">
-        {tools.map((tool, index) => (
-          <img
-            key={index}
-            src={tool.src}
-            alt={tool.alt}
-            className="marquee-item"
-          />
-        ))}
-        {tools.map((tool, index) => (
-          <img
-            key={index + tools.length}
-            src={tool.src}
-            alt={tool.alt}
-            className="marquee-item"
-          />
-        ))}
+    <div className="w-full mt-12 py-4 border-y border-white/5" aria-label="Tech stack" role="region">
+      <div className="marquee">
+        <div className="marquee-inner">
+          {tools.map((tool, index) => (
+            <img
+              key={index}
+              src={tool.src}
+              alt={tool.alt}
+              className="marquee-item"
+              loading="lazy"
+            />
+          ))}
+          <div aria-hidden="true" style={{ display: "contents" }}>
+            {tools.map((tool, index) => (
+              <img
+                key={`dup-${index}`}
+                src={tool.src}
+                alt=""
+                className="marquee-item"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

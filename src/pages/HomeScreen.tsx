@@ -21,7 +21,6 @@ const TOP_SKILLS = [
 
 const HomeScreen: React.FC = () => (
   <div className="relative min-h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
-    {/* Ambient glow */}
     <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
     <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gold/3 rounded-full blur-[100px] pointer-events-none" />
 
@@ -44,7 +43,7 @@ const HomeScreen: React.FC = () => (
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.05] mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.05] mb-6">
             Crafting{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-400">
               Exceptional

@@ -3,21 +3,10 @@ import { MapPin, CalendarDays } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import useInView from "@/hooks/useInView";
-
-interface EducationComponentProps {
-  schoolName: string;
-  schoolLogo: string;
-  qualification: string;
-  course: string;
-  location: string;
-  startDate: string;
-  endDate: string;
-  duties: string;
-  skills: string[];
-  index: number;
-}
+import type { EducationComponentProps } from "@/types/props";
 
 const EducationComponent: React.FC<EducationComponentProps> = ({
+  id,
   schoolName,
   schoolLogo,
   qualification,
@@ -35,22 +24,22 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
   return (
     <div
       ref={ref}
+      id={`qual-${id}`}
       className={`my-6 transition-all duration-700 ${
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <Card className="overflow-hidden border-l-4 border-l-gold bg-card">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-          {/* Text */}
           <div
             className={`p-6 lg:p-8 flex flex-col justify-center text-white ${
               isOddIndex ? "md:order-2" : ""
             }`}
           >
-            <h2 className="lg:text-3xl text-2xl font-bold text-gold mb-2">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gold mb-2">
               {qualification} <span className="text-white">in</span> {course}
             </h2>
-            <h5 className="lg:text-xl text-md font-semibold mb-3">
+            <h5 className="text-base sm:text-lg lg:text-xl font-semibold mb-3">
               {schoolName}
             </h5>
             <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-4">
@@ -73,7 +62,6 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
             </div>
           </div>
 
-          {/* Image */}
           <div
             className={`p-4 flex items-center justify-center ${
               isOddIndex ? "md:order-1" : ""
