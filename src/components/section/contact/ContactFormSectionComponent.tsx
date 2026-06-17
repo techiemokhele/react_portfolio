@@ -7,15 +7,10 @@ import { triggerResumeDownload } from "@/utils/utils";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import type { ContactFormData } from "@/types/props";
 
 const ContactFormSectionComponent: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     message: "",
@@ -32,7 +27,7 @@ const ContactFormSectionComponent: React.FC = () => {
   const handleBlur = (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const name = e.target.name as keyof FormData;
+    const name = e.target.name as keyof ContactFormData;
     if (!formData[name].trim()) {
       toast.error(`${name} is required`);
     }

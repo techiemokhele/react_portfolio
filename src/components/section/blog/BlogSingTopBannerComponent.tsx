@@ -1,12 +1,5 @@
 import React from "react";
-
-interface BlogSingTopBannerComponentProps {
-  category?: string;
-  title?: string;
-  excerpt?: string;
-  author?: string;
-  createdAt?: string;
-}
+import type { BlogSingTopBannerComponentProps } from "@/types/props";
 
 const BlogSingTopBannerComponent: React.FC<BlogSingTopBannerComponentProps> = ({
   category,

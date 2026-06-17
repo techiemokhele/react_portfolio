@@ -1,24 +1,8 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { ButtonComponentProps } from "@/types/props";
 
-interface ButtonComponentProps {
-  text: string;
-  normal?: boolean;
-  href?: string;
-  hidden?: boolean;
-  blank?: boolean;
-  type?: "button" | "submit" | "reset";
-  active?: boolean;
-  onClick?: () => void;
-  download?: string;
-}
-
-/**
- * Legacy-compatible button wrapper, now powered by the ShadCN Button.
- * - `normal` => filled (default) variant, otherwise outline.
- * - `onClick` renders a real <button>, `href` renders an anchor.
- */
 const ButtonComponent: React.FC<ButtonComponentProps> = ({
   text,
   normal,

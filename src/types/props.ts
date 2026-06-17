@@ -62,3 +62,29 @@ export interface ProjectComponentProps {
   index?: number;
   searchTerm?: string;
 }
+
+export interface ButtonComponentProps {
+  text: string;
+  normal?: boolean;
+  href?: string;
+  hidden?: boolean;
+  blank?: boolean;
+  type?: "button" | "submit" | "reset";
+  active?: boolean;
+  onClick?: () => void;
+  download?: string;
+}
+
+export interface BlogSingTopBannerComponentProps {
+  category?: string;
+  title?: string;
+  excerpt?: string;
+  author?: string;
+  createdAt?: string;
+}
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}

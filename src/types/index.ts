@@ -1,3 +1,13 @@
+export interface FetchOptions {
+  page?: number;
+  per_page?: number;
+  tag?: string;
+  tags?: string;
+  username?: string;
+  state?: string;
+  top?: boolean | number;
+}
+
 export interface Experience {
   id: number;
   companyName: string;
