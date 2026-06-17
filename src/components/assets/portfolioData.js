@@ -115,6 +115,8 @@ const gymBuddies = "/images/portfolio/GymBuddies.png";
 const highFiveVideos = "/images/portfolio/highFiveVideos.png";
 const miniApp = "/images/portfolio/miniApp.png";
 const mokheleMediaStorage = "/images/portfolio/mokhele-media-storage.png";
+const lumiere = "/images/portfolio/lumiere.png";
+const skyX = "/images/portfolio/sky-x.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects = [
@@ -394,6 +396,47 @@ export const projects = [
       "Tailwind CSS",
       "Appwrite",
       "ShadCn",
+    ],
+  },
+  {
+    id: 22,
+    projectName: "Lumiere Dining",
+    projectThumbnail: lumiere,
+    title: "Lumiere Dining",
+    description:
+      "A full-featured fine dining restaurant web application built with Next.js 14, featuring online ordering, user authentication, menu browsing, a newsletter/blog system, and more.",
+    githubLink: "https://github.com/techiemokhele/lumiere_dining",
+    liveLink: "https://lumiere-dining-phi.vercel.app/",
+    type: "Website",
+    languages: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Cloudinary",
+      "ShadCn",
+    ],
+  },
+  {
+    id: 23,
+    projectName: "SkyX - Luxury Chauffer Services",
+    projectThumbnail: skyX,
+    title: "SkyX - Luxury Chauffer Services",
+    description:
+      "Full-stack luxury chauffeur booking platform with real-time chat, WebRTC calling, AI support, wallet system, and bidding engine - built with Next.js 16 & MongoDB.",
+    githubLink: "https://github.com/techiemokhele/sky-x-chauffeur",
+    liveLink: "https://neomokhele-sky-x-chauffeur.vercel.app/",
+    type: "Website",
+    languages: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Cloudinary",
+      "ShadCn",
+      "WebRTC",
+      "Claude-AI",
+      "Recharts",
     ],
   },
 ];
