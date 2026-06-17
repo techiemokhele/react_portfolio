@@ -1,20 +1,19 @@
-export const createSlug = (title: string): string => {
-  return title
+export const createSlug = (title: string): string =>
+  title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
-};
 
-export function getFirstWord(text?: string): string {
+export const getFirstWord = (text?: string): string => {
   if (!text) return "";
   return text.split(" ")[0];
-}
+};
 
 export const truncateText = (text?: string, lines = 2): string => {
   if (!text) return "";
   const textLines = text.split("\n");
-  const truncatedText = textLines.slice(0, lines).join("\n");
-  return textLines.length > lines ? truncatedText + "..." : truncatedText;
+  const truncated = textLines.slice(0, lines).join("\n");
+  return textLines.length > lines ? truncated + "..." : truncated;
 };
 
 export const truncateTitle = (title?: string): string => {

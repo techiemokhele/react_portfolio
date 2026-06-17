@@ -1,9 +1,9 @@
-import React from "react";
+﻿import React from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import useInView from "@/components/utils/useInView";
+import useInView from "@/hooks/useInView";
 
 interface ProjectComponentProps {
   projectName: string;

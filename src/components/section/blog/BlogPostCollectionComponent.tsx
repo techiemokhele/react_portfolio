@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import type { BlogPost } from "@/types";
 import { fetchArticles } from "@/services/blogService";
@@ -6,9 +6,9 @@ import BlogCardComponent from "./BlogCardComponent";
 import TitleComponent from "@/components/common/TitleComponent";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getFirstWord } from "@/components/utils/utils";
+import { getFirstWord } from "@/utils/utils";
 
-/* ── Skeleton placeholders ─────────────────────────────────── */
+/* â”€â”€ Skeleton placeholders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const CardSkeleton = () => (
   <div className="flex flex-col rounded-xl overflow-hidden border border-white/10 bg-card animate-pulse">
     <Skeleton className="h-48 w-full rounded-none" />
@@ -34,7 +34,7 @@ const FeaturedSkeleton = () => (
   </div>
 );
 
-/* ── Pagination range ──────────────────────────────────────── */
+/* â”€â”€ Pagination range â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const getPaginationRange = (current: number, total: number): (number | "...")[] => {
   const delta = 2;
   const range: (number | "...")[] = [];
@@ -48,7 +48,7 @@ const getPaginationRange = (current: number, total: number): (number | "...")[] 
   return [...new Set(range)];
 };
 
-/* ── Main component ─────────────────────────────────────────── */
+/* â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const BlogPostCollectionComponent: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -100,7 +100,7 @@ const BlogPostCollectionComponent: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
-  /* ── Loading ─────────────────────────────────────────────── */
+  /* â”€â”€ Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (loading) {
     return (
       <div
@@ -117,7 +117,7 @@ const BlogPostCollectionComponent: React.FC = () => {
     );
   }
 
-  /* ── Error ───────────────────────────────────────────────── */
+  /* â”€â”€ Error â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (error) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center min-h-[400px] gap-4">
@@ -127,7 +127,7 @@ const BlogPostCollectionComponent: React.FC = () => {
     );
   }
 
-  /* ── Empty ───────────────────────────────────────────────── */
+  /* â”€â”€ Empty â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (!blogData.length) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center items-center min-h-[400px]">
@@ -138,7 +138,7 @@ const BlogPostCollectionComponent: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      {/* ── Featured post ──────────────────────────────────────── */}
+      {/* â”€â”€ Featured post â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {currentPage === 1 && selectedCategory === "all" && latestBlogPost && (
         <div className="mb-16">
           <div className="w-full mb-6">
@@ -191,7 +191,7 @@ const BlogPostCollectionComponent: React.FC = () => {
         </div>
       )}
 
-      {/* ── Category filters ────────────────────────────────────── */}
+      {/* â”€â”€ Category filters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="mb-10">
         <div className="w-full mb-6">
           <TitleComponent text="All Posts" />
@@ -213,7 +213,7 @@ const BlogPostCollectionComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* ── Post grid ──────────────────────────────────────────── */}
+      {/* â”€â”€ Post grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {currentPosts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentPosts.map((blogPost) => (
@@ -226,7 +226,7 @@ const BlogPostCollectionComponent: React.FC = () => {
         </div>
       )}
 
-      {/* ── Pagination ─────────────────────────────────────────── */}
+      {/* â”€â”€ Pagination â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {totalPages > 1 && (
         <nav className="flex justify-center items-center gap-1 mt-12 mb-4 flex-wrap" aria-label="Blog pagination">
           <Button variant="outline" size="sm" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>

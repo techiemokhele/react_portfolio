@@ -1,6 +1,6 @@
-import React, { useId } from "react";
+﻿import React, { useId } from "react";
 import { Clock } from "lucide-react";
-import { truncateText, truncateTitle } from "@/components/utils/utils";
+import { truncateText, truncateTitle } from "@/utils/utils";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

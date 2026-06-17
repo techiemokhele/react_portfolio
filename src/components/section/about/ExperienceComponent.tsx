@@ -1,14 +1,15 @@
-import React from "react";
+﻿import React from "react";
 import { MapPin, CalendarDays } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import useInView from "@/components/utils/useInView";
+import useInView from "@/hooks/useInView";
 
 interface ExperienceComponentProps {
   companyName: string;
   companyLogo: string;
   position: string;
   location: string;
+  employmentType?: string;
   startDate: string;
   endDate: string;
   duties: string | string[];
@@ -22,6 +23,7 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
   companyLogo,
   position,
   location,
+  employmentType,
   startDate,
   endDate,
   duties,
@@ -48,9 +50,12 @@ const ExperienceComponent: React.FC<ExperienceComponentProps> = ({
               isOddIndex ? "md:order-2" : ""
             }`}
           >
-            <Badge variant="default" className="self-start mb-3">
-              Working {onsite ? "On-site" : "Remotely"}
-            </Badge>
+            <div className="flex flex-wrap gap-2 mb-3">
+              <Badge variant="default">{onsite ? "On-site" : "Remote"}</Badge>
+              {employmentType && (
+                <Badge variant="outline">{employmentType}</Badge>
+              )}
+            </div>
             <h2 className="lg:text-3xl text-2xl font-bold text-gold mb-2">
               {position}
             </h2>

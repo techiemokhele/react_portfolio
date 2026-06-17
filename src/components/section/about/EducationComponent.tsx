@@ -1,8 +1,8 @@
-import React from "react";
+﻿import React from "react";
 import { MapPin, CalendarDays } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import useInView from "@/components/utils/useInView";
+import useInView from "@/hooks/useInView";
 
 interface EducationComponentProps {
   schoolName: string;

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 
 import {
   projects,
   mobileProjects,
   gameProjects,
   cmsProjects,
-} from "@/components/assets/portfolioData";
+} from "@/data/portfolioData";
 import type { Project } from "@/types";
 
 import PortfolioTopBannerComponent from "@/components/section/portfolio/PortfolioTopBannerComponent";
@@ -39,7 +39,7 @@ const PortfolioScreen: React.FC = () => {
         project.projectName.toLowerCase().includes(term) ||
         project.title.toLowerCase().includes(term) ||
         project.description.toLowerCase().includes(term) ||
-        project.type.toLowerCase().includes(term)
+        project.type.toLowerCase().includes(term),
     );
   };
 
@@ -61,7 +61,6 @@ const PortfolioScreen: React.FC = () => {
           />
         </div>
 
-        {/* Category filters */}
         {!searching && (
           <div className="flex flex-wrap justify-center gap-3 my-6">
             <Button
@@ -120,7 +119,7 @@ const PortfolioScreen: React.FC = () => {
               .filter(
                 ({ category }) =>
                   !expandedCategory ||
-                  category.toLowerCase() === expandedCategory
+                  category.toLowerCase() === expandedCategory,
               )
               .map(({ category, projectArray }) => (
                 <div className="mt-16" key={category}>
@@ -131,14 +130,14 @@ const PortfolioScreen: React.FC = () => {
                       .filter(
                         (project) =>
                           !expandedCategory ||
-                          project.type.toLowerCase() === expandedCategory
+                          project.type.toLowerCase() === expandedCategory,
                       )
                       .reverse()
                       .slice(
                         0,
                         expandedCategory === category.toLowerCase()
                           ? projectArray.length
-                          : 2
+                          : 2,
                       )
                       .map((project, index) => (
                         <ProjectComponent

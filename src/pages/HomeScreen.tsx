@@ -25,7 +25,6 @@ const HomeScreen: React.FC = () => (
     <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
     <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gold/3 rounded-full blur-[100px] pointer-events-none" />
 
-    {/* Background image with heavy overlay */}
     <div
       className="absolute inset-0 bg-cover bg-center opacity-10"
       style={{
@@ -37,7 +36,6 @@ const HomeScreen: React.FC = () => (
 
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left: text */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -93,13 +91,10 @@ const HomeScreen: React.FC = () => (
           </div>
         </div>
 
-        {/* Right: profile card */}
         <div className="flex justify-center lg:justify-end">
           <div className="relative">
-            {/* Glow ring */}
             <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 via-transparent to-gold/10 rounded-3xl blur-xl" />
             <div className="relative bg-[#111]/80 backdrop-blur border border-white/10 rounded-2xl p-6 max-w-sm w-full">
-              {/* Profile image */}
               <div className="flex justify-center mb-5">
                 <div className="relative">
                   <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-gold/50 ring-4 ring-gold/10">
