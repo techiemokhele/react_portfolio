@@ -102,6 +102,11 @@ code {
   opacity: 1;
 }
 
+/* Invert dark logos (GitHub, Next.js, Vercel) so they appear white on the dark background */
+.marquee-item--invert {
+  filter: brightness(0) invert(1);
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);

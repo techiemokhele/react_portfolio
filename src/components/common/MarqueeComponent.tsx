@@ -1,71 +1,70 @@
+import React from "react";
+
 interface Tool {
   src: string;
   alt: string;
+  invert?: boolean;
 }
 
+const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+
 const tools: Tool[] = [
+  // ── Frontend ───────────────────────────────────────────────
+  { src: `${CDN}/html5/html5-original.svg`, alt: "HTML5" },
+  { src: `${CDN}/css3/css3-original.svg`, alt: "CSS3" },
+  { src: `${CDN}/javascript/javascript-original.svg`, alt: "JavaScript" },
+  { src: `${CDN}/typescript/typescript-original.svg`, alt: "TypeScript" },
+  { src: `${CDN}/react/react-original.svg`, alt: "React.js" },
+  { src: `${CDN}/nextjs/nextjs-original.svg`, alt: "Next.js", invert: true },
+  { src: `${CDN}/angular/angular-original.svg`, alt: "Angular" },
+  { src: `${CDN}/vuejs/vuejs-original.svg`, alt: "Vue.js" },
+  { src: `${CDN}/react/react-original.svg`, alt: "React Native" },
+
+  // ── Styling ────────────────────────────────────────────────
+  { src: `${CDN}/tailwindcss/tailwindcss-original.svg`, alt: "Tailwind CSS" },
+  { src: `${CDN}/sass/sass-original.svg`, alt: "SASS/SCSS" },
+  { src: `${CDN}/materialui/materialui-original.svg`, alt: "Material UI" },
   {
-    src: "https://www.pikpng.com/pngl/b/150-1506141_html-css-and-javascript-logo-html5-css3-js.png",
-    alt: "html,css,js",
+    src: `${CDN}/styledcomponents/styledcomponents-original.svg`,
+    alt: "Styled Components",
   },
-  {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png",
-    alt: "tailwind",
-  },
-  {
-    src: "https://wp.mridul.tech/wp-content/uploads/2023/02/react-js.png",
-    alt: "react",
-  },
-  {
-    src: "https://www.pngitem.com/pimgs/b/514-5142665_react-native-transparent-react-native-logo-png-png.png",
-    alt: "React Native",
-  },
-  {
-    src: "https://lightningchart.com/wp-content/uploads/images/icons/node.js-logo.png",
-    alt: "NodeJs",
-  },
-  {
-    src: "https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_original_logo_icon_146317.png",
-    alt: "TypeScript",
-  },
-  {
-    src: "https://www.impekable.com/wp-content/uploads/2023/05/Next_JS-500x500.png",
-    alt: "NextJS",
-  },
-  {
-    src: "https://cdn-icons-png.flaticon.com/512/5968/5968332.png",
-    alt: "PHP",
-  },
-  {
-    src: "https://cdn.icon-icons.com/icons2/2699/PNG/512/laravel_logo_icon_170314.png",
-    alt: "Laravel",
-  },
-  {
-    src: "https://cdn.icon-icons.com/icons2/2699/PNG/512/mongodb_logo_icon_170944.png",
-    alt: "MongoDB",
-  },
-  { src: "https://pngimg.com/d/mysql_PNG32.png", alt: "MySQL" },
-  {
-    src: "https://static.vecteezy.com/system/resources/previews/020/975/579/original/wordpress-logo-wordpress-icon-transparent-free-png.png",
-    alt: "WordPress",
-  },
-  {
-    src: "https://companieslogo.com/img/orig/WIX.D-9b5f1d10.png?t=1660042223",
-    alt: "Wix",
-  },
-  {
-    src: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png",
-    alt: "Github",
-  },
-  {
-    src: "https://swyger.agglomy.com/images-ee/press/square-logo-pink.svg",
-    alt: "Appwrite",
-  },
+
+  // ── State Management ───────────────────────────────────────
+  { src: `${CDN}/redux/redux-original.svg`, alt: "Redux" },
+
+  // ── Backend & APIs ─────────────────────────────────────────
+  { src: `${CDN}/nodejs/nodejs-original.svg`, alt: "Node.js" },
+  { src: `${CDN}/nestjs/nestjs-original.svg`, alt: "Nest.js" },
+  { src: `${CDN}/laravel/laravel-original.svg`, alt: "Laravel" },
+  { src: `${CDN}/php/php-original.svg`, alt: "PHP" },
+  { src: `${CDN}/graphql/graphql-plain.svg`, alt: "GraphQL" },
+
+  // ── Testing ────────────────────────────────────────────────
+  { src: `${CDN}/jest/jest-plain.svg`, alt: "Jest" },
+
+  // ── Databases ──────────────────────────────────────────────
+  { src: `${CDN}/mongodb/mongodb-original.svg`, alt: "MongoDB" },
+  { src: `${CDN}/mysql/mysql-original.svg`, alt: "MySQL" },
+
+  // ── Tools & Platforms ──────────────────────────────────────
+  { src: `${CDN}/git/git-original.svg`, alt: "Git" },
+  { src: `${CDN}/github/github-original.svg`, alt: "GitHub", invert: true },
+  { src: `${CDN}/vitejs/vitejs-original.svg`, alt: "Vite" },
+  { src: `${CDN}/webpack/webpack-original.svg`, alt: "Webpack" },
+  { src: `${CDN}/figma/figma-original.svg`, alt: "Figma" },
+  { src: `${CDN}/wordpress/wordpress-plain.svg`, alt: "WordPress" },
+  { src: `${CDN}/vercel/vercel-original.svg`, alt: "Vercel", invert: true },
+  { src: `${CDN}/slack/slack-original.svg`, alt: "Slack" },
+  { src: `${CDN}/docker/docker-original.svg`, alt: "Docker" },
 ];
 
 const MarqueeComponent: React.FC = () => {
   return (
-    <div className="w-full mt-12 py-4 border-y border-white/5" aria-label="Tech stack" role="region">
+    <div
+      className="w-full mt-12 py-4 border-y border-white/5"
+      aria-label="Technologies and tools"
+      role="region"
+    >
       <div className="marquee">
         <div className="marquee-inner">
           {tools.map((tool, index) => (
@@ -73,7 +72,8 @@ const MarqueeComponent: React.FC = () => {
               key={index}
               src={tool.src}
               alt={tool.alt}
-              className="marquee-item"
+              title={tool.alt}
+              className={`marquee-item${tool.invert ? " marquee-item--invert" : ""}`}
               loading="lazy"
             />
           ))}
@@ -83,7 +83,7 @@ const MarqueeComponent: React.FC = () => {
                 key={`dup-${index}`}
                 src={tool.src}
                 alt=""
-                className="marquee-item"
+                className={`marquee-item${tool.invert ? " marquee-item--invert" : ""}`}
                 loading="lazy"
               />
             ))}
