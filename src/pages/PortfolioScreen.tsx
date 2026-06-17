@@ -127,19 +127,19 @@ const PortfolioScreen: React.FC = () => {
                   <TitleComponent text={`${category} Projects`} />
 
                   <div>
-                    {projectArray
+                    {[...projectArray]
                       .filter(
                         (project) =>
                           !expandedCategory ||
                           project.type.toLowerCase() === expandedCategory
                       )
+                      .reverse()
                       .slice(
                         0,
                         expandedCategory === category.toLowerCase()
                           ? projectArray.length
                           : 2
                       )
-                      .reverse()
                       .map((project, index) => (
                         <ProjectComponent
                           key={index}

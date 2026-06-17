@@ -68,7 +68,9 @@ const transformArticle = (article: DevToArticle): BlogPost => ({
   reactions: article.public_reactions_count || 0,
 });
 
-export const fetchArticles = async (options: FetchOptions = {}): Promise<BlogPost[]> => {
+export const fetchArticles = async (
+  options: FetchOptions = {},
+): Promise<BlogPost[]> => {
   const { page = 1, per_page = 30, tag, tags, username, state, top } = options;
   const params = new URLSearchParams({
     page: page.toString(),
@@ -87,7 +89,9 @@ export const fetchArticles = async (options: FetchOptions = {}): Promise<BlogPos
   return articles.map(transformArticle);
 };
 
-export const fetchArticleById = async (id: string | number): Promise<BlogPost> => {
+export const fetchArticleById = async (
+  id: string | number,
+): Promise<BlogPost> => {
   const response = await fetch(`${DEV_TO_API_BASE}/${id}`);
   if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
   const article: DevToArticle = await response.json();
@@ -96,7 +100,7 @@ export const fetchArticleById = async (id: string | number): Promise<BlogPost> =
 
 export const fetchRelatedArticles = async (
   article: BlogPost,
-  limit = 6
+  limit = 6,
 ): Promise<BlogPost[]> => {
   try {
     const related = await fetchArticles({

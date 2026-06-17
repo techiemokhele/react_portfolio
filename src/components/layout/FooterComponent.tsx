@@ -35,21 +35,25 @@ const SOCIALS = [
 
 const FooterComponent: React.FC = () => {
   const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
+  const [postsLoading, setPostsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles({ per_page: 4 })
+    fetchArticles({
+      per_page: 6,
+      tags: "javascript,react,webdev,programming,frontend",
+    })
       .then((posts) => setLatestPosts(posts.slice(0, 4)))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setPostsLoading(false));
   }, []);
 
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/10 mt-10">
-      {/* Social bar */}
-      <div className="flex items-center justify-center bg-gradient-to-r from-yellow-700 to-gold p-6 lg:justify-between">
-        <div className="me-12 hidden lg:block text-white font-medium">
-          <span>Get connected with me on social networks:</span>
-        </div>
-        <div className="flex justify-center gap-5">
+      <div className="flex items-center justify-center bg-gradient-to-r from-yellow-700 to-gold p-5 lg:justify-between">
+        <p className="me-12 hidden lg:block text-white text-sm font-medium">
+          Connect with me on social networks:
+        </p>
+        <div className="flex justify-center gap-6">
           {SOCIALS.map((s) => (
             <a
               key={s.label}
@@ -57,13 +61,14 @@ const FooterComponent: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               aria-label={s.label}
-              className="text-white hover:scale-125 transition-transform"
+              className="text-white/80 hover:text-white hover:scale-125 transition-all duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox={s.viewBox}
                 className="h-4 w-4"
+                aria-hidden="true"
               >
                 <path d={s.path} />
               </svg>
@@ -72,89 +77,131 @@ const FooterComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* Links and info */}
-      <div className="max-w-7xl mx-auto px-6 py-12 text-center md:text-left text-white">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Logo + description */}
+      <div className="max-w-7xl mx-auto px-6 py-12 text-center md:text-left">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h6 className="mb-4 flex items-center justify-center md:justify-start font-semibold text-white text-2xl gap-2">
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="#D4AF37"
-                className="h-9 w-9"
+                className="h-7 w-7 shrink-0"
+                aria-hidden="true"
               >
                 <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
               </svg>
-              Neo Mokhele
-            </h6>
-            <p className="text-gray-400 font-light leading-relaxed text-sm">
-              With a passion for creating intuitive user interfaces, I leverage
-              continuous learning to stay ahead in this dynamic field, ensuring
-              my designs are not only visually appealing but also highly
-              functional and user-friendly.
+              <span className="text-white font-bold text-xl">Neo Mokhele</span>
+            </div>
+            <p className="text-gray-400 font-light leading-relaxed text-sm mb-4">
+              Intermediate Frontend Developer with 7+ years of experience
+              building high-performance, accessible web and mobile applications
+              using React.js, Next.js, Angular, TypeScript, and TailwindCSS.
+            </p>
+            <p className="text-gray-500 text-xs leading-relaxed">
+              Proficient in Agile/Scrum environments — shipping pixel-perfect,
+              WCAG-compliant UIs and reliable, maintainable code.
             </p>
           </div>
 
-          {/* Latest posts */}
           <div>
-            <h6 className="mb-4 flex justify-center md:justify-start font-bold text-sm uppercase tracking-wider text-gold">
+            <h2 className="mb-5 flex justify-center md:justify-start font-bold text-xs uppercase tracking-widest text-gold">
               Latest Posts
-            </h6>
-            {latestPosts.map((post) => (
-              <p
-                className="mb-3 text-gray-400 hover:text-gold transition-colors text-sm line-clamp-1"
-                key={post.id}
-              >
-                <Link to={`/blog/${post.id}/${post.slug}`}>{post.title}</Link>
-              </p>
-            ))}
+            </h2>
+            {postsLoading ? (
+              <div className="space-y-3" aria-label="Loading latest posts">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-4 bg-white/5 rounded animate-pulse w-full"
+                  />
+                ))}
+              </div>
+            ) : latestPosts.length > 0 ? (
+              <nav aria-label="Latest blog posts">
+                {latestPosts.map((post) => (
+                  <Link
+                    key={post.id}
+                    to={`/blog/${post.id}/${post.slug}`}
+                    className="block mb-3 text-gray-400 hover:text-gold transition-colors text-sm line-clamp-1 leading-snug"
+                  >
+                    {post.title}
+                  </Link>
+                ))}
+              </nav>
+            ) : (
+              <p className="text-gray-600 text-sm">No posts available.</p>
+            )}
           </div>
 
-          {/* Useful links */}
           <div>
-            <h6 className="mb-4 flex justify-center md:justify-start font-bold text-sm uppercase tracking-wider text-gold">
-              Useful Links
-            </h6>
-            {NAV_LINKS.map((page) => (
-              <p
-                key={page}
-                className="mb-3 text-gray-400 hover:text-gold transition-colors text-sm"
-              >
-                <Link to={`/${page}`}>
+            <h2 className="mb-5 flex justify-center md:justify-start font-bold text-xs uppercase tracking-widest text-gold">
+              Quick Links
+            </h2>
+            <nav aria-label="Site navigation">
+              {NAV_LINKS.map((page) => (
+                <Link
+                  key={page}
+                  to={`/${page}`}
+                  className="block mb-3 text-gray-400 hover:text-gold transition-colors text-sm"
+                >
                   {page.charAt(0).toUpperCase() + page.slice(1)}
                 </Link>
-              </p>
-            ))}
+              ))}
+            </nav>
           </div>
 
-          {/* Contact */}
           <div>
-            <h6 className="mb-4 flex justify-center md:justify-start font-bold text-sm uppercase tracking-wider text-gold">
+            <h2 className="mb-5 flex justify-center md:justify-start font-bold text-xs uppercase tracking-widest text-gold">
               Contact
-            </h6>
-            <p className="mb-3 flex items-center justify-center md:justify-start text-gray-400 text-sm gap-3">
-              <MapPin className="h-4 w-4 text-gold shrink-0" />
-              Springs, Gauteng 1559, South Africa
-            </p>
-            <p className="mb-3 flex items-center justify-center md:justify-start text-gray-400 text-sm gap-3">
-              <Mail className="h-4 w-4 text-gold shrink-0" />
-              neomokhele23@gmail.com
-            </p>
-            <p className="flex items-center justify-center md:justify-start text-gray-400 text-sm gap-3">
-              <Phone className="h-4 w-4 text-gold shrink-0" />
-              +27 64 847 3363
-            </p>
+            </h2>
+            <address className="not-italic space-y-3">
+              <a
+                href="https://maps.google.com/?q=Springs,Gauteng,SouthAfrica"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-start justify-center md:justify-start text-gray-400 hover:text-gold transition-colors text-sm gap-3"
+                aria-label="Location: Springs, Gauteng, South Africa"
+              >
+                <MapPin
+                  className="h-4 w-4 text-gold shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
+                Springs, Gauteng 1559, South Africa
+              </a>
+              <a
+                href="mailto:neomokhele23@gmail.com"
+                className="flex items-center justify-center md:justify-start text-gray-400 hover:text-gold transition-colors text-sm gap-3"
+              >
+                <Mail
+                  className="h-4 w-4 text-gold shrink-0"
+                  aria-hidden="true"
+                />
+                neomokhele23@gmail.com
+              </a>
+              <a
+                href="tel:+27648473363"
+                className="flex items-center justify-center md:justify-start text-gray-400 hover:text-gold transition-colors text-sm gap-3"
+              >
+                <Phone
+                  className="h-4 w-4 text-gold shrink-0"
+                  aria-hidden="true"
+                />
+                +27 64 847 3363
+              </a>
+            </address>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="bg-black/60 border-t border-white/10 text-gray-400 p-6 text-center text-xs">
-        <span>All rights reserved © {new Date().getFullYear()} Copyright: </span>
-        <Link className="font-semibold text-gold" to="/contact">
+      <div className="bg-black/40 border-t border-white/5 text-gray-500 py-5 text-center text-xs">
+        <span>© {new Date().getFullYear()} </span>
+        <Link
+          className="font-semibold text-gold hover:text-yellow-400 transition-colors"
+          to="/contact"
+        >
           Neo Mokhele
         </Link>
+        <span>. All rights reserved.</span>
       </div>
     </footer>
   );

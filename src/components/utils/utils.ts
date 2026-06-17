@@ -24,8 +24,8 @@ export const truncateTitle = (title?: string): string => {
 
 export const triggerResumeDownload = (): void => {
   const link = document.createElement("a");
-  link.href = "/resume/NeoMokhele_Resume_Latest.pdf";
-  link.download = "NeoMokhele_Resume_Latest.pdf";
+  link.href = "/resume/Neo_Tsietsi_Mokhele-Resume.pdf";
+  link.download = "Neo_Tsietsi_Mokhele-Resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

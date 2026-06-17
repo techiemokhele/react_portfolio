@@ -36,7 +36,6 @@ const NavbarComponent: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +69,6 @@ const NavbarComponent: React.FC = () => {
             })}
           </div>
 
-          {/* Desktop resume + mobile toggle */}
           <div className="flex items-center gap-3">
             {emailSent && (
               <Button
@@ -80,8 +78,8 @@ const NavbarComponent: React.FC = () => {
                 className="hidden md:flex"
               >
                 <a
-                  href="/resume/NeoMokhele_Resume_Latest.pdf"
-                  download="NeoMokhele_Resume_Latest.pdf"
+                  href="/resume/Neo_Tsietsi_Mokhele-Resume.pdf"
+                  download="Neo_Tsietsi_Mokhele-Resume.pdf"
                 >
                   <Download className="w-3.5 h-3.5 mr-1.5" />
                   Resume
@@ -89,7 +87,6 @@ const NavbarComponent: React.FC = () => {
               </Button>
             )}
 
-            {/* Mobile sheet */}
             <Sheet>
               <SheetTrigger asChild>
                 <button
@@ -138,7 +135,7 @@ const NavbarComponent: React.FC = () => {
                     <div className="px-2 pb-6">
                       <Button variant="outline" className="w-full" asChild>
                         <a
-                          href="/resume/NeoMokhele_Resume_Latest.pdf"
+                          href="/resume/Neo_Tsietsi_Mokhele-Resume.pdf"
                           download
                         >
                           <Download className="w-4 h-4 mr-2" />
