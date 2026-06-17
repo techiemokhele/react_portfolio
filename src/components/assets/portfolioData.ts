@@ -1,11 +1,12 @@
 import type { Experience, Qualification, Project } from "@/types";
 
+const nextjs = "/images/nextjs.png";
+
 export const experiences: Experience[] = [
   {
     id: 1,
     companyName: "Bitcube",
-    companyLogo:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
+    companyLogo: nextjs,
     position: "Intermediate Frontend Developer",
     location: "Cape Town, ZA",
     employmentType: "Full-Time",
@@ -20,7 +21,18 @@ export const experiences: Experience[] = [
       "Champion clean-code standards through peer code reviews in Git/GitHub pull-request workflows integrated into CI/CD pipelines.",
       "Drive performance gains via code splitting, lazy loading, and bundle analysis, improving Core Web Vitals scores.",
     ],
-    skills: ["Angular", "Next.js", "React.js", "TypeScript", "TailwindCSS", "Nest.js", "MongoDB", "Jest", "Vite", "CI/CD"],
+    skills: [
+      "Angular",
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Nest.js",
+      "MongoDB",
+      "Jest",
+      "Vite",
+      "CI/CD",
+    ],
     onsite: true,
   },
   {
@@ -40,7 +52,16 @@ export const experiences: Experience[] = [
       "Hardened site security through authentication protocols, input validation, and vulnerability patching.",
       "Optimised page load performance through image compression, caching, and code minification, achieving significant Lighthouse score improvements.",
     ],
-    skills: ["WordPress", "PHP", "JavaScript", "HTML5", "CSS3", "REST APIs", "SEO", "MySQL"],
+    skills: [
+      "WordPress",
+      "PHP",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "REST APIs",
+      "SEO",
+      "MySQL",
+    ],
     onsite: false,
   },
   {
@@ -60,7 +81,16 @@ export const experiences: Experience[] = [
       "Integrated Node.js backend services and RESTful APIs for efficient data handling.",
       "Operated within Agile sprint cycles, consistently meeting delivery commitments through clean, well-documented code.",
     ],
-    skills: ["React Native", "React.js", "TypeScript", "TailwindCSS", "Redux", "Context API", "Node.js", "REST APIs"],
+    skills: [
+      "React Native",
+      "React.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Redux",
+      "Context API",
+      "Node.js",
+      "REST APIs",
+    ],
     onsite: false,
   },
   {
@@ -80,7 +110,17 @@ export const experiences: Experience[] = [
       "Utilised Git for version control, supporting efficient team collaboration through clear commit histories and branching strategies.",
       "Maintained thorough project documentation to support knowledge transfer, onboarding, and long-term code maintainability.",
     ],
-    skills: ["Laravel", "Vue.js", "WordPress", "JavaScript", "HTML5", "CSS3", "MySQL", "PHP", "Git"],
+    skills: [
+      "Laravel",
+      "Vue.js",
+      "WordPress",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "MySQL",
+      "PHP",
+      "Git",
+    ],
     onsite: true,
   },
 ];
@@ -114,7 +154,12 @@ export const qualifications: Qualification[] = [
     endDate: "2019",
     duties:
       "Pursued a Diploma in Information Technology at Damelin College, gaining hands-on expertise in computer science, programming, database management, and network administration. Completed practical projects applying software development and system analysis methodologies, preparing for real-world industry challenges.",
-    skills: ["Software Development", "Database Management", "Network Administration", "IT Project Management"],
+    skills: [
+      "Software Development",
+      "Database Management",
+      "Network Administration",
+      "IT Project Management",
+    ],
   },
   {
     id: 3,
@@ -127,7 +172,14 @@ export const qualifications: Qualification[] = [
     endDate: "December 2019",
     duties:
       "Completed a Certificate in Web Application Development at UNISA, gaining proficiency in PHP, HTML, CSS, JavaScript, and MySQL. The programme provided a solid foundation in both front-end and back-end development, enabling the creation of robust web applications using frameworks like Laravel.",
-    skills: ["PHP", "MySQL", "HTML & CSS", "JavaScript", "Laravel", "Full Stack Web Development"],
+    skills: [
+      "PHP",
+      "MySQL",
+      "HTML & CSS",
+      "JavaScript",
+      "Laravel",
+      "Full Stack Web Development",
+    ],
   },
 ];
 
@@ -153,6 +205,8 @@ const gymBuddies = "/images/portfolio/GymBuddies.png";
 const highFiveVideos = "/images/portfolio/highFiveVideos.png";
 const miniApp = "/images/portfolio/miniApp.png";
 const mokheleMediaStorage = "/images/portfolio/mokhele-media-storage.png";
+const lumiere = "/images/portfolio/lumiere.png";
+const skyX = "/images/portfolio/sky-x.png";
 // const rain = "/images/portfolio/rainClone.png";
 
 export const projects: Project[] = [
@@ -432,6 +486,47 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Appwrite",
       "ShadCn",
+    ],
+  },
+  {
+    id: 22,
+    projectName: "Lumiere Dining",
+    projectThumbnail: lumiere,
+    title: "Lumiere Dining",
+    description:
+      "A full-featured fine dining restaurant web application built with Next.js 14, featuring online ordering, user authentication, menu browsing, a newsletter/blog system, and more.",
+    githubLink: "https://github.com/techiemokhele/lumiere_dining",
+    liveLink: "https://lumiere-dining-phi.vercel.app/",
+    type: "Website",
+    languages: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Cloudinary",
+      "ShadCn",
+    ],
+  },
+  {
+    id: 23,
+    projectName: "SkyX - Luxury Chauffer Services",
+    projectThumbnail: skyX,
+    title: "SkyX - Luxury Chauffer Services",
+    description:
+      "Full-stack luxury chauffeur booking platform with real-time chat, WebRTC calling, AI support, wallet system, and bidding engine - built with Next.js 16 & MongoDB.",
+    githubLink: "https://github.com/techiemokhele/sky-x-chauffeur",
+    liveLink: "https://neomokhele-sky-x-chauffeur.vercel.app/",
+    type: "Website",
+    languages: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Cloudinary",
+      "ShadCn",
+      "WebRTC",
+      "Claude-AI",
+      "Recharts",
     ],
   },
 ];
