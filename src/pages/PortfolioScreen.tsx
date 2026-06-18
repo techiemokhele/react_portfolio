@@ -48,22 +48,8 @@ const PortfolioScreen: React.FC = () => {
       const el = document.getElementById(focusParam);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "center" });
-        el.classList.add(
-          "ring-2",
-          "ring-gold",
-          "ring-offset-2",
-          "ring-offset-[#0a0a0a]",
-        );
-        setTimeout(
-          () =>
-            el.classList.remove(
-              "ring-2",
-              "ring-gold",
-              "ring-offset-2",
-              "ring-offset-[#0a0a0a]",
-            ),
-          2000,
-        );
+        el.classList.add("search-focus-highlight");
+        setTimeout(() => el.classList.remove("search-focus-highlight"), 2100);
       }
     }, 400);
 
@@ -99,10 +85,7 @@ const PortfolioScreen: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Search input */}
         <div className="flex flex-col items-center gap-1.5 mb-8">
-          <label
-            htmlFor="project-search"
-            className="sr-only"
-          >
+          <label htmlFor="project-search" className="sr-only">
             Search projects
           </label>
           <Input
@@ -139,7 +122,12 @@ const PortfolioScreen: React.FC = () => {
         )}
 
         {searching ? (
-          <div id="project-results" className="mt-16" aria-live="polite" aria-label="Search results">
+          <div
+            id="project-results"
+            className="mt-16"
+            aria-live="polite"
+            aria-label="Search results"
+          >
             <TitleComponent text="Search Results" />
             <div>
               {filterProjects(projects).length > 0 ? (
