@@ -23,7 +23,7 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-black/90 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/5"
           : "bg-black"

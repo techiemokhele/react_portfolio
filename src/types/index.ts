@@ -1,3 +1,47 @@
+/** Base params shared by both email templates. */
+export interface BaseEmailParams {
+  from_name: string;
+  from_email: string;
+  message: string;
+  reply_to: string;
+  sent_at: string;
+  portfolio_url: string;
+  recaptcha_token: string;
+}
+
+/** Template params for the admin-notification email. */
+export interface AdminEmailParams extends BaseEmailParams {
+  to_email: string;
+}
+
+/** Template params for the user-confirmation email. */
+export interface ConfirmEmailParams extends BaseEmailParams {
+  /** First name, used in greeting */
+  to_name: string;
+  to_email: string;
+  /** Truncated excerpt of their message */
+  message_preview: string;
+  /** Direct resume download URL */
+  resume_url: string;
+  /** Unsubscribe / opt-out note shown in the email footer */
+  unsubscribe_note: string;
+}
+
+/** Return shape of the useContactForm hook. */
+export interface UseContactFormReturn {
+  formData: import("@/types/props").ContactFormData;
+  sending: boolean;
+  emailSent: boolean;
+  handleChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  handleBlur: (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+  downloadResume: () => void;
+}
+
 export interface FetchOptions {
   page?: number;
   per_page?: number;

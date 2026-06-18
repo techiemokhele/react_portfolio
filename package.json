@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
@@ -13,8 +12,10 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.545.0",
+    "nodemailer": "^9.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-google-recaptcha-v3": "^1.11.0",
     "react-router-dom": "^6.23.1",
     "react-toastify": "^10.0.5",
     "react-transition-group": "^4.4.5",
@@ -23,9 +24,11 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
+    "@vercel/node": "^5.8.17",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
@@ -41,7 +44,15 @@
     "preview": "vite preview"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
