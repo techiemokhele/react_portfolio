@@ -21,22 +21,8 @@ const AboutScreen: React.FC = () => {
       const el = document.getElementById(focusParam);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "center" });
-        el.classList.add(
-          "ring-2",
-          "ring-gold",
-          "ring-offset-2",
-          "ring-offset-[#0a0a0a]",
-        );
-        setTimeout(
-          () =>
-            el.classList.remove(
-              "ring-2",
-              "ring-gold",
-              "ring-offset-2",
-              "ring-offset-[#0a0a0a]",
-            ),
-          2000,
-        );
+        el.classList.add("search-focus-highlight");
+        setTimeout(() => el.classList.remove("search-focus-highlight"), 2100);
       }
     }, 400);
     return () => clearTimeout(timer);

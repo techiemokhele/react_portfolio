@@ -29,7 +29,9 @@ const AppContent: React.FC = () => {
       <CSSTransition key={location.key} classNames="fade" timeout={300}>
         <div>
           {location.pathname !== "/" && <HeaderComponent />}
-          <main className="flex-grow">
+          <main
+            className={`flex-grow${location.pathname !== "/" ? " pt-16" : ""}`}
+          >
             <Routes location={location}>
               <Route path="/" element={<HomeScreen />} />
               <Route path="/about" element={<About />} />
