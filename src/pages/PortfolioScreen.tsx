@@ -98,12 +98,21 @@ const PortfolioScreen: React.FC = () => {
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         {/* Search input */}
-        <div className="flex justify-center items-center mb-8">
+        <div className="flex flex-col items-center gap-1.5 mb-8">
+          <label
+            htmlFor="project-search"
+            className="sr-only"
+          >
+            Search projects
+          </label>
           <Input
-            type="text"
-            placeholder="Search projects..."
+            id="project-search"
+            type="search"
+            placeholder="Search projects by name, type or tech…"
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
+            aria-label="Search projects"
+            aria-controls="project-results"
             className="w-full lg:w-[60%] h-12"
           />
         </div>
@@ -130,7 +139,7 @@ const PortfolioScreen: React.FC = () => {
         )}
 
         {searching ? (
-          <div className="mt-16">
+          <div id="project-results" className="mt-16" aria-live="polite" aria-label="Search results">
             <TitleComponent text="Search Results" />
             <div>
               {filterProjects(projects).length > 0 ? (

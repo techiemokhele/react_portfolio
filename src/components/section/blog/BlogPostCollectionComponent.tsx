@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import type { BlogPost } from "@/types";
 import { fetchArticles } from "@/services/blogService";
@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getFirstWord } from "@/utils/utils";
 
-/* â”€â”€ Skeleton placeholders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const CardSkeleton = () => (
   <div className="flex flex-col rounded-xl overflow-hidden border border-white/10 bg-card animate-pulse">
     <Skeleton className="h-48 w-full rounded-none" />
@@ -34,21 +33,28 @@ const FeaturedSkeleton = () => (
   </div>
 );
 
-/* â”€â”€ Pagination range â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-const getPaginationRange = (current: number, total: number): (number | "...")[] => {
+const getPaginationRange = (
+  current: number,
+  total: number,
+): (number | "...")[] => {
   const delta = 2;
   const range: (number | "...")[] = [];
-  for (let i = Math.max(2, current - delta); i <= Math.min(total - 1, current + delta); i++) {
+  for (
+    let i = Math.max(2, current - delta);
+    i <= Math.min(total - 1, current + delta);
+    i++
+  ) {
     range.push(i);
   }
   if (current - delta > 2) range.unshift("...");
   if (current + delta < total - 1) range.push("...");
-  if (total > 1) { range.unshift(1); range.push(total); }
-  else range.unshift(1);
+  if (total > 1) {
+    range.unshift(1);
+    range.push(total);
+  } else range.unshift(1);
   return [...new Set(range)];
 };
 
-/* â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const BlogPostCollectionComponent: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -75,13 +81,13 @@ const BlogPostCollectionComponent: React.FC = () => {
     selectedCategory === "all"
       ? otherBlogPosts
       : otherBlogPosts.filter(
-          (p) => p.category.toLowerCase() === selectedCategory.toLowerCase()
+          (p) => p.category.toLowerCase() === selectedCategory.toLowerCase(),
         );
 
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const currentPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage
+    currentPage * postsPerPage,
   );
   const categories = Array.from(new Set(otherBlogPosts.map((p) => p.category)));
 
@@ -100,7 +106,6 @@ const BlogPostCollectionComponent: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
-  /* â”€â”€ Loading â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (loading) {
     return (
       <div
@@ -111,13 +116,14 @@ const BlogPostCollectionComponent: React.FC = () => {
       >
         <FeaturedSkeleton />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, i) => <CardSkeleton key={i} />)}
+          {Array.from({ length: 6 }).map((_, i) => (
+            <CardSkeleton key={i} />
+          ))}
         </div>
       </div>
     );
   }
 
-  /* â”€â”€ Error â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (error) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col justify-center items-center min-h-[400px] gap-4">
@@ -127,7 +133,6 @@ const BlogPostCollectionComponent: React.FC = () => {
     );
   }
 
-  /* â”€â”€ Empty â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   if (!blogData.length) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center items-center min-h-[400px]">
@@ -138,7 +143,6 @@ const BlogPostCollectionComponent: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      {/* â”€â”€ Featured post â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {currentPage === 1 && selectedCategory === "all" && latestBlogPost && (
         <div className="mb-16">
           <div className="w-full mb-6">
@@ -150,7 +154,9 @@ const BlogPostCollectionComponent: React.FC = () => {
             tabIndex={0}
             role="button"
             aria-label={`Read: ${latestBlogPost.title}`}
-            onKeyDown={(e) => e.key === "Enter" && handleReadMore(latestBlogPost)}
+            onKeyDown={(e) =>
+              e.key === "Enter" && handleReadMore(latestBlogPost)
+            }
           >
             <div className="relative h-[42vh] md:h-[55vh] overflow-hidden">
               <img
@@ -179,19 +185,28 @@ const BlogPostCollectionComponent: React.FC = () => {
                 {latestBlogPost.excerpt}
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <img src={latestBlogPost.authorPicture} alt={latestBlogPost.author} className="w-8 h-8 rounded-full object-cover" />
-                <span className="text-white text-sm font-medium">{latestBlogPost.author}</span>
+                <img
+                  src={latestBlogPost.authorPicture}
+                  alt={latestBlogPost.author}
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+                <span className="text-white text-sm font-medium">
+                  {latestBlogPost.author}
+                </span>
                 <span className="text-gray-500 hidden sm:inline">&bull;</span>
-                <span className="text-gray-400 text-xs hidden sm:inline">{latestBlogPost.createdAt}</span>
+                <span className="text-gray-400 text-xs hidden sm:inline">
+                  {latestBlogPost.createdAt}
+                </span>
                 <span className="text-gray-500 hidden sm:inline">&bull;</span>
-                <span className="text-gold text-xs hidden sm:inline">{latestBlogPost.readTime}</span>
+                <span className="text-gold text-xs hidden sm:inline">
+                  {latestBlogPost.readTime}
+                </span>
               </div>
             </div>
           </article>
         </div>
       )}
 
-      {/* â”€â”€ Category filters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="mb-10">
         <div className="w-full mb-6">
           <TitleComponent text="All Posts" />
@@ -213,42 +228,63 @@ const BlogPostCollectionComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* â”€â”€ Post grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {currentPosts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentPosts.map((blogPost) => (
-            <BlogCardComponent key={blogPost.id} {...blogPost} onClick={() => handleReadMore(blogPost)} />
+            <BlogCardComponent
+              key={blogPost.id}
+              {...blogPost}
+              onClick={() => handleReadMore(blogPost)}
+            />
           ))}
         </div>
       ) : (
         <div className="flex justify-center items-center min-h-[200px]">
-          <p className="text-gray-500 text-sm">No posts in this category yet.</p>
+          <p className="text-gray-500 text-sm">
+            No posts in this category yet.
+          </p>
         </div>
       )}
 
-      {/* â”€â”€ Pagination â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {totalPages > 1 && (
-        <nav className="flex justify-center items-center gap-1 mt-12 mb-4 flex-wrap" aria-label="Blog pagination">
-          <Button variant="outline" size="sm" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+        <nav
+          className="flex justify-center items-center gap-1 mt-12 mb-4 flex-wrap"
+          aria-label="Blog pagination"
+        >
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
             &larr; Prev
           </Button>
           {getPaginationRange(currentPage, totalPages).map((item, i) =>
             item === "..." ? (
-              <span key={`e-${i}`} className="px-2 text-gray-500 text-xs">&hellip;</span>
+              <span key={`e-${i}`} className="px-2 text-gray-500 text-xs">
+                &hellip;
+              </span>
             ) : (
               <button
                 key={item}
                 onClick={() => handlePageChange(item as number)}
                 aria-current={currentPage === item ? "page" : undefined}
                 className={`w-8 h-8 rounded-lg text-xs font-semibold transition-colors ${
-                  currentPage === item ? "bg-gold text-white shadow-md shadow-gold/20" : "text-white bg-white/10 hover:bg-gold hover:text-white"
+                  currentPage === item
+                    ? "bg-gold text-white shadow-md shadow-gold/20"
+                    : "text-white bg-white/10 hover:bg-gold hover:text-white"
                 }`}
               >
                 {item}
               </button>
-            )
+            ),
           )}
-          <Button variant="outline" size="sm" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
             Next &rarr;
           </Button>
         </nav>
