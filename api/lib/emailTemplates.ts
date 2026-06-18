@@ -155,7 +155,7 @@ export const buildAdminHtml = ({
 
         <!-- Sender card -->
         <table role="presentation" cellpadding="12" cellspacing="0" border="0" width="100%"
-          style="background:#0d0d0d;border-radius:10px;border-left:3px solid #D4AF37;margin-bottom:16px;">
+          style="background:#0d0d0d;border-radius:10px;border-left:3px solid #D4AF37;margin-bottom:16px;padding:0px 16px;">
           <tr><td>
             ${infoRow("Name", fromName)}
             ${infoRow("Email", fromEmail, true)}
@@ -168,9 +168,7 @@ export const buildAdminHtml = ({
           style="background:#0d0d0d;border-radius:10px;margin-bottom:24px;">
           <tr><td>
             <p style="color:#D4AF37;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 10px;">Message</p>
-            <p style="color:#e2e8f0;font-size:14px;line-height:1.8;white-space:pre-wrap;margin:0;">
-              ${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-            </p>
+            <p style="color:#e2e8f0;font-size:14px;line-height:1.8;white-space:pre-wrap;margin:0;">${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
           </td></tr>
         </table>
 
