@@ -36,14 +36,14 @@ const PortfolioScreen: React.FC = () => {
 
   useEffect(() => {
     if (!focusParam) return;
-
     const match = DOM_PREFIX_MAP.find(({ prefix }) =>
       focusParam.startsWith(prefix),
     );
-    if (match) {
-      setExpandedCategory(match.cat);
-    }
+    if (match) setExpandedCategory(match.cat);
+  }, [focusParam]);
 
+  useEffect(() => {
+    if (!focusParam) return;
     const timer = setTimeout(() => {
       const el = document.getElementById(focusParam);
       if (el) {
@@ -51,10 +51,9 @@ const PortfolioScreen: React.FC = () => {
         el.classList.add("search-focus-highlight");
         setTimeout(() => el.classList.remove("search-focus-highlight"), 2100);
       }
-    }, 400);
-
+    }, 300);
     return () => clearTimeout(timer);
-  }, [focusParam]);
+  }, [focusParam, expandedCategory]);
 
   const toggleShowAllProjects = (category: string) => {
     setExpandedCategory((prev) => (prev === category ? null : category));
