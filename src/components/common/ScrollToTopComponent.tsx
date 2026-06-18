@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, ShieldCheck } from "lucide-react";
 
 const WHATSAPP_NUMBER = "27648473363";
 
@@ -15,6 +15,26 @@ const WhatsAppIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+/**
+ * Compact reCAPTCHA branding pill.
+ * Google's ToS requires visible branding when the default badge is hidden.
+ * Clicking it opens the reCAPTCHA privacy policy.
+ */
+const RecaptchaBadge: React.FC = () => (
+  <a
+    href="https://policies.google.com/privacy"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Protected by reCAPTCHA — Google Privacy Policy"
+    className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur border border-white/10 text-white/40 hover:text-white/70 transition-colors duration-200 mb-3"
+  >
+    <ShieldCheck className="w-3 h-3 shrink-0" aria-hidden="true" />
+    <span className="text-[9px] font-medium tracking-wide leading-none select-none">
+      reCAPTCHA
+    </span>
+  </a>
+);
+
 const ScrollToTopComponent: React.FC = () => {
   const [showScrollUp, setShowScrollUp] = useState(false);
 
@@ -25,7 +45,15 @@ const ScrollToTopComponent: React.FC = () => {
   }, []);
 
   return (
+    /* Container anchored at bottom-right. Items stack top → bottom.
+       Visual order from the screen bottom going up:
+         scroll-to-top → WhatsApp → reCAPTCHA badge             */
     <div className="fixed bottom-6 right-4 z-50 flex flex-col items-center">
+
+      {/* reCAPTCHA badge — always visible, topmost in the stack */}
+      <RecaptchaBadge />
+
+      {/* WhatsApp — always visible */}
       <a
         href={`https://wa.me/${WHATSAPP_NUMBER}`}
         target="_blank"
@@ -36,6 +64,7 @@ const ScrollToTopComponent: React.FC = () => {
         <WhatsAppIcon className="w-6 h-6" />
       </a>
 
+      {/* Scroll-to-top — slides in below WhatsApp when user scrolls down */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
           showScrollUp ? "max-h-[60px] opacity-100" : "max-h-0 opacity-0"

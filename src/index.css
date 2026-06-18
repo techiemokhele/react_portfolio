@@ -349,6 +349,19 @@ code {
   display: none !important;
 }
 
+/*
+  Hide the default reCAPTCHA v3 floating badge.
+  Google's ToS allows this as long as you display their branding in the user
+  flow — covered by:
+    1. The reCAPTCHA pill inside ScrollToTopComponent (bottom-right FAB stack)
+    2. The "Protected by reCAPTCHA" disclosure text in ContactFormSectionComponent
+*/
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .article-content h1 { font-size: 1.625rem; }
