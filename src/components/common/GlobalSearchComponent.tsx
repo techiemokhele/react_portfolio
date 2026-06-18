@@ -6,7 +6,6 @@ import {
   Smartphone,
   Gamepad2,
   Layout,
-  BookOpen,
   Briefcase,
   GraduationCap,
   ArrowRight,
@@ -29,7 +28,6 @@ import {
   cmsProjects,
   qualifications,
 } from "@/data/portfolioData";
-import { blogData } from "@/data/blogData";
 
 const CATEGORY_META: Record<string, { label: string; icon: React.ReactNode }> =
   {
@@ -46,7 +44,6 @@ const CATEGORY_META: Record<string, { label: string; icon: React.ReactNode }> =
       icon: <Gamepad2 className="w-3.5 h-3.5" />,
     },
     cms: { label: "CMS Projects", icon: <Layout className="w-3.5 h-3.5" /> },
-    blog: { label: "Blog Posts", icon: <BookOpen className="w-3.5 h-3.5" /> },
     experience: {
       label: "Experience",
       icon: <Briefcase className="w-3.5 h-3.5" />,
@@ -133,21 +130,6 @@ const searchAll = (term: string): GroupedResults => {
       }),
     );
   if (cmsHits.length) grouped.cms = cmsHits;
-
-  const blogHits = blogData
-    .filter((b) => match(b.title, b.excerpt, b.category))
-    .map(
-      (b): SearchResult => ({
-        id: b.id,
-        title: b.title,
-        subtitle: b.category,
-        preview: b.excerpt?.slice(0, 90) + "…",
-        category: "blog",
-        categoryLabel: "Blog",
-        href: `/blog/${b.id}/${b.slug}`,
-      }),
-    );
-  if (blogHits.length) grouped.blog = blogHits;
 
   const expHits = experiences
     .filter((e) => match(e.companyName, e.position, e.location, e.skills))
