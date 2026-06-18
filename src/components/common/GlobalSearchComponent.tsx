@@ -12,7 +12,12 @@ import {
   ArrowRight,
   X,
 } from "lucide-react";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import HighlightText from "@/components/common/HighlightText";
 import type { SearchResult, GroupedResults } from "@/types";
@@ -269,6 +274,10 @@ const GlobalSearchComponent: React.FC = () => {
           onKeyDown={handleKeyDown}
         >
           <DialogTitle className="sr-only">Search</DialogTitle>
+          <DialogDescription className="sr-only">
+            Search across projects, blog posts, work experience, and education.
+            Use arrow keys to navigate results and Enter to open a result.
+          </DialogDescription>
 
           <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
             <Search
@@ -277,13 +286,21 @@ const GlobalSearchComponent: React.FC = () => {
             />
             <input
               ref={inputRef}
+              role="combobox"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search projects, blog posts, experience…"
               className="flex-1 bg-transparent text-white placeholder-white/30 text-sm focus:outline-none"
-              aria-label="Global search input"
+              aria-label="Global search"
               aria-autocomplete="list"
               aria-expanded={count > 0}
+              aria-controls="global-search-listbox"
+              aria-haspopup="listbox"
+              aria-activedescendant={
+                activeIdx >= 0
+                  ? `search-option-${activeIdx}`
+                  : undefined
+              }
             />
             {query && (
               <button
@@ -298,6 +315,7 @@ const GlobalSearchComponent: React.FC = () => {
 
           <div
             ref={listRef}
+            id="global-search-listbox"
             className="max-h-[420px] overflow-y-auto"
             role="listbox"
             aria-label="Search results"
@@ -333,10 +351,18 @@ const GlobalSearchComponent: React.FC = () => {
                 {Object.entries(results).map(([cat, items]) => {
                   const meta = CATEGORY_META[cat];
                   return (
-                    <div key={cat} className="py-1">
-                      {/* Group header */}
-                      <div className="flex items-center gap-2 px-4 py-1.5">
-                        <span className="text-white/30" aria-hidden="true">
+                    <div
+                      key={cat}
+                      role="group"
+                      aria-label={meta.label}
+                      className="py-1"
+                    >
+                      {/* Group header — presentational, hidden from listbox ARIA tree */}
+                      <div
+                        className="flex items-center gap-2 px-4 py-1.5"
+                        aria-hidden="true"
+                      >
+                        <span className="text-white/30">
                           {meta.icon}
                         </span>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
@@ -357,6 +383,7 @@ const GlobalSearchComponent: React.FC = () => {
                         return (
                           <button
                             key={`${result.category}-${result.id}`}
+                            id={`search-option-${flatIdx}`}
                             data-idx={flatIdx}
                             role="option"
                             aria-selected={isActive}
