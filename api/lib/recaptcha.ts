@@ -1,8 +1,3 @@
-/**
- * Server-side reCAPTCHA v3 token verification.
- * Called from the /api/send-email handler — never run in the browser.
- */
-
 const VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 const MIN_SCORE = 0.5;
 
@@ -30,6 +25,6 @@ export const verifyRecaptcha = async (token: string): Promise<boolean> => {
 
   if (!res.ok) return false;
 
-  const data: RecaptchaResponse = await res.json();
+  const data = (await res.json()) as RecaptchaResponse;
   return data.success && data.score >= MIN_SCORE;
 };

@@ -12,6 +12,7 @@ import HeaderComponent from "@/components/layout/HeaderComponent";
 import FooterComponent from "@/components/layout/FooterComponent";
 import NotFoundComponent from "@/components/common/NotFoundComponent";
 import ScrollToTopComponent from "@/components/common/ScrollToTopComponent";
+import { useFixReCaptchaA11y } from "@/hooks/useFixReCaptchaA11y";
 import HomeScreen from "@/pages/HomeScreen";
 import About from "@/pages/AboutScreen";
 import Portfolio from "@/pages/PortfolioScreen";
@@ -21,6 +22,8 @@ import SinglePostComponent from "@/pages/SinglePostComponent";
 
 const AppContent: React.FC = () => {
   const location = useLocation();
+  useFixReCaptchaA11y();
+
   return (
     <TransitionGroup className="flex flex-col min-h-screen bg-googleBg">
       <CSSTransition key={location.key} classNames="fade" timeout={300}>
@@ -33,7 +36,10 @@ const AppContent: React.FC = () => {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id/:slug?" element={<SinglePostComponent />} />
+              <Route
+                path="/blog/:id/:slug?"
+                element={<SinglePostComponent />}
+              />
               <Route
                 path="*"
                 element={

@@ -88,3 +88,23 @@ export interface ContactFormData {
   email: string;
   message: string;
 }
+
+export interface ContactBody {
+  name?: string;
+  email?: string;
+  message?: string;
+  recaptchaToken?: string;
+}
+
+export interface ConfirmParams {
+  toName: string;
+  toEmail: string;
+  messagePreview: string;
+}
+
+export interface AdminParams {
+  fromName: string;
+  fromEmail: string;
+  message: string;
+  sentAt: string;
+}

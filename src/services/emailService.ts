@@ -1,11 +1,3 @@
-/**
- * emailService.ts
- *
- * Thin client-side wrapper around the /api/send-email serverless function.
- * All SMTP credentials and reCAPTCHA secret keys live on the server —
- * this module only passes validated, sanitised data to the endpoint.
- */
-
 export interface SendEmailPayload {
   name: string;
   email: string;
@@ -19,7 +11,7 @@ export interface SendEmailResult {
 }
 
 export const sendContactEmail = async (
-  payload: SendEmailPayload
+  payload: SendEmailPayload,
 ): Promise<SendEmailResult> => {
   const res = await fetch("/api/send-email", {
     method: "POST",
