@@ -189,10 +189,10 @@ const totalCount = (grouped: GroupedResults) =>
 
 const GlobalSearchComponent: React.FC = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<GroupedResults>({});
-  const [activeIdx, setActiveIdx] = useState(-1);
+  const [activeIdx, setActiveIdx] = useState<number>(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -297,9 +297,7 @@ const GlobalSearchComponent: React.FC = () => {
               aria-controls="global-search-listbox"
               aria-haspopup="listbox"
               aria-activedescendant={
-                activeIdx >= 0
-                  ? `search-option-${activeIdx}`
-                  : undefined
+                activeIdx >= 0 ? `search-option-${activeIdx}` : undefined
               }
             />
             {query && (
@@ -362,9 +360,7 @@ const GlobalSearchComponent: React.FC = () => {
                         className="flex items-center gap-2 px-4 py-1.5"
                         aria-hidden="true"
                       >
-                        <span className="text-white/30">
-                          {meta.icon}
-                        </span>
+                        <span className="text-white/30">{meta.icon}</span>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-white/30">
                           {meta.label}
                         </span>
